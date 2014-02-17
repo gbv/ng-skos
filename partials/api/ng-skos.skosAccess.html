@@ -1,0 +1,39 @@
+<h1><code ng:non-bindable="">skosAccess</code>
+<div><span class="hint">service in module <code ng:non-bindable="">ng-skos</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ng-skos-skosaccess-page"><p>Look up concepts and terminologies by URI. </p>
+<p>An skosAccess service should be used as layer to access concepts and
+terminologies. The service adds caching and additional methods to expand
+a list of URIs to a list of concept or terminology objects. </p>
+<p>See CocodaClient for a sample source.</p>
+<pre class="prettyprint linenums">
+var ddc = CocodaTerminology("http://example.org/ddc/");
+var ddcAccess = new skosAccess(ddc);
+</pre>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="ng-skos-skosaccess-page"><h4 id="example_source">Source</h4>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-0" source-edit-css="" source-edit-js="script.js-1" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-0">
+  ...
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-1"></pre>
+<script type="text/ng-template" id="script.js-1">
+  var provider = new skosAccess({
+      concept: function(uri, cb) { ... };
+  });
+  var concepts = ["http://example.org/term1", "http://example.org/term2"];
+  provider.getConcepts(concepts);
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="" ng-set-html="index.html-0" ng-eval-javascript="script.js-1"></div>
+</div></div>
+</div>
