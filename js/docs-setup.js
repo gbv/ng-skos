@@ -1,8 +1,45 @@
 NG_DOCS={
   "sections": {
+    "guide": "Guide",
     "api": "API Reference"
   },
   "pages": [
+    {
+      "section": "guide",
+      "id": "index",
+      "shortName": "guide",
+      "type": "overview",
+      "moduleName": "guide",
+      "shortDescription": "How enties are expressed",
+      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode enties entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess skosconcept skoslabel sorting supported terminologies uri w3 world"
+    },
+    {
+      "section": "guide",
+      "id": "mappings",
+      "shortName": "Mappings",
+      "type": "overview",
+      "moduleName": "Mappings",
+      "shortDescription": "A mapping in ng-skos is a JSON object with keys yet-to-be defined.",
+      "keywords": "defined guide json mappings ng-skos object overview yet-to-be"
+    },
+    {
+      "section": "guide",
+      "id": "terminologies",
+      "shortName": "Terminologies",
+      "type": "overview",
+      "moduleName": "Terminologies",
+      "shortDescription": "A terminology in ng-skos is a JSON object with the following keys:",
+      "keywords": "acronym array concept guide json language maps names ng-skos object objects overview preferred string strings tags terminologies terminology uris"
+    },
+    {
+      "section": "guide",
+      "id": "concepts",
+      "shortName": "Concepts",
+      "type": "overview",
+      "moduleName": "Concepts",
+      "shortDescription": "A concept in ng-skos is a JSON object with the following keys:",
+      "keywords": "additional alternative array arrays assumed concept concepts data directive equivalently example examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary skosconcept string support tags terminologies terminology type undefined unordered uri version"
+    },
     {
       "section": "api",
       "id": "index",
@@ -10,7 +47,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "API Reference",
       "shortDescription": "ng-skos - API Reference",
-      "keywords": "acronym additional alternative angular-skos angularjs api array arrays assumed based better collections concept concepts corresponding data defined empty equivalently explicitly grouping http implicitly indicate instance introduced json knowledge labels language mapping mappings maps missing module multiple names ng-skos notation notations object objects optional ordered org organization overview preferred primary properties reference replaced schemes secconcept secscheme set short simple skos skosaccess sorting string strings support supported supports system tags terminologies terminology type undefined unordered uri uris version w3 work world yet-to-be"
+      "keywords": "angularjs api based directives git guide http introduction knowledge managed module ng-skos org organization overview public reference repository services simple skos system terminologies w3 work"
     },
     {
       "section": "api",
@@ -19,7 +56,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "ng-skos",
       "shortDescription": "The main module ngSKOS contains several directives and services to",
-      "keywords": "api data directives handle introduction main module ng-skos nk-skos overview services skos"
+      "keywords": "api data directives documentation guide handle introduction main module ng-skos overview reference services skos"
     },
     {
       "section": "api",
@@ -50,17 +87,15 @@ NG_DOCS={
     }
   ],
   "apis": {
+    "guide": false,
     "api": true
   },
   "html5Mode": false,
   "startPage": "/api",
   "scripts": [
     "angular.min.js",
-    "ng-skos.js",
-    "skosLabel.js",
-    "skosConcept.js",
-    "skosAccess.js",
     "angular-resource.min.js",
-    "angular-sanitize.min.js"
+    "angular-sanitize.min.js",
+    "ng-skos.js"
   ]
 };

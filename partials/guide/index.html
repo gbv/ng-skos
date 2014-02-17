@@ -1,0 +1,35 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="guide-page"><h2 id="how-enties-are-expressed">How enties are expressed</h2>
+<p>The core entities supported by ng-skos are JSON objects that encode:</p>
+<dl>
+<dt><a href="#/guide/concepts">concepts</a></dt>
+<dd>based on <a href="http://www.w3.org/TR/skos-primer/#secconcept">SKOS Concepts</a>
+<dt><a href="#/guide/terminologies">terminologies</a></dt>
+<dd>based on <a href="http://www.w3.org/TR/skos-primer/#secscheme">SKOS Concept Schemes</a></dd>
+<dt><a href="#/guide/mappings">mappings</a></dt>
+<dd>based on <a href="http://www.w3.org/TR/skos-reference/#mapping">SKOS mapping properties</a></dd>
+</dl>
+
+<p>Concept collections for grouping and sorting
+concepts are not supported yet.  </p>
+<p>All object keys are optional, but an empty object should better be replaced by
+<code>null</code>. Missing keys may indicate that the corresponding properties is
+not known (open world). To explicitly state for instance that a concept has no
+notation (closed world), set it no <tt>null</tt> or to an empty array.</p>
+<p><code><pre class="prettyprint linenums">
+{
+  prefLabel: {
+    en: "peace",
+    de: "Frieden"
+  }
+}
+</pre></code></p>
+<h2 id="directives">Directives</h2>
+<p><a href="#/api/ng-skos.directive:skosConcept">skosConcept</a></p>
+<p><a href="#/api/ng-skos.directive:skosLabel">skosLabel</a></p>
+<h2 id="services">Services</h2>
+<p><a href="#/api/ng-skos.skosAccess">skosAccess</a> to look up concepts and terminologies by URI.</p>
+</div></div>

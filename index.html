@@ -18,7 +18,7 @@
     // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
     (function() {
       var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
-          rUrl = /(#!\/|api|index[^\.]*\.html).*$/,
+          rUrl = /(#!\/|guide|api|index[^\.]*\.html).*$/,
           baseUrl = location.href.replace(rUrl, indexFile),
           headEl = document.getElementsByTagName('head')[0],
           sync = true;
@@ -38,17 +38,11 @@
       
         addTag('script', {src: 'js/angular.min.js'}, sync);
       
-        addTag('script', {src: 'grunt-scripts/ng-skos.js'}, sync);
-      
-        addTag('script', {src: 'grunt-scripts/skosLabel.js'}, sync);
-      
-        addTag('script', {src: 'grunt-scripts/skosConcept.js'}, sync);
-      
-        addTag('script', {src: 'grunt-scripts/skosAccess.js'}, sync);
-      
         addTag('script', {src: 'grunt-scripts/angular-resource.min.js'}, sync);
       
         addTag('script', {src: 'grunt-scripts/angular-sanitize.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/ng-skos.js'}, sync);
       
 
       addTag('script', {src: 'js/angular-bootstrap.js'}, sync);
@@ -97,7 +91,14 @@
               <a ng-href="{{url}}"><i class="icon-book icon-white"></i> {{name}}</a>
             </li>
           </ul>
-          
+          <ul class="nav pull-right">
+  <li>
+    <a href="http://github.com/gbv/ng-skos">
+      <i class="icon-github-sign"></i> View on GitHub
+    </a>
+  </li>
+</ul>
+
         </div>
       </div>
     </div>
