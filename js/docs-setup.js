@@ -11,7 +11,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "guide",
       "shortDescription": "How enties are expressed",
-      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode enties entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess skosconcept skoslabel sorting supported terminologies uri w3 world"
+      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode enties entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess sorting supported terminologies uri w3 world"
     },
     {
       "section": "guide",
@@ -38,7 +38,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "Concepts",
       "shortDescription": "A concept in ng-skos is a JSON object with the following keys:",
-      "keywords": "additional alternative array arrays assumed concept concepts data directive equivalently example examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary skosconcept string support tags terminologies terminology type undefined unordered uri version"
+      "keywords": "additional alternative array arrays assumed concept concepts data directive equivalently example examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary string support tags terminologies terminology type undefined unordered uri version"
     },
     {
       "section": "api",
@@ -48,6 +48,24 @@ NG_DOCS={
       "moduleName": "API Reference",
       "shortDescription": "ng-skos - API Reference",
       "keywords": "angularjs api based directives git guide http introduction knowledge managed module ng-skos org organization overview public reference repository services simple skos system terminologies w3 work"
+    },
+    {
+      "section": "api",
+      "id": "json-text",
+      "shortName": "json-text",
+      "type": "overview",
+      "moduleName": "json-text",
+      "shortDescription": "This utility module provides directive jsonText for directly displaying or editing JSON objects as text strings.",
+      "keywords": "api directive directly displaying editing json json-text jsontext module objects overview strings text utility"
+    },
+    {
+      "section": "api",
+      "id": "json-text.directive:jsonText",
+      "shortName": "jsonText",
+      "type": "directive",
+      "moduleName": "json-text",
+      "shortDescription": "This directive can be used to display or edit an object in JSON syntax:",
+      "keywords": "ae angular api bind directive display edit expression json json-text myobject ng-model ngmodel object syntax"
     },
     {
       "section": "api",
@@ -65,7 +83,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a concept with a custom template.",
-      "keywords": "api array concept concepts custom directive display ng-skos scope skosconcept strings template variables"
+      "keywords": "angular api array assignable bind concept concepts custom data directive display expression ng-skos scope skos-concept strings template variables"
     },
     {
       "section": "api",
@@ -74,7 +92,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Displays the preferred label of a concept.",
-      "keywords": "$scope angular api beispiel changes concept de directive display displays en example fr function html js label lang mainctrl module myapp ng-controller ng-skos ngskos preferred preflabel reflected sampleconcept script skos-label"
+      "keywords": "$scope angular api arbitrary assignable beispiel bind changes cols concept data de directive display displays en example expression fr function html js json-text jsontext label labels lang language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected rows sampleconcept script selected skos-label"
     },
     {
       "section": "api",
@@ -96,6 +114,7 @@ NG_DOCS={
     "angular.min.js",
     "angular-resource.min.js",
     "angular-sanitize.min.js",
-    "ng-skos.js"
+    "ng-skos.js",
+    "json-text.js"
   ]
 };
