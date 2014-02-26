@@ -34,8 +34,10 @@ ngSKOS.directive('skosConcept', function() {
             concept: '=skosConcept',
             language: '=language',
         },
-        transclude: 'element',
-        template: '',
+        templateUrl: function(element, attrs) {
+            // TODO: use default if not specified
+            return attrs.templateUrl;
+        },
         link: function link($scope, element, attr, controller, transclude) {
 
             $scope.update = function(concept) {
@@ -56,12 +58,6 @@ ngSKOS.directive('skosConcept', function() {
             $scope.reload = function() { };
 
             $scope.update();
-
-            transclude($scope,
-                function(clone) {
-                    element.after(clone);
-                }
-            );
         }
     }
 });

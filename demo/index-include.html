@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="cocodaDemo">
+<head>
+  <meta charset="utf-8">
+  <title>ng-skos demo application</title>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="demo.css" rel="stylesheet" />
+</head>
+<body>
+<div id="header">
+</div>
+<div class="container">
+<section id="concept">
+  <div class="page-header">   	
+    <h1>skos-concept</h1>
+  </div>
+  <div class="row">   	
+    <div class="col-md-6">
+        <div skos-concept="sampleConcept" class="concept" language="language"
+             template-url="templates/concept-thesaurus.html">
+              ...
+        </div>
+      <textarea json-text cols="40" rows="15" ng-model="sampleConcept" id="sample2"></textarea>
+    </div>
+    <div class="col-md-6">
+      ...documentation...
+    </div>
+  </div>
+</section>
+</div>
+<div id="footer">
+ ...
+</div>
+		    <script src="lib/angular.min.js"></script>
+		    <script src="lib/angular-resource.min.js"></script>
+		    <script src="lib/angular-sanitize.min.js"></script>
+		    <script src="demo-include.js"></script>
+
+		    <script src="../src/json-text.js"></script>
+		    <script src="../src/ng-skos.js"></script>
+		    <script src="../src/directives/skosLabel.js"></script>
+		    <script src="../src/directives/skosConcept.js"></script>
+		    <script src="../src/directives/skosTree.js"></script>
+		    <script src="../src/directives/skosSearch.js"></script>
+		    <script src="../src/directives/skosMapping.js"></script>
+		    <script src="../src/directives/skosOccurrences.js"></script>
+</body>
+</html>
