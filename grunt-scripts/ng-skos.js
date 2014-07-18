@@ -21,14 +21,48 @@ angular.module('jsonText',[])
  * <code>
  * <pre><textarea json-text ng-model="myObject"/></pre>
  * </code>
- */
+ *
+ * @param {string} json-valid AngularJS expression to bind parsing status to.
+ *
+ * @example 
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      valid: {{jsonOk}}
+      <pre>{{data | json}}</pre>
+      <textarea json-text ng-model="data" json-valid="jsonOk" style="width:100%" rows="12"></textarea>
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS','jsonText']);
+
+    function myController($scope) {
+        $scope.data = {
+            foo: [32, 42],
+            bar: { 
+                doz: true,
+            },
+        };
+    }
+  </file>
+</example>
+*/
 .directive('jsonText',function(){
     return {
         restrict: 'AE',
         require: 'ngModel',
+        scope: { 
+//            jsonValid: '=' 
+        },
         link: function(scope, element, attrs, ngModel) {
+            scope.jsonValid = true;
             function fromJson(text) {
-                return angular.fromJson(text);
+                try {
+                    scope.jsonValid = true;
+                   return angular.fromJson(text);
+                } catch(e) {
+                    scope.jsonValid = false;
+                }
             }
             function toJson(object) {
                 return angular.toJson(object, true);
@@ -82,6 +116,8 @@ ngSKOS.value('version', '0.0.1');
  *
  * @param {string} skos-concept Assignable angular expression with 
  *      [concept](#/guide/concepts) data to bind to.
+ * @param {string} language Assignable angular expression with 
+ *      preferred language to be used as bounded `language` variable. 
  *
  * @example
  *
@@ -89,10 +125,15 @@ ngSKOS.value('version', '0.0.1');
 ngSKOS.directive('skosConcept', function() {
     return {
         restrict: 'A',
-        scope: { concept: '=skosConcept' },
-        transclude: 'element',
-        template: '',
-        link: function link($scope, element, attrs, controller, transclude) {
+        scope: { 
+            concept: '=skosConcept',
+            language: '=language',
+        },
+        templateUrl: function(element, attrs) {
+            // TODO: use default if not specified
+            return attrs.templateUrl; 
+        },
+        link: function link($scope, element, attr, controller, transclude) {
 
             $scope.update = function(concept) {
                 if (concept) {
@@ -100,24 +141,17 @@ ngSKOS.directive('skosConcept', function() {
                 }
                 // TODO: choose prefLabel by language attribute (?)
                 angular.forEach(
-                    ['ancestors','prefLabel','altLabel','notation','narrower','broader','related'],
+                    ['uri','ancestors','prefLabel','altLabel','notation','narrower','broader','related'],
                     function(field) { 
-                        $scope[field] = $scope.concept[field]; 
+                        $scope[field] = $scope.concept[field];
                         // TODO: add watcher/trigger
                     }
-                ); 
+                );
             };
-            
             // TODO: (re)load concept from server to get current details
             $scope.reload = function() { };
 
             $scope.update();
-
-            transclude($scope,
-                function(clone) {
-                    element.after(clone);
-                }
-            );
         }
     }
 });
@@ -129,12 +163,13 @@ ngSKOS.directive('skosConcept', function() {
  * @description
  *
  * Displays the preferred label of a concept.
- * Changes on the preferred label are reflected in the display.
+ * Changes on the preferred label(s) are reflected in the display.
  *
  * @param {string} skos-label Assignable angular expression with 
  *      [concept](#/guide/concepts) data to bind to.
  * @param {string=} lang optional language. If not specified, an arbitrary
- *      preferred labels is selected.
+ *      preferred label is selected. Future versions of this directive may
+ *      use more elaborated heuristics to select an alternative language.
  *
  * @example
  <example module="myApp">
@@ -145,8 +180,8 @@ ngSKOS.directive('skosConcept', function() {
         <dd><span skos-label="sampleConcept" lang="en"/></dd>
         <dt>de</dt>
         <dd><span skos-label="sampleConcept" lang="de"/></dd>
-        <dt>fr</dt>
-        <dd><span skos-label="sampleConcept" lang="fr"/></dd>
+        <dt><input type="text" ng-model="lang2"/></dt>
+        <dd><span skos-label="sampleConcept" lang="{{lang2}}"/></dd>
       </dl>
       <textarea json-text ng-model="sampleConcept" cols="40" rows="20" />
     </div>
@@ -161,6 +196,7 @@ ngSKOS.directive('skosConcept', function() {
                 de: "Beispiel",
             },
         };
+        $scope.lang2 = "fr";
     }
   </file>
 </example>
@@ -168,24 +204,233 @@ ngSKOS.directive('skosConcept', function() {
 ngSKOS.directive('skosLabel', function() {
     return {
         restrict: 'A',
-        scope: { concept: '=skosLabel' },
-        template: '{{concept.prefLabel[lang]}}',
+        scope: { 
+            concept: '=skosLabel',
+        },
+        template: '{{concept.prefLabel[language]}}',
         link: function(scope, element, attrs) {
-            var concept = scope.concept;
-            if (!concept || !concept.prefLabel) return;
-            var lang = attrs.lang;
 
-            // get any language unless required label available
-            // TODO: remember original language and observer attrs.lang
-            if (!lang || !concept.prefLabel[lang]) {
-                for (lang in concept.prefLabel) {
-                    element.attr('lang',lang);
-                    break;
+            function updateLanguage(language) {
+                scope.language = language ? language : attrs.lang;
+
+                //console.log("updateLanguage: "+scope.language);
+                //console.log(scope.concept.prefLabel);
+
+                language = scope.concept 
+                         ? selectLanguage(scope.concept.prefLabel, scope.language) : "";
+
+                if (language != scope.language) {
+                    // console.log("use language "+language+" instead of "+scope.language);
+                    scope.language = language;
                 }
             }
 
-            scope.lang = lang;
+            function selectLanguage(labels, language) {
+                if ( angular.isObject(labels) ) {
+                    if ( language && labels[language] ) {
+                        return language;
+                    } else {
+                        for (language in labels) {
+                            return language;
+                        }
+                    }
+                }
+            }
+
+            // update if lang attribute changed (also called once at initialization)
+            attrs.$observe('lang', updateLanguage);
+
+            // update with same language if prefLabels changed
+            scope.$watch('concept.prefLabel', function(value) {
+                updateLanguage();
+            }, true);
         },
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosMapping
+ * @restrict A
+ * @description
+ *
+ * ...
+ *
+ * @param {string} skos-mapping ...
+ *
+ * @example
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      ...
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS']);
+
+    function myController($scope) {
+        // ...
+    }
+  </file>
+</example>
+ */
+ngSKOS.directive('skosMapping', function() {
+    return {
+        restrict: 'A',
+        scope: {
+					mapping: '=skosMapping',
+        },
+        templateUrl: function(element, attrs) {
+            // TODO: use default if not specified
+            return attrs.templateUrl; 
+        },
+        link: function(scope, element, attr, controller, transclude) {
+					
+                angular.forEach(
+                    ['from','to','type','timestamp'],
+                    function(field) { 
+                        scope[field] = scope.mapping[field];
+                        // TODO: add watcher/trigger
+                    }
+                );					
+            // ...
+        },
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosOccurrences
+ * @restrict A
+ * @description
+ *
+ * ...
+ *
+ * @param {string} skos-occurrences ...
+ *
+ * @example
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      ...
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS']);
+
+    function myController($scope) {
+        // ...
+    }
+  </file>
+</example>
+ */
+ngSKOS.directive('skosOccurrences', function() {
+    return {
+        restrict: 'A',
+        scope: {
+					occurrence:'=skosOccurrences',
+        },
+        templateUrl: function(element, attrs) {
+            // TODO: use default if not specified
+            return attrs.templateUrl;
+        },
+				link: function link(scope, element, attr, controller, transclude) {
+					angular.forEach(
+						['search','database','target','total','hits'],
+						function(field) { 
+              scope[field] = scope.occurrence[field];
+							// TODO: add watcher/trigger
+						}
+					);
+				}
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosSearch
+ * @restrict A
+ * @description
+ *
+ * ...
+ *
+ * @param {string} skos-search ...
+ *
+ * @example
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      ...
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS']);
+
+    function myController($scope) {
+        // ...
+    }
+  </file>
+</example>
+ */
+ngSKOS.directive('skosSearch', function() {
+    return {
+        restrict: 'A',
+        scope: {
+            // ...
+        },
+        template: '...',
+        link: function(scope, element, attrs) {
+            // ...
+        },
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosTree
+ * @restrict A
+ * @description
+ *
+ * ...
+ *
+ * @param {string} skos-tree ...
+ *
+ * @example
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      ...
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS']);
+
+    function myController($scope) {
+        // ...
+    }
+  </file>
+</example>
+ */
+ngSKOS.directive('skosTree', function() {
+    return {
+        restrict: 'A',
+        scope: {
+            tree:'=skosTree',
+        },
+        templateUrl: function(element, attrs) {
+            // TODO: use default if not specified
+            return attrs.templateUrl;
+        },
+        link: function(scope, element, attr, controller, transclude) {
+					angular.forEach(
+						['uri','prefLabel','notation','narrower'],
+						function(field) { 
+							scope[field] = scope.tree[field];
+								// TODO: add watcher/trigger
+						}
+          );					
+            // ...
+        },				
     };
 });
 

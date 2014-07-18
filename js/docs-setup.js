@@ -65,7 +65,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "json-text",
       "shortDescription": "This directive can be used to display or edit an object in JSON syntax:",
-      "keywords": "ae angular api bind directive display edit expression json json-text myobject ng-model ngmodel object syntax"
+      "keywords": "$scope ae angular angularjs api bar bind data directive display doz edit expression foo function html js json json-text json-valid jsonok jsontext module myapp mycontroller myobject ng-controller ng-model ngmodel ngskos object parsing rows script status style syntax true valid width"
     },
     {
       "section": "api",
@@ -83,7 +83,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a concept with a custom template.",
-      "keywords": "angular api array assignable bind concept concepts custom data directive display expression ng-skos scope skos-concept strings template variables"
+      "keywords": "angular api array assignable bind bounded concept concepts custom data directive display expression language ng-skos preferred scope skos-concept strings template variable variables"
     },
     {
       "section": "api",
@@ -92,7 +92,43 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Displays the preferred label of a concept.",
-      "keywords": "$scope angular api arbitrary assignable beispiel bind changes cols concept data de directive display displays en example expression fr function html js json-text jsontext label labels lang language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected rows sampleconcept script selected skos-label"
+      "keywords": "$scope alternative angular api arbitrary assignable beispiel bind changes cols concept data de directive display displays elaborated en example expression fr function future heuristics html js json-text jsontext label lang lang2 language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected rows sampleconcept script select selected skos-label text type versions"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosMapping",
+      "shortName": "skosMapping",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "...",
+      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-mapping"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosOccurrences",
+      "shortName": "skosOccurrences",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "...",
+      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-occurrences"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosSearch",
+      "shortName": "skosSearch",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "...",
+      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-search"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosTree",
+      "shortName": "skosTree",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "...",
+      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-tree"
     },
     {
       "section": "api",
