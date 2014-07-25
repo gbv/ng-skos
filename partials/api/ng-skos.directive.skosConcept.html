@@ -4,7 +4,10 @@
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>Display a concept with a custom template.</p>
+<div class="description"><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>Display a ng-skos <a href="#/guide/concepts">concept</a>. Changes on the concept are
+reflected by changes in the scope variables so the display is updated
+automatically.</p>
+<h4 id="description_scope">Scope</h4>
 <p>The following variables are added to the scope:</p>
 <ul>
 <li>ancestors (array of concepts)
@@ -15,22 +18,30 @@
 <li>broader (array of concepts)
 <li>narrower (array of concepts)
 <li>related (array of concepts)
-</ul></div></div>
+</ul>
+
+<h4 id="description_source-code">Source code</h4>
+<p>The most recent 
+<a href="https://github.com/gbv/ng-skos/blob/master/src/directives/skosConcept.js">source code</a>
+of this directive is available at GitHub.</p>
+</div></div>
 <h2 id="usage">Usage</h2>
 <div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY skos-concept
      skos-concept="{string}"
-     language="{string}"&gt;
+     language="{string}"
+     skos-click="{string}"
+     template-url="{string}"&gt;
    ...
 &lt;/ANY&gt;</pre>
 <h3 id="usage_directive-info">Directive info</h3>
 <div class="directive-info"><ul><li>This directive creates new scope.</li>
 </ul>
 </div>
-<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>skos-concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>Assignable angular expression with
-<a href="#/guide/concepts">concept</a> data to bind to.</p>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>skos-concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>Assignable angular expression with a
+<a href="#/guide/concepts">concept</a> to bind to</p>
 </div></td></tr><tr><td>language</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>Assignable angular expression with
 preferred language to be used as bounded <code>language</code> variable. </p>
+</div></td></tr><tr><td>skos-click</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>function to call when a connected concept is clicked</p>
+</div></td></tr><tr><td>template-url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosconcept-page"><p>URL of a template to display the concept</p>
 </div></td></tr></tbody></table></div>
-<h2 id="example">Example</h2>
-<div class="example"></div>
 </div>

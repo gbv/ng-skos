@@ -1,0 +1,48 @@
+<h1><code ng:non-bindable="">SkosConceptProvider</code>
+<div><span class="hint">service in module <code ng:non-bindable="">ng-skos</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ng-skos-service-page ng-skos-service-skosconceptprovider-page"><p>Get concepts via HTTP. </p>
+<p>The server to be queried with this service is expected to return a JSON
+object with one <a href="#/guide/concepts">concept</a>. The concept object may contain
+links to narrower and broader concepts, among other information.</p>
+<h4 id="description_configuration">Configuration</h4>
+<ul>
+<li><strong><code>url</code></strong>: URL template for requests</li>
+<li><strong><code>jsonp</code></strong>: enable JSONP</li>
+<li><strong><code>transform</code></strong>: custom transformation function to map expected response format</li>
+</ul>
+<h4 id="description_methods">Methods</h4>
+<ul>
+<li><strong><code>getConcept(concept)</code></strong></li>
+<li><strong><code>updateConcept(concept)</code></strong></li>
+<li><strong><code>updateConnected(concept)</code></strong></li>
+</ul>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="ng-skos-service-page ng-skos-service-skosconceptprovider-page"><h4 id="example_source">Source</h4>
+<div source-edit="myApp" source-edit-deps="angular.js script.js" source-edit-html="index.html-12" source-edit-css="" source-edit-js="script.js-13" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-12" ng-html-wrap-loaded="myApp angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-12">
+  <div ng-controller="myController">
+  </div>
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-13"></pre>
+<script type="text/ng-template" id="script.js-13">
+  angular.module('myApp',['ngSKOS']);
+  function myController($scope, SkosConceptProvider) {
+      var foo = new SkosConceptProvider({
+          url: '...'
+      });
+  }
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="myApp" ng-set-html="index.html-12" ng-eval-javascript="script.js-13"></div>
+</div></div>
+</div>

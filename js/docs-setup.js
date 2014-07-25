@@ -10,8 +10,8 @@ NG_DOCS={
       "shortName": "guide",
       "type": "overview",
       "moduleName": "guide",
-      "shortDescription": "How enties are expressed",
-      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode enties entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess sorting supported terminologies uri w3 world"
+      "shortDescription": "How entities are expressed",
+      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess sorting supported terminologies uri w3 world"
     },
     {
       "section": "guide",
@@ -19,8 +19,8 @@ NG_DOCS={
       "shortName": "Mappings",
       "type": "overview",
       "moduleName": "Mappings",
-      "shortDescription": "A mapping in ng-skos is a JSON object with keys yet-to-be defined.",
-      "keywords": "defined guide json mappings ng-skos object overview yet-to-be"
+      "shortDescription": "A mapping in ng-skos represents a mapping between concepts of two concept",
+      "keywords": "concept concepts guide mapping mappings ng-skos overview represents schemes"
     },
     {
       "section": "guide",
@@ -38,7 +38,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "Concepts",
       "shortDescription": "A concept in ng-skos is a JSON object with the following keys:",
-      "keywords": "additional alternative array arrays assumed concept concepts data directive equivalently example examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary string support tags terminologies terminology type undefined unordered uri version"
+      "keywords": "additional alternative array arrays assumed concept concepts data directive display equivalently examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary string support tags terminologies terminology type undefined unordered uri usage version"
     },
     {
       "section": "api",
@@ -82,8 +82,26 @@ NG_DOCS={
       "shortName": "skosConcept",
       "type": "directive",
       "moduleName": "ng-skos",
-      "shortDescription": "Display a concept with a custom template.",
-      "keywords": "angular api array assignable bind bounded concept concepts custom data directive display expression language ng-skos preferred scope skos-concept strings template variable variables"
+      "shortDescription": "Display a ng-skos concept. Changes on the concept are",
+      "keywords": "angular api array assignable automatically bind bounded call changes clicked code concept concepts connected directive display expression function github js language ng-skos preferred reflected scope skos-click skos-concept source strings template template-url updated url variable variables"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosConceptList",
+      "shortName": "skosConceptList",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "This directive displays a list of concepts with options to manipulate those lists.",
+      "keywords": "api array code concept concepts directive display displays function github handling item js list lists manipulate ng-skos object onselect options selection skosconceptlist source template templateurl url"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosConceptMapping",
+      "shortName": "skosConceptMapping",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "This directive displays two lists of concepts for the purpose of mapping from one concept scheme to another. In addition, it provides tools to customize and export those mappings.",
+      "keywords": "addition api code concept current customize directive display displays export function github js lists mapping ng-skos purpose save savelocation scheme select single source target template templateurl tools url"
     },
     {
       "section": "api",
@@ -96,12 +114,21 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.directive:skosMapping",
-      "shortName": "skosMapping",
+      "id": "ng-skos.directive:skosMappingCollection",
+      "shortName": "skosMappingCollection",
       "type": "directive",
       "moduleName": "ng-skos",
-      "shortDescription": "...",
-      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-mapping"
+      "shortDescription": "This directive displays mapping tables between concepts of",
+      "keywords": "$scope abc angular api code concept def directive display displays en examplemappings function github handle html inscheme inschemen js mapping mappings medium module myapp mycontroller ng-controller ng-skos ngskos notation origin origin1 originlabel1 originlabel2 preflabel schemes script selected skos-mapping-collection source source1 source2 strong tables target target1 targetlabel1 targetlabel2 template template-url timestamp type url use-mapping"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosMappingTable",
+      "shortName": "skosMappingTable",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "This directive displays mappings between concepts of",
+      "keywords": "$scope abc angular api code concept concepts def directive display displays en examplemappings format function github handle html inscheme inschemen js mapping mappings medium module myapp mycontroller ng-controller ng-skos ngskos notation origin originlabel1 originlabel2 preflabel schemes script select-mapping selected skos-mapping-table source strong table target targetlabel1 targetlabel2 template template-url timestamp type url"
     },
     {
       "section": "api",
@@ -110,7 +137,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "...",
-      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-occurrences"
+      "keywords": "angular api directive display function html js module myapp mycontroller ng-controller ng-skos ngskos occurrences script skos-occurrences template template-url url"
     },
     {
       "section": "api",
@@ -119,7 +146,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "...",
-      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-search"
+      "keywords": "angular api directive display function html js module myapp mycontroller ng-controller ng-skos ngskos script search skos-search template template-url url"
     },
     {
       "section": "api",
@@ -128,16 +155,34 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "...",
-      "keywords": "angular api directive function html js module myapp mycontroller ng-controller ng-skos ngskos script skos-tree"
+      "keywords": "angular api code directive display function github html js module myapp mycontroller ng-controller ng-skos ngskos script skos-tree source template template-url tree url"
     },
     {
       "section": "api",
-      "id": "ng-skos.skosAccess",
-      "shortName": "ng-skos.skosAccess",
+      "id": "ng-skos.service:SkosConceptListProvider",
+      "shortName": "SkosConceptListProvider",
       "type": "service",
       "moduleName": "ng-skos",
-      "shortDescription": "Look up concepts and terminologies by URI. ",
-      "keywords": "access additional adds api caching cb cocodaclient cocodaterminology concept concepts ddc ddcaccess expand function getconcepts html http js layer list methods ng-skos objects org provider sample script service skosaccess source terminologies terminology uri uris var"
+      "shortDescription": "Get an ordered list of concepts via HTTP.",
+      "keywords": "api concepts configuration enable expected format function getconceptlist http jsonp list map methods ng-skos objects ordered queried response return server service template transform transformation updateconceptlist url"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.service:SkosConceptProvider",
+      "shortName": "SkosConceptProvider",
+      "type": "service",
+      "moduleName": "ng-skos",
+      "shortDescription": "Get concepts via HTTP. ",
+      "keywords": "angular api broader concept concepts configuration custom enable expected foo format function getconcept html http js json jsonp links map methods module myapp mycontroller narrower ng-controller ng-skos ngskos object queried requests response return script server service skosconceptprovider template transform transformation updateconcept updateconnected url var"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.service:SkosProvider",
+      "shortName": "SkosProvider",
+      "type": "service",
+      "moduleName": "ng-skos",
+      "shortDescription": "Utility service to facilitate HTTP requests. ",
+      "keywords": "api configuration custom directly enable error expected facilitate format function handling http implements json jsonp map methods ng-skos optional perform request requests response responses service template templates transform transformation url utility"
     }
   ],
   "apis": {
