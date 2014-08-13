@@ -535,44 +535,6 @@ angular.module('ngSKOS').directive('skosOccurrences', function () {
 });
 /**
  * @ngdoc directive
- * @name ng-skos.directive:skosSearch
- * @restrict A
- * @description
- *
- * ...
- *
- * @param {string} skos-search ...
- * @param {string} template-url URL of a template to display the search
- *
- * @example
- <example module="myApp">
-  <file name="index.html">
-    <div ng-controller="myController">
-      ...
-    </div>
-  </file>
-  <file name="script.js">
-    angular.module('myApp',['ngSKOS']);
-
-    function myController($scope) {
-        // ...
-    }
-  </file>
-</example>
- */
-angular.module('ngSKOS').directive('skosSearch', function () {
-  return {
-    restrict: 'A',
-    scope: {},
-    templateUrl: function (elem, attrs) {
-      return attrs.templateUrl ? attrs.templateUrl : 'template/skos-search.html';
-    },
-    link: function (scope, element, attrs) {
-    }
-  };
-});
-/**
- * @ngdoc directive
  * @name ng-skos.directive:skosTree
  * @restrict A
  * @description
@@ -842,7 +804,6 @@ angular.module('ngSKOS').run([
     $templateCache.put('template/skos-mapping-table.html', '<table style="white-space:nowrap" class="table table-hover table-condensed table-bordered"><thead><tr><th><span class="classification">{{mapping[0].from[0].inScheme.notation[0]}}</span></th><th><span class="classification">{{mapping[0].to[0].inScheme.notation[0]}}</span></th><th ng-if="mapping[0].type"><span>Type</span><a href="" style="text-decoration:none" ng-click="predicate = \'type.value\';reverse = !reverse"><small><span class="glyphicon glyphicon-sort"></span></small></a></th><th><span>Creator</span><a href="" style="text-decoration:none" ng-click="predicate = \'creator\';reverse = !reverse"><small><span class="glyphicon glyphicon-sort"></span></small></a></th><th style="width:100px"><span>Date</span><a href="" style="text-decoration:none" ng-click="predicate = \'timestamp\';reverse = !reverse"><small><span class="glyphicon glyphicon-sort"></span></small></a></th><th ng-if="select"></th></tr></thead><tbody><tr ng-repeat="m in mapping | orderBy:predicate:reverse"><td><ul class="simple-list" style="margin-bottom:0px"><li ng-repeat="f in m.from"><span class="notation" popover="{{f.prefLabel.de}}" popover-trigger="mouseenter">{{f.notation[0]}}</span></li></ul></td><td><ul class="simple-list" style="margin-bottom:0px"><li ng-repeat="t in m.to"><span class="notation" popover="{{t.prefLabel.de}}" popover-trigger="mouseenter" ng-click="select(t)" style="cursor:pointer" title="Select mapping term">{{t.notation[0]}}</span></li></ul></td><td ng-if="mapping[0].type">{{m.type.prefLabel.en}}</td><td style="vertical-align:middle"><span>{{m.creator}}</span></td><td style="vertical-align:middle;max-width:100px">{{m.timestamp}}</td><td ng-if="select" style="text-align:center;vertical-align:middle"><a style="cursor:pointer" ng-click="select(m)" title="Select mapping"><span class="glyphicon glyphicon-open"></span></a></td></tr></tbody></table>');
     $templateCache.put('template/skos-mapping.html', '<div class="skos-mapping"><table style="width:100%"><thead><tr style="width:100%"><th style="width:45%"><span class="classification">{{mapping[0].from[0].inScheme.notation[0]}}</span></th><th style="width:10%"></th><th style="width:45%"><span class="classification">{{mapping[0].to[0].inScheme.notation[0]}}</span></th></tr></thead></table><div ng-repeat="m in mapping"><table style="width:100%"><thead><tr style="width:100%"><th style="width:45%"></th><th style="width:10%"></th><th style="width:45%"></th></tr></thead><tbody class="mappingResults"><tr style="vertical-align:top"><td><div class="mappingResults-from"><ul><li ng-repeat="from in m.from"><span class="notation" popover="{{from.prefLabel.en}}" popover-trigger="mouseenter">{{from.notation[0]}}</span></li></ul></div></td><td><div class="mappingResults-icon"><big><span ng-if="m.from.length || m.to.length" class="glyphicon glyphicon-arrow-right"></span></big></div></td><td><div class="mappingResults-to"><ul><li ng-repeat="target in m.to"><span class="notation" popover="{{target.prefLabel.en}}" popover-trigger="mouseenter">{{target.notation[0]}}</span></li></ul></div></td></tr></tbody></table><div class="mappingFoot"><ul ng-if="m.from.length"><li><span><b>Type:</b></span> <span>{{m.type}}</span> <span><b>Date added:</b></span> <span>{{m.timestamp}}</span> <span><b>Database:</b></span> <span>{{m.source}}</span> <button style="float:right" ng-click="useMapping(m)" ng-if="useMapping">Use</button></li></ul></div><div ng-if="$index < mapping.length-1" style="border-bottom:1px solid black;margin-bottom:5px"></div></div></div>');
     $templateCache.put('template/skos-occurrences.html', '<accordion><accordion-group is-open="status.open"><accordion-heading><b>Catalog Occurrences</b><i class="pull-right glyphicon" ng-class="{\'glyphicon-chevron-down\': status.open, \'glyphicon-chevron-right\': !status.open}"></i></accordion-heading><div class="skos-occurrences"><div class="skos-occurrences occ-details"><table><tr><td>Used notation:</td><td><span ng-if="search.length" class="notation" popover="{{search[0].prefLabel.de}}" popover-trigger="mouseenter">{{search[0].notation[0]}}</span></td></tr><tr><td><b>Used</b> concept scheme:</td><td><span ng-if="search.length" class="classification">{{search[0].inScheme.notation[0]}}</span></td></tr><tr><td><b>Target</b> concept scheme:</td><td><span ng-if="search.length" class="classification">{{target.notation[0]}}</span></td></tr><tr><td>Used database:</td><td><span ng-if="search.length" class="dbase">{{database.notation[0]}}</span></td></tr><tr ng-if="search.length"><td>Results (total) for <span ng-if="search.length" class="notation" popover="{{search[0].prefLabel.de}}" popover-trigger="mouseenter">{{search[0].notation[0]}}</span>:</td><td>{{total}}</td></tr></table></div><div class="skos-occurrences occ-results">Corresponding notations in <span ng-if="search.length" class="classification">{{target.notation[0]}}</span>:<table ng-if="search.length" class="table table-hover table-condensed table-bordered"><thead><tr><th>Notation</th><th>total</th><th>% of total results</th></tr></thead><tbody><tr ng-repeat="not in hits"><td><span ng-if="not.length" class="notation" popover="{{not[0].prefLabel.de}}" popover-trigger="mouseenter" ng-click="select(not[0])" style="cursor:pointer">{{not[0].notation[0]}}</span></td><td>{{not[1]}}</td><td>{{not[1]/total*100 | number:1}} %</td></tr></tbody></table></div></div></accordion-group></accordion>');
-    $templateCache.put('template/skos-search.html', '<div class="concept concept-search"></div>');
     $templateCache.put('template/skos-tree.html', '<div class="skos-tree"><p class="set"><span ng-if="tree.notation" class="notation">{{tree.notation[0]}}</span> <span class="nlabel">{{ tree.prefLabel.de }}</span></p><ul><li ng-repeat="n in tree.narrower"><span skos-tree="n"></span></li></ul></div>');
   }
 ]);

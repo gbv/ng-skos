@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: require('./package.json'),
-        version: {
+        version: { // take version number from package.json
             moduleVersion: {
                 options: { prefix: "\\('version',\\s*'" },
                 src: ['src/*.js']
@@ -39,9 +39,9 @@ module.exports = function(grunt) {
                 navTemplate: 'src/docs-nav.html',
                 scripts: [ 
                     'angular.js',
-                    'demo/lib/angular-resource.min.js',
-                    'demo/lib/angular-sanitize.min.js',
-                    'ng-skos.js',
+                    'lib/angular-resource.min.js',
+                    'lib/angular-sanitize.min.js',
+                    'ng-skos.min.js',
                     'src/json-text.js',
                 ]
             },

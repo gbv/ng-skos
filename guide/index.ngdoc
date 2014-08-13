@@ -42,9 +42,7 @@ notation (closed world), set it no <tt>null</tt> or to an empty array.
 
 [skosLabel](#/api/ng-skos.directive:skosLabel)
 
-[skosTree](#/api/ng-skos.directive:skosTree)
-
-[skosSearch](#/api/ng-skos.directive:skosSearch)
+[skosTree](#/api/ng-skos.directive:skosTree) (planned)
 
 # Services
 
