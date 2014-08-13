@@ -141,15 +141,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.directive:skosSearch",
-      "shortName": "skosSearch",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "...",
-      "keywords": "angular api directive display function html js module myapp mycontroller ng-controller ng-skos ngskos script search skos-search template template-url url"
-    },
-    {
-      "section": "api",
       "id": "ng-skos.directive:skosTree",
       "shortName": "skosTree",
       "type": "directive",
@@ -195,7 +186,7 @@ NG_DOCS={
     "angular.min.js",
     "angular-resource.min.js",
     "angular-sanitize.min.js",
-    "ng-skos.js",
+    "ng-skos.min.js",
     "json-text.js"
   ]
 };
