@@ -5,7 +5,8 @@
   <title>ng-skos demo application</title>
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
   <link href="ng-skos.css" rel="stylesheet" />
-  <link href="demo.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
 </head>
 <body ng-controller="myController">
 <header>
@@ -25,13 +26,10 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#label" target="_self">Label</a>
-                            </li>
-                            <li>
                                 <a href="#concept" target="_self">Concept</a>
                             </li>
                             <li>
-                                <a href="#search" target="_self">Search</a>
+                                <a href="#label" target="_self">Label</a>
                             </li>
                             <li>
                                 <a href="#tree" target="_self">Tree</a>
@@ -51,28 +49,6 @@
 </header>
 <div class="main">
     <div class="container">
-        <section id="label"  class="fixnav">
-            <div class="page-header">
-                <h2>skos-label</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        Used as attribute to emit the preferred label of a concept. The lang
-                        attribute of the directive element is read and set accordingly. If
-                        no label of the required language exists, another language is selected.
-                    </p>
-                    <div class="concept-label">
-                        <ul>
-                            <li><span skos-label="sampleConcept" lang="de" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" lang="en" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" lang="fr" class="show-lang"/></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="concept" class="fixnav">
             <div class="page-header">
                 <h2>skos-concept</h2>
@@ -112,31 +88,28 @@
             <div class="row">
             </div>
         </section>
-        <section id="search" class="fixnav">
+        <section id="label"  class="fixnav">
             <div class="page-header">
-                <h2>skos-search</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="tmpl-border" skos-search="searchSample">
-                    </div>
-                </div>
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-6">
-                    ...documentation...
-                </div>
+                <h2>skos-label</h2>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="smpl">
-                        <h3>Sample Search</h3>
-                        <textarea json-text cols="40" rows="15" ng-model="searchSample"></textarea>
+                    <p>
+                        Used as attribute to emit the preferred label of a concept. The lang
+                        attribute of the directive element is read and set accordingly. If
+                        no label of the required language exists, another language is selected.
+                    </p>
+                    <div class="concept-label">
+                        <ul>
+                            <li><span skos-label="sampleConcept" lang="de" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" lang="en" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" lang="fr" class="show-lang"/></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="tree" class="fixnav">
+        </section>        <section id="tree" class="fixnav">
             <div class="page-header">
                 <h2>skos-tree</h2>
             </div>
@@ -228,10 +201,9 @@
         Glyphicons courtesy of <a href="http://glyphicons.com/">Glyphicons.com</a>
     </p>
 </div>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/angular-resource.min.js"></script>
-    <script src="lib/angular-sanitize.min.js"></script>
-    <script src="demo.js"></script>
+    <script src="../lib/angular-resource.min.js"></script>
+    <script src="../lib/angular-sanitize.min.js"></script>
+    <script src="app.js"></script>
     <script src="../lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
     <script src="../src/json-text.js"></script>
@@ -241,7 +213,6 @@
     <script src="../src/directives/skosLabel.js"></script>
     <script src="../src/directives/skosConcept.js"></script>
     <script src="../src/directives/skosTree.js"></script>
-    <script src="../src/directives/skosSearch.js"></script>
     <script src="../src/directives/skosMappingCollection.js"></script>
     <script src="../src/directives/skosMappingTable.js"></script>
     <script src="../src/directives/skosOccurrences.js"></script>

@@ -41,11 +41,6 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('template/skos-search.html',
-    "<div class=\"concept concept-search\"></div>"
-  );
-
-
   $templateCache.put('template/skos-tree.html',
     "<div class=\"skos-tree\"><p class=\"set\"><span ng-if=\"tree.notation\" class=\"notation\">{{tree.notation[0]}}</span> <span class=\"nlabel\">{{ tree.prefLabel.de }}</span></p><ul><li ng-repeat=\"n in tree.narrower\"><span skos-tree=\"n\"></span></li></ul></div>"
   );
