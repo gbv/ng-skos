@@ -20,7 +20,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "Mappings",
       "shortDescription": "A mapping in ng-skos represents a mapping between concepts of two concept",
-      "keywords": "concept concepts guide mapping mappings ng-skos overview represents schemes"
+      "keywords": "concept concepts guide included mapping mappings ng-skos overview represents schemes support"
     },
     {
       "section": "guide",
@@ -83,7 +83,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a ng-skos concept. Changes on the concept are",
-      "keywords": "angular api array assignable automatically bind bounded call changes clicked code concept concepts connected directive display expression function github js language ng-skos preferred reflected scope skos-click skos-concept source strings template template-url updated url variable variables"
+      "keywords": "addition angular api array assignable automatically bind bounded call changes check clicked code concept concepts connected directive display empty expression function github helper isemptyobject js language method ng-skos object preferred provided reflected scope skos-click skos-concept source strings template template-url updated url variable variables"
     },
     {
       "section": "api",
@@ -96,48 +96,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.directive:skosConceptMapping",
-      "shortName": "skosConceptMapping",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "This directive displays two lists of concepts for the purpose of mapping from one concept scheme to another. In addition, it provides tools to customize and export those mappings.",
-      "keywords": "addition api code concept current customize directive display displays export function github js lists mapping ng-skos purpose save savelocation scheme select single source target template templateurl tools url"
-    },
-    {
-      "section": "api",
       "id": "ng-skos.directive:skosLabel",
       "shortName": "skosLabel",
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Displays the preferred label of a concept.",
       "keywords": "$scope alternative angular api arbitrary assignable beispiel bind changes cols concept data de directive display displays elaborated en example expression fr function future heuristics html js json-text jsontext label lang lang2 language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected rows sampleconcept script select selected skos-label text type versions"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.directive:skosMappingCollection",
-      "shortName": "skosMappingCollection",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "This directive displays mapping tables between concepts of",
-      "keywords": "$scope abc angular api code concept def directive display displays en examplemappings function github handle html inscheme inschemen js mapping mappings medium module myapp mycontroller ng-controller ng-skos ngskos notation origin origin1 originlabel1 originlabel2 preflabel schemes script selected skos-mapping-collection source source1 source2 strong tables target target1 targetlabel1 targetlabel2 template template-url timestamp type url use-mapping"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.directive:skosMappingTable",
-      "shortName": "skosMappingTable",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "This directive displays mappings between concepts of",
-      "keywords": "$scope abc angular api code concept concepts def directive display displays en examplemappings format function github handle html inscheme inschemen js mapping mappings medium module myapp mycontroller ng-controller ng-skos ngskos notation origin originlabel1 originlabel2 preflabel schemes script select-mapping selected skos-mapping-table source strong table target targetlabel1 targetlabel2 template template-url timestamp type url"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.directive:skosOccurrences",
-      "shortName": "skosOccurrences",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "...",
-      "keywords": "angular api directive display function html js module myapp mycontroller ng-controller ng-skos ngskos occurrences script skos-occurrences template template-url url"
     },
     {
       "section": "api",
