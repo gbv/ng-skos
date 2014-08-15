@@ -3,6 +3,6 @@
 @description
 
 A **mapping** in ng-skos represents a mapping between concepts of two concept
-schemes.
+schemes. Support of mapping is not included yet.
 
 

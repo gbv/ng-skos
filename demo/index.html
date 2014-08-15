@@ -32,13 +32,10 @@
                                 <a href="#label" target="_self">Label</a>
                             </li>
                             <li>
+                                <a href="#browser" target="_self">Browser</a>
+                            </li>
+                            <li>
                                 <a href="#tree" target="_self">Tree</a>
-                            </li>
-                            <li>
-                                <a href="#mapping" target="_self">Mapping</a>
-                            </li>
-                            <li>
-                                <a href="#occurrences" target="_self">Occurrences</a>
                             </li>
                         </ul>
                     </li>
@@ -133,60 +130,13 @@
                 </div>
             </div>
         </section>
-        <section id="mapping" class="fixnav">
+        <section id="browser" class="fixnav">
             <div class="page-header">
-                <h2>skos-mapping-collection</h2>
+                <h2>skos-browser</h2>
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="tmpl-border" skos-mapping-collection="mappingSample" use-mapping="insertMapping">
-                    </div>
-                </div>
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-6">
-                <b>skosMappingCollection</b> is a directive for displaying a collection of existing mappings between the notations of different concept schemes. In this example, the used template sorts the mappings into lists and passes those on to <b>skosMappingTable</b>, which displays each table structure.
-                <br>
-                The directive also supports an additional parameter "use-mapping", with which a function controlling the selection of a mapping in the "Actions" column can be handled.
-                
-                <div style="margin-top:10px;">
-                    <div><b>Current mapping:</b></div>
-                    <div ng-if="currentMapping.from.length || currentMapping.to.length" class="tmpl-border" style="padding:12px">{{currentMapping}}</div>
-                    <div ng-if="!currentMapping.from.length && !currentMapping.to.length">
-                        <span>Please select a mapping to display its contents</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="smpl">
-                        <h3>Sample Mapping</h3>
-                        <textarea json-text cols="40" rows="15" ng-model="mappingSample"></textarea>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="occurrences" class="fixnav">
-            <div class="page-header">
-                <h2>skos-occurrences</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="tmpl-border" skos-occurrences="occurrencesSample">...
-                    </div>
-                </div>
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-6">
-                    <b>skosOccurrences</b> is a directive for displaying results of a search in catalogues for specific notations of one concept scheme and the corresponding notations in another scheme.
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="smpl">
-                        <h3>Sample Occurrences</h3>
-                        <p><textarea json-text cols="40" rows="15" ng-model="occurrencesSample"></textarea></p>
+                    <div class="tmpl-border" skos-browser="browseConcept" skos-browser-lookup="">
                     </div>
                 </div>
             </div>
@@ -213,8 +163,5 @@
     <script src="../src/directives/skosLabel.js"></script>
     <script src="../src/directives/skosConcept.js"></script>
     <script src="../src/directives/skosTree.js"></script>
-    <script src="../src/directives/skosMappingCollection.js"></script>
-    <script src="../src/directives/skosMappingTable.js"></script>
-    <script src="../src/directives/skosOccurrences.js"></script>
 </body>
 </html>
