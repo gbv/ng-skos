@@ -1,0 +1,21 @@
+<input class="form-control"
+    suggest-typeahead=""
+    typeahead-on-select=""
+    ng-model="conceptLabel"
+    placeholder="Search by terms (typeahead)"
+    typeahead-loading="loadingLocations"
+    typeahead-editable="false"
+/>
+<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh typeahead-loading"></i>
+<div class="search-top">
+    <form ng-submit="reselectConcept('origin', originNotation)">
+        <span style="float:left;">
+            <input class="form-control search-top-input"
+                ng-model="originNotation.notation"
+                placeholder="Enter full notation"
+            />
+        </span>
+        <input type="submit" value="Select" class="search-top-button" ng-disabled="!originNotation.notation.length" />
+    </form>
+</div>
+<div ng-if="sampleConcept" skos-concept="concept" skos-click="" language="language"></div>
