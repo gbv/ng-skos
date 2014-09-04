@@ -52,7 +52,7 @@ angular.module('ngSKOS')
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 
-                   attrs.templateUrl : 'templates/skos-concept.html';
+                   attrs.templateUrl : 'template/skos-concept.html';
         },
         link: function link(scope, element, attr) {
             scope.isEmptyObject = function(object) { 
