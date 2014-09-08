@@ -87,6 +87,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "ng-skos.directive:skosConceptBrowser",
+      "shortName": "skosConceptBrowser",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "Scope",
+      "keywords": "api browser concept directive display lookup-notation ng-skos notation opensearchsuggestions scope search selected skosconceptprovider supported template template-url typeahead url variables"
+    },
+    {
+      "section": "api",
       "id": "ng-skos.directive:skosConceptList",
       "shortName": "skosConceptList",
       "type": "directive",

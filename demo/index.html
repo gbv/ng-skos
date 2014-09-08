@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>ng-skos demo application</title>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="ng-skos.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+</head>
+<body ng-controller="myController">
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../">ng-skos</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" type="button" class="dropdown-toggle">
+                            Jump to directive
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#concept" target="_self">Concept</a>
+                            </li>
+                            <li>
+                                <a href="#label" target="_self">Label</a>
+                            </li>
+                            <li>
+                                <a href="#browser" target="_self">Browser</a>
+                            </li>
+                            <li>
+                                <a href="#tree" target="_self">Tree</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    </nav>
+</header>
+<div class="main">
+    <div class="container">
+        <section id="concept" class="fixnav">
+            <div class="page-header">
+                <h2>skos-concept</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p>
+                        Used as element or attribute to display a concept.
+                    </p>
+                    <p>
+                        <select ng-model="language">
+                            <option>de</option>
+                            <option>en</option>
+                        </select>
+                        Language: {{language}}
+                    </p>
+                    <div class="tmpl-border" skos-concept="sampleConcept" language="language" template-url="template/skos-concept-thesaurus.html">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5">
+                    <p>
+                        The element content can be used to control how the concept is shown:
+                    </p>
+                    <div class="tmpl-border" skos-concept="sampleConcept" language="language">
+                    </div>
+                    <p>
+                        Interactive elements can be added, for instance to 
+                        change the concept on clicks by loading from a cocoda 
+                        server...(TODO)
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </section>
+        <section id="label"  class="fixnav">
+            <div class="page-header">
+                <h2>skos-label</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Used as attribute to emit the preferred label of a concept. The lang
+                        attribute of the directive element is read and set accordingly. If
+                        no label of the required language exists, another language is selected.
+                    </p>
+                    <div class="concept-label">
+                        <ul>
+                            <li><span skos-label="sampleConcept" lang="de" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" lang="en" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" class="show-lang"/></li>
+                            <li><span skos-label="sampleConcept" lang="fr" class="show-lang"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>        <section id="tree" class="fixnav">
+            <div class="page-header">
+                <h2>skos-tree</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="tmpl-border" skos-tree="treeSample">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6">
+                    This directive implements a way to present dynamically loaded content in a tree view. (TODO, currently static placeholder)
+                </div>
+            </div>
+        </section>
+        <section id="browser" class="fixnav">
+            <div class="page-header">
+                <h2>skos-browser</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <skos-concept-browser class="tmpl-border" concept="sampleConcept">
+                    </skos-concept-browser>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6">
+                    ...
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="footer">
+    <p>
+        This demo page is using parts of the <a href="http://angular-ui.github.io/bootstrap/">AngularJS Bootstrap UI</a> and <a href="http://getbootstrap.com/">Bootstrap CSS</a>
+    </p>
+    <p>
+        Glyphicons courtesy of <a href="http://glyphicons.com/">Glyphicons.com</a>
+    </p>
+</div>
+    <script src="../grunt-scripts/lib/angular-resource.min.js"></script>
+    <script src="../grunt-scripts/lib/angular-sanitize.min.js"></script>
+    <script src="app.js"></script>
+    <script src="../grunt-scripts/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+</body>
+</html>
