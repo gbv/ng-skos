@@ -3,9 +3,33 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS']);
 function myController($scope, SkosConceptProvider) {
 
     var rvkProvider = new SkosConceptProvider({
-        url:'data/rvk/{notation}.json',
-        jsonp: false
+        //url:'data/rvk/{notation}.json',
+        //jsonp: false,
+
+        // TOOD: look up narrower
+        url: "http://rvk.uni-regensburg.de/api/json/node/{notation}",
+        transform: function(item) {
+            var concept = {
+                notation: [ item.node.notation ],
+                uri: item.node.notation,
+                prefLabel: { de: item.node.benennung },
+                altLabel: "" ,
+                hasChildren: false
+            }
+            if(angular.isArray(item.node.register)){
+                concept.altLabel = item.node.register;
+            }else if(angular.isString(item.node.register)){
+                concept.altLabel = [item.node.register];
+            }
+            if(item.node.has_children == 'yes'){
+                concept.hasChildren = true;
+            }
+            return concept;
+        },
+        jsonp: 'jsonp'
     });
+    $scope.rvkByNotation = rvkProvider;
+
 
     //$scope.safeApply = function(fn) { 
     //    var phase = this.$root.$$phase; 

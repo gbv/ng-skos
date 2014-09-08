@@ -10,7 +10,7 @@
     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh typeahead-loading"></i>
 </div>
 <div class="search-top" style="overflow:hidden;margin-bottom:15px;">
-    <form ng-submit="reselectConcept('origin', originNotation)">
+    <form ng-submit="lookupConcept(originNotation)">
         <span style="float:left;">
             <input class="form-control search-top-input"
                 ng-model="originNotation.notation"

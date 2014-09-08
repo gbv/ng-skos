@@ -48,8 +48,11 @@ angular.module('ngSKOS')
                     }
                 };
                 // call SkosConceptProvider
-                scope.lookup.updateConcept(concept).then(function() {
-                    console.log("updateConcept");
+                scope.lookupNotation.updateConcept(concept).then(function() {
+                    console.log("updateConcept, got:");
+                    console.log(concept);
+                    // TODO: angular.copy??
+                    scope.concept = concept;
                 });
             };
         }
