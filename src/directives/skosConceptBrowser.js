@@ -54,4 +54,4 @@ angular.module('ngSKOS')
             };
         }
      }
-);
+});
