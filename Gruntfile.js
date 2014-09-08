@@ -122,6 +122,18 @@ module.exports = function(grunt) {
             }
         },
         shell: {
+            demo: {
+                command: [
+                    "rm -rf docs/demo",
+                    "cp -r demo docs",
+                    "find docs/demo -type l -exec rm '{}' ';'",
+                    "cp ng-skos.js docs/grunt-scripts",
+                    "cp -r lib docs/grunt-scripts",
+                    "cp demo/ng-skos.css docs/demo",
+                    "perl -pi -e 's|<script src=\"\\.\\./src.+|<script src=\"../grunt-scripts/ng-skos.js\"></script>|' docs/demo/*.html",
+                    "perl -pi -e 's|<script src=\"\\.\\./lib|<script src=\"../grunt-scripts/lib|' docs/demo/*.html"
+                ].join('&&')
+            },
             site: {
                 command: "rm -rf site && mkdir site && cp -r docs/* site"
             },
@@ -154,7 +166,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default',['docs']);
     grunt.registerTask('ng-skos',['version','ngtemplates','concat','ngmin','uglify']);
-    grunt.registerTask('docs',['clean','ng-skos','template','ngdocs']);
+    grunt.registerTask('docs',['clean','ng-skos','template','ngdocs','shell:demo']);
     grunt.registerTask('gh-pages', ['test','shell:working_copy_must_be_clean','site','shell:gh_pages']);
     grunt.registerTask('push-site', ['gh-pages','shell:push_site']);
     grunt.registerTask('site', ['docs','shell:site']);

@@ -1,4 +1,4 @@
-var cocodaDemo = angular.module('cocodaDemo', ['ngSKOS','jsonText','ui.bootstrap']);
+angular.module('myApp', ['ui.bootstrap','ngSKOS']);
 
 function myController($scope, SkosConceptProvider) {
 
@@ -7,11 +7,10 @@ function myController($scope, SkosConceptProvider) {
         jsonp: false
     });
 
-    /*
-    $scope.safeApply = function(fn) { 
-        var phase = this.$root.$$phase; 
-        if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
-    */
+    //$scope.safeApply = function(fn) { 
+    //    var phase = this.$root.$$phase; 
+    //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
+    //
 
     $scope.sampleConcept = { notation: ['UN'] };
     rvkProvider.updateConcept($scope.sampleConcept);
@@ -25,14 +24,13 @@ function myController($scope, SkosConceptProvider) {
     }
 }
 
-cocodaDemo.run(function($rootScope,$http) {
-
+angular.module('myApp')
+.run(function($rootScope,$http) {
     $rootScope.treeSample = {};
 	$http.get('data/tree-1.json').success(function(data){
         $rootScope.treeSample = data;
 	});
-});
-
-cocodaDemo.config(function($locationProvider) {
+})
+.config(function($locationProvider) {
     $locationProvider.html5Mode(true);
 }).controller('MainCtrl', function ($$rootScope, $location) { });

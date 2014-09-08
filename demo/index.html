@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="cocodaDemo">
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <title>ng-skos demo application</title>
@@ -13,9 +13,7 @@
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">ng-skos</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                </button>
+                <a class="navbar-brand" href="../">ng-skos</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -121,14 +119,6 @@
                     This directive implements a way to present dynamically loaded content in a tree view. (TODO, currently static placeholder)
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="smpl">
-                        <h3>Sample Tree</h3> 
-                        <textarea json-text cols="40" rows="15" ng-model="treeSample"></textarea>
-                    </div>
-                </div>
-            </div>
         </section>
         <section id="browser" class="fixnav">
             <div class="page-header">
@@ -138,6 +128,11 @@
                 <div class="col-md-5">
                     <skos-concept-browser class="tmpl-border" concept="sampleConcept">
                     </skos-concept-browser>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6">
+                    ...
                 </div>
             </div>
         </section>
@@ -155,8 +150,6 @@
     <script src="../lib/angular-sanitize.min.js"></script>
     <script src="app.js"></script>
     <script src="../lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
-
-    <script src="../src/json-text.js"></script>
     <script src="../src/ng-skos.js"></script>
     <script src="../src/services/SkosConceptProvider.js"></script>
     <script src="../src/services/SkosProvider.js"></script>

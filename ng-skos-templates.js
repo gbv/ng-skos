@@ -1,6 +1,11 @@
 angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
   'use strict';
 
+  $templateCache.put('template/skos-concept-browser.html',
+    "<div style=\"margin:1em 0em\"><input class=\"form-control\" suggest-typeahead=\"\" typeahead-on-select=\"\" ng-model=\"conceptLabel\" placeholder=\"Search by terms (typeahead)\" typeahead-loading=\"loadingLocations\" typeahead-editable=\"false\"><i ng-show=\"loadingLocations\" class=\"glyphicon glyphicon-refresh typeahead-loading\"></i></div><div class=\"search-top\" style=\"overflow:hidden;margin-bottom:15px\"><form ng-submit=\"reselectConcept('origin', originNotation)\"><span style=\"float:left\"><input class=\"form-control search-top-input\" ng-model=\"originNotation.notation\" placeholder=\"Enter full notation\"></span> <button type=\"submit\" ng-disabled=\"!originNotation.notation.length\" class=\"search-top-button\"><span class=\"glyphicon glyphicon-search\"></span></form></div><div skos-concept=\"concept\" skos-click=\"\" language=\"language\"></div>"
+  );
+
+
   $templateCache.put('template/skos-concept-list.html',
     "<div><ul ng-if=\"concepts.length\" style=\"list-style-type:none;padding-left:0px\"><li ng-repeat=\"c in concepts\" style=\"max-width:320px;display:block\"><span class=\"notation\">{{c.notation[0]}}</span> <span>{{c.prefLabel.de}}</span><div style=\"display:inline-table\"><a href=\"#\" ng-click=\"onSelect(c)\"><span class=\"glyphicon glyphicon-search\"></span></a> <a href=\"#\" ng-click=\"removeConcept($index)\"><span class=\"glyphicon glyphicon-trash\"></span></a></div></li></ul></div>"
   );
