@@ -1,6 +1,6 @@
 /**
  * @ngdoc service
- * @name ng-skos.service:SkosProvider
+ * @name ng-skos.service:SkosHTTPProvider
  * @description
  * 
  * Utility service to facilitate HTTP requests. 
@@ -23,10 +23,10 @@
  *
  */
 angular.module('ngSKOS')
-.factory('SkosProvider',['$http','$q',function($http,$q) {
+.factory('SkosHTTPProvider',['$http','$q',function($http,$q) {
 
     // constructor
-    var SkosProvider = function(args) {
+    var SkosHTTPProvider = function(args) {
         if (!args) { args = {}; }
         this.transform = args.transform;
         this.url = args.url;
@@ -37,7 +37,7 @@ angular.module('ngSKOS')
         this.jsonp = jsonp;
     };
 
-    SkosProvider.prototype = {
+    SkosHTTPProvider.prototype = {
         get: function(url) {
             if (!url) {
                 url = this.url;
@@ -68,5 +68,5 @@ angular.module('ngSKOS')
         }
     };
 
-    return SkosProvider;
+    return SkosHTTPProvider;
 }]);

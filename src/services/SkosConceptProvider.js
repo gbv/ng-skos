@@ -38,13 +38,13 @@
  *  </example>
  */
 angular.module('ngSKOS')
-.factory('SkosConceptProvider',['SkosProvider',function(SkosProvider) {
+.factory('SkosConceptProvider',['SkosHTTPProvider',function(SkosHTTPProvider) {
 
-    // inherit from SkosProvider
+    // inherit from SkosHTTPProvider
     var SkosConceptProvider = function(args) {
-        SkosProvider.call(this, args);
+        SkosHTTPProvider.call(this, args);
     };
-    SkosConceptProvider.prototype = new SkosProvider();
+    SkosConceptProvider.prototype = new SkosHTTPProvider();
     
     SkosConceptProvider.prototype.getConcept = function(concept) {
         var url;
