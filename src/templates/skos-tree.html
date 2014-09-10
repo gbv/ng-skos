@@ -1,10 +1,10 @@
 <div class="skos-tree">
-    <p class="set">
+    <p class="set" ng-if="!tree.topConcepts">
         <span ng-if="tree.notation" class="notation">{{tree.notation[0]}}</span>
-        <span class="nlabel">{{ tree.prefLabel.de }}</span>
+        <span class="nlabel">{{tree.prefLabel.de}}</span>
     </p>
     <ul>
-        <li ng-repeat="n in tree.narrower">
+        <li ng-repeat="n in tree.narrower ? tree.narrower : tree.topConcepts">
             <span skos-tree="n"></span>
         </li>
     </ul>

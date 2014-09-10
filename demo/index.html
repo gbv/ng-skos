@@ -110,7 +110,7 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="tmpl-border" skos-tree="treeSample">
+                    <div class="tmpl-border" skos-tree="jita">
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -128,7 +128,8 @@
                 <div class="col-md-5">
                     <skos-concept-browser class="tmpl-border" 
                         concept="sampleConcept"
-                        lookup-notation="rvkByNotation"
+                        get-by-notation="rvk.byNotation"
+                        suggest-concept="rvk.suggest"
                     >
                     </skos-concept-browser>
                 </div>
@@ -154,11 +155,14 @@
     <script src="app.js"></script>
     <script src="../lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="../src/ng-skos.js"></script>
+    <script src="../lib/ng-suggest.js"></script>
     <script src="../src/services/SkosHTTPProvider.js"></script>
     <script src="../src/services/SkosConceptProvider.js"></script>
+    <script src="../src/services/SkosConceptListProvider.js"></script>
     <script src="../src/directives/skosLabel.js"></script>
     <script src="../src/directives/skosConcept.js"></script>
     <script src="../src/directives/skosTree.js"></script>
     <script src="../src/directives/skosConceptBrowser.js"></script>
+    <script src="rvk.js"></script>
 </body>
 </html>

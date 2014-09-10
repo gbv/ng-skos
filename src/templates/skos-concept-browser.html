@@ -1,6 +1,7 @@
-<div style="margin:1em 0em;">
+<div ng-if="suggestConcept" style="margin:1em 0em;">
+    <!-- TODO: typeahead-on-select -->
     <input class="form-control"
-        suggest-typeahead=""
+        suggest-typeahead="suggestConcept"
         typeahead-on-select=""
         ng-model="conceptLabel"
         placeholder="Search by terms (typeahead)"
@@ -9,15 +10,16 @@
     />
     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh typeahead-loading"></i>
 </div>
-<div class="search-top" style="overflow:hidden;margin-bottom:15px;">
-    <form ng-submit="lookupConcept(originNotation)">
+<div ng-if="lookupByNotation"
+     class="search-top" style="overflow:hidden;margin-bottom:15px;">
+    <form ng-submit="lookupByNotation(notation)">
         <span style="float:left;">
             <input class="form-control search-top-input"
-                ng-model="originNotation.notation"
+                ng-model="notation"
                 placeholder="Enter full notation"
             />
         </span>
-        <button type="submit" ng-disabled="!originNotation.notation.length" class="search-top-button" />
+        <button type="submit" ng-disabled="!notation.length" class="search-top-button" />
             <span class="glyphicon glyphicon-search"></span>
         </button>
     </form>

@@ -10,12 +10,15 @@
  * The following variables are added to the scope:
  * <ul>
  * <li>concept
+ * <li>notation
+ * <li>getByNotation
+ * <li>lookupByNotation
+ * <li>suggestConcept
  * </ul>
  *
  * @param {string} concept selected [concept](#/guide/concepts)
- * @param {string} typeahead OpenSearchSuggestions for typeahead
- * @param {string} lookup-notation SkosConceptProvider to look up by notation
- * @param {string} search NOT SUPPORTED YET
+ * @param {string} suggest-concept OpenSearchSuggestions for typeahead
+ * @param {string} get-by-notation SkosConceptProvider to look up by notation
  * @param {string} template-url URL of a template to display the concept browser
  */
 angular.module('ngSKOS')
@@ -23,38 +26,24 @@ angular.module('ngSKOS')
     return {
         restrict: 'E',
         scope: { 
-            concept: '=concept',
-            typeahead: '=typeahead',
-            lookupNotation: '=lookupNotation',
-            search: '=search', // TODO
+            concept: '=',
+            suggestConcept: '=',
+            getByNotation: '=',
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 
                    attrs.templateUrl : 'template/skos-concept-browser.html';
         },
         link: function link(scope, element, attr) {
-            scope.searchLabel = "";
-            scope.$watch('concept',function(concept) {
-                /* ... */
-            },true);
-
-            // look up by notation or label
-            scope.lookupConcept = function(item) {
-                // populate with basic data
-                var concept = {
-                    notation: [ item.notation ],
-                    prefLabel: { // TODO: configure language
-                        de: item.label
-                    }
+            if (scope.getByNotation) {
+                scope.lookupByNotation = function(notation) {
+                    scope.getByNotation(notation).then(
+                        function(response) {
+                            angular.copy(response, scope.concept);
+                        }
+                    );
                 };
-                // call SkosConceptProvider
-                scope.lookupNotation.updateConcept(concept).then(function() {
-                    console.log("updateConcept, got:");
-                    console.log(concept);
-                    // TODO: angular.copy??
-                    scope.concept = concept;
-                });
-            };
+            }
         }
      }
 });

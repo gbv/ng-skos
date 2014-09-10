@@ -1,44 +1,24 @@
-angular.module('myApp', ['ui.bootstrap','ngSKOS']);
+angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest']);
 
-function myController($scope, SkosConceptProvider) {
+function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosConceptListProvider) {
 
-    var rvkProvider = new SkosConceptProvider({
-        //url:'data/rvk/{notation}.json',
-        //jsonp: false,
-
-        // TOOD: look up narrower
-        url: "http://rvk.uni-regensburg.de/api/json/node/{notation}",
-        transform: function(item) {
-            var concept = {
-                notation: [ item.node.notation ],
-                uri: item.node.notation,
-                prefLabel: { de: item.node.benennung },
-                altLabel: "" ,
-                hasChildren: false
-            }
-            if(angular.isArray(item.node.register)){
-                concept.altLabel = item.node.register;
-            }else if(angular.isString(item.node.register)){
-                concept.altLabel = [item.node.register];
-            }
-            if(item.node.has_children == 'yes'){
-                concept.hasChildren = true;
-            }
-            return concept;
-        },
-        jsonp: 'jsonp'
+    // RVK-Zugriff ausgelagert in rvk.js
+    $scope.rvk = rvkTerminologyService(
+        $q,
+        SkosConceptProvider, SkosConceptListProvider, OpenSearchSuggestions
+    );
+    // init example via RVK API
+    $scope.sampleConcept = { };
+    $scope.rvk.byNotation('UN').then(function(response){
+        angular.copy(response, $scope.sampleConcept);
     });
-    $scope.rvkByNotation = rvkProvider;
-
-
+ 
     //$scope.safeApply = function(fn) { 
     //    var phase = this.$root.$$phase; 
     //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
     //
 
-    $scope.sampleConcept = { notation: ['UN'] };
-    rvkProvider.updateConcept($scope.sampleConcept);
-    
+   
     $scope.currentMapping = {
         from: [],
         to: [],
@@ -50,10 +30,12 @@ function myController($scope, SkosConceptProvider) {
 
 angular.module('myApp')
 .run(function($rootScope,$http) {
-    $rootScope.treeSample = {};
-	$http.get('data/tree-1.json').success(function(data){
-        $rootScope.treeSample = data;
+    
+	$http.get('data/jita/jita.json').success(function(data){
+        $rootScope.jita = data;
+        // TODO: JITA-Zugriff als TerminologyProvider
 	});
+
 })
 .config(function($locationProvider) {
     $locationProvider.html5Mode(true);
