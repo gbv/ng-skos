@@ -18,7 +18,7 @@
     // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
     (function() {
       var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
-          rUrl = /(#!\/|guide|api|index[^\.]*\.html).*$/,
+          rUrl = /(#!\/|api|index[^\.]*\.html).*$/,
           baseUrl = location.href.replace(rUrl, indexFile),
           headEl = document.getElementsByTagName('head')[0],
           sync = true;
@@ -43,8 +43,6 @@
         addTag('script', {src: 'grunt-scripts/angular-sanitize.min.js'}, sync);
       
         addTag('script', {src: 'grunt-scripts/ng-skos.min.js'}, sync);
-      
-        addTag('script', {src: 'grunt-scripts/json-text.js'}, sync);
       
 
       addTag('script', {src: 'js/angular-bootstrap.js'}, sync);
@@ -95,6 +93,12 @@
           </ul>
           <ul class="nav">
   <li>
+     <a href="http://gbv.github.io/jskos/">
+      <i class="icon-book"></i>
+       JSKOS
+     </a>
+  </li>
+  <li>
      <a href="demo">
       <i class="icon-eye-open"></i>
        demo
@@ -105,7 +109,7 @@
   <li>
     <a href="grunt-scripts/ng-skos.min.js">
       <i class="icon-download-alt"></i>
-      download (0.0.1)
+      download (0.0.2)
     </a>
   </li>
   <li>
