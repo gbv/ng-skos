@@ -17,7 +17,7 @@
  *
  * By now, only getByNotation is supported.
  *
- * @param {string} concept selected [concept](#/guide/concepts)
+ * @param {string} concept selected [concept](http://gbv.github.io/jskos/jskos.html#concepts)
  * @param {string} suggest-concept OpenSearchSuggestions for typeahead
  * @param {string} get-by-notation function to look up by notation (promise)
  * @param {string} template-url URL of a template to display the concept browser

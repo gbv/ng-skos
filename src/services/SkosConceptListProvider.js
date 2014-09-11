@@ -6,7 +6,7 @@
  * Get an ordered list of concepts via HTTP.
  *
  * The server to be queried with this service is expected to return a list with
- * [concept](#/guide/concepts) objects.
+ * [concept](http://gbv.github.io/jskos/jskos.html#concepts) objects.
  * 
  * ## Configuration
  * 

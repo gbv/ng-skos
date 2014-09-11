@@ -1,52 +1,13 @@
 /**
  * @ngdoc overview
- * @name json-text
- * @module json-text
- * @description
- *
- * This utility module provides directive {@link json-text.directive:jsonText 
- * jsonText} for directly displaying or editing JSON objects as text strings.
- */
-angular.module('jsonText', []).directive('jsonText', function () {
-  return {
-    restrict: 'AE',
-    require: 'ngModel',
-    scope: {},
-    link: function (scope, element, attrs, ngModel) {
-      scope.jsonValid = true;
-      function fromJson(text) {
-        try {
-          scope.jsonValid = true;
-          return angular.fromJson(text);
-        } catch (e) {
-          scope.jsonValid = false;
-        }
-      }
-      function toJson(object) {
-        return angular.toJson(object, true);
-      }
-      ngModel.$parsers.push(fromJson);
-      ngModel.$formatters.push(toJson);
-      scope.$watch(attrs.ngModel, function (newValue, oldValue) {
-        if (newValue != oldValue) {
-          ngModel.$setViewValue(toJson(newValue));
-          ngModel.$render();
-        }
-      }, true);
-    }
-  };
-});
-/**
- * @ngdoc overview
  * @name ng-skos
  * @module ng-skos
  * @description
  *
  * The main module <b>ngSKOS</b> contains several directives and services to
- * handle SKOS data. See the [developer guide](#guide) for an introduction and
- * the [API reference](#api) for documentation of the module.
+ * handle SKOS data. See the [API reference](#api) for module documentation.
  */
-angular.module('ngSKOS', ['ngSanitize']).value('version', '0.0.1');
+angular.module('ngSKOS', ['ngSanitize']).value('version', '0.0.2');
 /**
  * @ngdoc directive
  * @name ng-skos.directive:skosConcept
@@ -54,9 +15,9 @@ angular.module('ngSKOS', ['ngSanitize']).value('version', '0.0.1');
  * @scope
  * @description
  * 
- * Display a ng-skos [concept](#/guide/concepts). Changes on the concept are
- * reflected by changes in the scope variables so the display is updated
- * automatically.
+ * Display a [concept](http://gbv.github.io/jskos/jskos.html#concepts). 
+ * Changes on the concept object are reflected by changes in the scope 
+ * variables so the display is updated automatically.
  *
  * ## Scope
  *
@@ -82,7 +43,7 @@ angular.module('ngSKOS', ['ngSanitize']).value('version', '0.0.1');
  * of this directive is available at GitHub.
  * 
  * @param {string} skos-concept Assignable angular expression with a
- *      [concept](#/guide/concepts) to bind to
+ *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) to bind to
  * @param {string} language Assignable angular expression with 
  *      preferred language to be used as bounded `language` variable. 
  * @param {string} skos-click function to call when a connected concept is clicked
@@ -143,7 +104,7 @@ angular.module('ngSKOS').directive('skosConcept', function () {
  *
  * By now, only getByNotation is supported.
  *
- * @param {string} concept selected [concept](#/guide/concepts)
+ * @param {string} concept selected [concept](http://gbv.github.io/jskos/jskos.html#concepts)
  * @param {string} suggest-concept OpenSearchSuggestions for typeahead
  * @param {string} get-by-notation function to look up by notation (promise)
  * @param {string} template-url URL of a template to display the concept browser
@@ -184,7 +145,8 @@ angular.module('ngSKOS').directive('skosConceptBrowser', function () {
  * @restrict A
  * @description
  *
- * This directive displays a list of [concepts](#/guide/concepts) with options to manipulate those lists.
+ * This directive displays a list of [concepts](http://gbv.github.io/jskos/jskos.html#concepts) 
+ * with options to manipulate those lists.
  *
  * ## Source code
  *
@@ -225,7 +187,7 @@ angular.module('ngSKOS').directive('skosConceptList', function () {
  * Changes on the preferred label(s) are reflected in the display.
  *
  * @param {string} skos-label Assignable angular expression with 
- *      [concept](#/guide/concepts) data to bind to.
+ *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) data to bind to.
  * @param {string=} lang optional language. If not specified, an arbitrary
  *      preferred label is selected. Future versions of this directive may
  *      use more elaborated heuristics to select an alternative language.
@@ -242,11 +204,11 @@ angular.module('ngSKOS').directive('skosConceptList', function () {
         <dt><input type="text" ng-model="lang2"/></dt>
         <dd><span skos-label="sampleConcept" lang="{{lang2}}"/></dd>
       </dl>
-      <textarea json-text ng-model="sampleConcept" cols="40" rows="20" />
+      <pre>{{sampleConcept}}</pre>
     </div>
   </file>
   <file name="script.js">
-    angular.module('myApp',['ngSKOS','jsonText']);
+    angular.module('myApp',['ngSKOS']);
 
     function myController($scope) {
         $scope.sampleConcept = {
@@ -362,7 +324,7 @@ angular.module('ngSKOS').directive('skosTree', [
  * Get an ordered list of concepts via HTTP.
  *
  * The server to be queried with this service is expected to return a list with
- * [concept](#/guide/concepts) objects.
+ * [concept](http://gbv.github.io/jskos/jskos.html#concepts) objects.
  * 
  * ## Configuration
  * 
@@ -403,7 +365,8 @@ angular.module('ngSKOS').factory('SkosConceptListProvider', [
  * Get concepts via HTTP. 
  *
  * The server to be queried with this service is expected to return a JSON
- * object with one [concept](#/guide/concepts). The concept object may contain
+ * object with one [concept](http://gbv.github.io/jskos/jskos.html#concepts)
+ * The concept object may contain
  * links to narrower and broader concepts, among other information.
  * 
  * ## Configuration

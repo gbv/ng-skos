@@ -5,9 +5,9 @@
  * @scope
  * @description
  * 
- * Display a ng-skos [concept](#/guide/concepts). Changes on the concept are
- * reflected by changes in the scope variables so the display is updated
- * automatically.
+ * Display a [concept](http://gbv.github.io/jskos/jskos.html#concepts). 
+ * Changes on the concept object are reflected by changes in the scope 
+ * variables so the display is updated automatically.
  *
  * ## Scope
  *
@@ -33,7 +33,7 @@
  * of this directive is available at GitHub.
  * 
  * @param {string} skos-concept Assignable angular expression with a
- *      [concept](#/guide/concepts) to bind to
+ *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) to bind to
  * @param {string} language Assignable angular expression with 
  *      preferred language to be used as bounded `language` variable. 
  * @param {string} skos-click function to call when a connected concept is clicked

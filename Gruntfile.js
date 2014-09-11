@@ -42,12 +42,7 @@ module.exports = function(grunt) {
                     'lib/angular-resource.min.js',
                     'lib/angular-sanitize.min.js',
                     'ng-skos.min.js',
-                    'src/json-text.js',
                 ]
-            },
-            guide: {
-                title: 'Guide',
-                src: ['guide/*.ngdoc'],
             },
             api: {
                 title: 'API Reference',

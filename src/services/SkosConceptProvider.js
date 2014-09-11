@@ -6,7 +6,8 @@
  * Get concepts via HTTP. 
  *
  * The server to be queried with this service is expected to return a JSON
- * object with one [concept](#/guide/concepts). The concept object may contain
+ * object with one [concept](http://gbv.github.io/jskos/jskos.html#concepts)
+ * The concept object may contain
  * links to narrower and broader concepts, among other information.
  * 
  * ## Configuration

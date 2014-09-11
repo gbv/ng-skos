@@ -8,7 +8,7 @@
  * Changes on the preferred label(s) are reflected in the display.
  *
  * @param {string} skos-label Assignable angular expression with 
- *      [concept](#/guide/concepts) data to bind to.
+ *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) data to bind to.
  * @param {string=} lang optional language. If not specified, an arbitrary
  *      preferred label is selected. Future versions of this directive may
  *      use more elaborated heuristics to select an alternative language.
@@ -25,11 +25,11 @@
         <dt><input type="text" ng-model="lang2"/></dt>
         <dd><span skos-label="sampleConcept" lang="{{lang2}}"/></dd>
       </dl>
-      <textarea json-text ng-model="sampleConcept" cols="40" rows="20" />
+      <pre>{{sampleConcept}}</pre>
     </div>
   </file>
   <file name="script.js">
-    angular.module('myApp',['ngSKOS','jsonText']);
+    angular.module('myApp',['ngSKOS']);
 
     function myController($scope) {
         $scope.sampleConcept = {

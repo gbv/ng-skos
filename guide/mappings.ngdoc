@@ -1,8 +1,0 @@
-@ngdoc overview
-@name Mappings
-@description
-
-A **mapping** in ng-skos represents a mapping between concepts of two concept
-schemes. Support of mapping is not included yet.
-
-
