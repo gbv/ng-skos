@@ -1,8 +1,7 @@
 <div ng-if="suggestConcept" style="margin:1em 0em;">
-    <!-- TODO: typeahead-on-select -->
     <input class="form-control"
         suggest-typeahead="suggestConcept"
-        typeahead-on-select=""
+        typeahead-on-select="selectNotation($item.notation)"
         ng-model="conceptLabel"
         placeholder="Search by terms (typeahead)"
         typeahead-loading="loadingLocations"
