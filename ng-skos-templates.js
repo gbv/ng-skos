@@ -2,7 +2,7 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('template/skos-concept-browser.html',
-    "<div style=\"margin:1em 0em\"><input class=\"form-control\" suggest-typeahead=\"\" typeahead-on-select=\"\" ng-model=\"conceptLabel\" placeholder=\"Search by terms (typeahead)\" typeahead-loading=\"loadingLocations\" typeahead-editable=\"false\"><i ng-show=\"loadingLocations\" class=\"glyphicon glyphicon-refresh typeahead-loading\"></i></div><div class=\"search-top\" style=\"overflow:hidden;margin-bottom:15px\"><form ng-submit=\"reselectConcept('origin', originNotation)\"><span style=\"float:left\"><input class=\"form-control search-top-input\" ng-model=\"originNotation.notation\" placeholder=\"Enter full notation\"></span> <button type=\"submit\" ng-disabled=\"!originNotation.notation.length\" class=\"search-top-button\"><span class=\"glyphicon glyphicon-search\"></span></form></div><div skos-concept=\"concept\" skos-click=\"\" language=\"language\"></div>"
+    "<div ng-if=\"suggestConcept\" style=\"margin:1em 0em\"><input class=\"form-control\" suggest-typeahead=\"suggestConcept\" typeahead-on-select=\"\" ng-model=\"conceptLabel\" placeholder=\"Search by terms (typeahead)\" typeahead-loading=\"loadingLocations\" typeahead-editable=\"false\"><i ng-show=\"loadingLocations\" class=\"glyphicon glyphicon-refresh typeahead-loading\"></i></div><div ng-if=\"selectNotation\" class=\"search-top\" style=\"overflow:hidden;margin-bottom:15px\"><form ng-submit=\"selectNotation(notation)\"><span style=\"float:left\"><input class=\"form-control search-top-input\" ng-model=\"notation\" placeholder=\"Enter full notation\"></span> <button type=\"submit\" ng-disabled=\"!notation.length\" class=\"search-top-button\"><span class=\"glyphicon glyphicon-search\"></span></form></div><div skos-concept=\"concept\" skos-click=\"selectConcept\" language=\"language\"></div>"
   );
 
 
@@ -22,7 +22,7 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('template/skos-tree.html',
-    "<div class=\"skos-tree\"><p class=\"set\"><span ng-if=\"tree.notation\" class=\"notation\">{{tree.notation[0]}}</span> <span class=\"nlabel\">{{ tree.prefLabel.de }}</span></p><ul><li ng-repeat=\"n in tree.narrower\"><span skos-tree=\"n\"></span></li></ul></div>"
+    "<div class=\"skos-tree\"><p class=\"set\" ng-if=\"!tree.topConcepts\"><span ng-if=\"tree.notation\" class=\"notation\">{{tree.notation[0]}}</span> <span class=\"nlabel\">{{tree.prefLabel.de}}</span></p><ul><li ng-repeat=\"n in tree.narrower ? tree.narrower : tree.topConcepts\"><span skos-tree=\"n\"></span></li></ul></div>"
   );
 
 }]);

@@ -11,17 +11,20 @@ function rvkTerminologyService($q, SkosConceptProvider, SkosConceptListProvider,
                 notation: [ item.node.notation ],
                 uri: item.node.notation,
                 prefLabel: { de: item.node.benennung },
-                altLabel: "" ,
-                hasChildren: false
+                narrower: false
             }
-            if (angular.isArray(item.node.register)){
-                concept.altLabel = item.node.register;
-            } else if (angular.isString(item.node.register)){
-                concept.altLabel = [item.node.register];
+
+            var register = item.node.register;
+            if (angular.isArray(register)) {
+                concept.altLabel = { de: register };
+            } else if (angular.isString(register)) {
+                concept.altLabel = { de: [register] };
             }
+
             if (item.node.has_children == 'yes'){
-                concept.hasChildren = true;
+                concept.narrower = true;
             }
+
             return concept;
         },
         jsonp: 'jsonp'
@@ -37,24 +40,29 @@ function rvkTerminologyService($q, SkosConceptProvider, SkosConceptListProvider,
             }),
         };
     };
-        // get all direct children of the concept
+
+    // get all direct children of the concept
+    // TODO: cleanup this code
     var getNarrower = new SkosConceptProvider({
         url: "http://rvk.uni-regensburg.de/api/json/children/{notation}",
         transform: function(item) {
+            var node = item.node;
+            if(!node) return;
+
             var concept = {
-                notation: [ item.node.notation ],
-                uri: item.node.notation,
-                prefLabel: { de: item.node.benennung },
+                notation: [ node.notation ],
+                uri: node.notation,
+                prefLabel: { de: node.benennung },
                 narrower: [],
                 broader: [],
             };
-            if(!item.node.nochildren){
-                if(angular.isArray(item.node.children.node)){
-                    angular.forEach(item.node.children.node, function(nterm) {
+            if(!node.nochildren){
+                if(angular.isArray(node.children.node)){
+                    angular.forEach(node.children.node, function(nterm) {
                         concept.narrower.push({uri: nterm.notation, prefLabel: { de: nterm.benennung }, notation: [ nterm.notation ] });
                     });
-                } else if(angular.isString(item.node.children.node)){
-                    concept.narrower = [{uri: item.node.children.node.notation, prefLabel: { de: item.node.children.node.benennung }, notation: [ item.node.children.node.notation ] }];
+                } else if(angular.isString(node.children.node)){
+                    concept.narrower = [{uri: node.children.node.notation, prefLabel: { de: node.children.node.benennung }, notation: [ node.children.node.notation ] }];
                 }
             }
             return concept;
@@ -66,14 +74,17 @@ function rvkTerminologyService($q, SkosConceptProvider, SkosConceptListProvider,
     var getBroader = new SkosConceptProvider({
         url: "http://rvk.uni-regensburg.de/api/json/ancestors/{notation}",
         transform: function(item) {
+            var node = item.node;
+            if(!node) return;
+
             var concept = { 
-                notation: [ item.node.notation ],
-                uri: item.node.notation,
-                prefLabel: { de: item.node.benennung },
+                notation: [ node.notation ],
+                uri: node.notation,
+                prefLabel: { de: node.benennung },
                 broader: [],
             };
-            if(item.node.ancestor){
-                concept.broader.push({ notation: [ item.node.ancestor.node.notation ], uri: item.node.ancestor.node.notation, prefLabel: { de: item.node.ancestor.node.benennung } })
+            if (node.ancestor){
+                concept.broader.push({ notation: [ node.ancestor.node.notation ], uri: node.ancestor.node.notation, prefLabel: { de: node.ancestor.node.benennung } })
             }
             return concept;
         },
@@ -83,30 +94,21 @@ function rvkTerminologyService($q, SkosConceptProvider, SkosConceptListProvider,
 
     var rvkByNotation = function(notation) {
         var concept = { notation: [ notation ] };
-        var promise = rvkProvider.getConcept(concept);
-// FIXME
- //       var deferred = $q.defer();
-        
- //       return promise.then(function(response){
-//        })
-//        var then = p.then;
-//        p.then = function(fn) {
-//        console.log(promise);
-            // ...
-  //          then(data);
-/*
+        var deferred = $q.defer();
+        // first get & update concept
+        var promise = rvkProvider.updateConcept(concept);
         promise.then(function(){
-            getNarrower.updateConcept(concept).then(function(r){
-                console.log("children loaded");
-                deferred.resolve(r);
-            });
-            // TODO: expand narrower/broader
-            console.log("promise");
+            // then get children (TODO: get ancestors)
+            if (concept.narrower === true) {
+                getNarrower.updateConcept(concept).then(function(){
+                    deferred.resolve(concept);
+                });
+            } else {
+                deferred.resolve(concept);
+            }
         });
-
+        // promise the final result
         return deferred.promise;
-        */
-        return promise;
     };
 
     return {

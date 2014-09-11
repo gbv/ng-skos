@@ -31,8 +31,9 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
 angular.module('myApp')
 .run(function($rootScope,$http) {
     
-	$http.get('data/jita/jita.json').success(function(data){
-        $rootScope.jita = data;
+	$http.get('data/jita/jita.json').success(function(jita){
+        $rootScope.jita = jita;
+        $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
         // TODO: JITA-Zugriff als TerminologyProvider
 	});
 

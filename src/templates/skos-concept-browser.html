@@ -10,9 +10,9 @@
     />
     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh typeahead-loading"></i>
 </div>
-<div ng-if="lookupByNotation"
+<div ng-if="selectNotation"
      class="search-top" style="overflow:hidden;margin-bottom:15px;">
-    <form ng-submit="lookupByNotation(notation)">
+    <form ng-submit="selectNotation(notation)">
         <span style="float:left;">
             <input class="form-control search-top-input"
                 ng-model="notation"
@@ -24,4 +24,4 @@
         </button>
     </form>
 </div>
-<div skos-concept="concept" skos-click="" language="language"></div>
+<div skos-concept="concept" skos-click="selectConcept" language="language"></div>
