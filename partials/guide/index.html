@@ -13,21 +13,11 @@
 <dd>based on <a href="http://www.w3.org/TR/skos-reference/#mapping">SKOS mapping properties</a></dd>
 </dl>
 
-<p>Concept collections for grouping and sorting
-concepts are not supported yet.  </p>
+<p>Concept collections for grouping and sorted concepts are not supported yet.</p>
 <p>All object keys are optional, but an empty object should better be replaced by
 <code>null</code>. Missing keys may indicate that the corresponding properties is
 not known (open world). To explicitly state for instance that a concept has no
 notation (closed world), set it no <tt>null</tt> or to an empty array.</p>
-<p><code><pre class="prettyprint linenums">
-{
-  prefLabel: {
-    en: "peace",
-    de: "Frieden"
-  },
-  notation: ['P'],
-}
-</pre></code></p>
 <h2 id="directives">Directives</h2>
 <p><a href="#/api/ng-skos.directive:skosConcept">skosConcept</a></p>
 <p><a href="#/api/ng-skos.directive:skosLabel">skosLabel</a></p>

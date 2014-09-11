@@ -60,7 +60,7 @@
                         </select>
                         Language: {{language}}
                     </p>
-                    <div class="tmpl-border" skos-concept="sampleConcept" language="language" template-url="template/skos-concept-thesaurus.html">
+                    <div class="tmpl-border" skos-concept="sampleSkosConcept" language="language" template-url="template/skos-concept-thesaurus.html">
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -69,7 +69,7 @@
                     <p>
                         The element content can be used to control how the concept is shown:
                     </p>
-                    <div class="tmpl-border" skos-concept="sampleConcept" language="language">
+                    <div class="tmpl-border" skos-concept="sampleSkosConcept" language="language">
                     </div>
                     <p>
                         Interactive elements can be added, for instance to 
@@ -110,7 +110,7 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="tmpl-border" skos-tree="treeSample">
+                    <div class="tmpl-border" skos-tree="jita">
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -126,7 +126,11 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <skos-concept-browser class="tmpl-border" concept="sampleConcept">
+                    <skos-concept-browser class="tmpl-border" 
+                        concept="sampleConcept"
+                        get-by-notation="rvk.byNotation"
+                        suggest-concept="rvk.suggest"
+                    >
                     </skos-concept-browser>
                 </div>
                 <div class="col-md-1">
@@ -151,11 +155,14 @@
     <script src="app.js"></script>
     <script src="../grunt-scripts/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/lib/ng-suggest.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="rvk.js"></script>
 </body>
 </html>

@@ -1,20 +1,24 @@
-angular.module('myApp', ['ui.bootstrap','ngSKOS']);
+angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest']);
 
-function myController($scope, SkosConceptProvider) {
+function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosConceptListProvider) {
 
-    var rvkProvider = new SkosConceptProvider({
-        url:'data/rvk/{notation}.json',
-        jsonp: false
+    // RVK-Zugriff ausgelagert in rvk.js
+    $scope.rvk = rvkTerminologyService(
+        $q,
+        SkosConceptProvider, SkosConceptListProvider, OpenSearchSuggestions
+    );
+    // init example via RVK API
+    $scope.sampleConcept = { };
+    $scope.rvk.byNotation('UN').then(function(response){
+        angular.copy(response, $scope.sampleConcept);
     });
-
+ 
     //$scope.safeApply = function(fn) { 
     //    var phase = this.$root.$$phase; 
     //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
     //
 
-    $scope.sampleConcept = { notation: ['UN'] };
-    rvkProvider.updateConcept($scope.sampleConcept);
-    
+   
     $scope.currentMapping = {
         from: [],
         to: [],
@@ -26,10 +30,13 @@ function myController($scope, SkosConceptProvider) {
 
 angular.module('myApp')
 .run(function($rootScope,$http) {
-    $rootScope.treeSample = {};
-	$http.get('data/tree-1.json').success(function(data){
-        $rootScope.treeSample = data;
+    
+	$http.get('data/jita/jita.json').success(function(jita){
+        $rootScope.jita = jita;
+        $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
+        // TODO: JITA-Zugriff als TerminologyProvider
 	});
+
 })
 .config(function($locationProvider) {
     $locationProvider.html5Mode(true);

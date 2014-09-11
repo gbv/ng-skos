@@ -1,0 +1,1673 @@
+{
+   "prefLabel" : {
+      "en" : "JITA Classification System of Library and Information Science"
+   },
+   "notation": ["JITA"],
+   "uri" : "http://example.org/jita/",
+   "topConcepts" : [
+      {
+         "narrower" : [
+            {
+               "notation" : [
+                  "A"
+               ],
+               "prefLabel" : {
+                  "de" : "Theoretische und allgemeine Aspekte von Bibliotheken und Informationen",
+                  "en" : "Theoretical and general aspects of libraries and information."
+               },
+               "narrower" : [
+                  {
+                     "notation" : [
+                        "AA"
+                     ],
+                     "uri" : "http://example.org/jita/AA",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Library and information science as a field.",
+                        "de" : "Bibliotheks- und Informationswissenschaften als Disziplin"
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Information theory and library theory.",
+                        "de" : "Bibliotheks- und Informationstheorien"
+                     },
+                     "uri" : "http://example.org/jita/AB",
+                     "narrower" : [],
+                     "notation" : [
+                        "AB"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Relationship of LIS with other fields .",
+                        "de" : "Beziehungen zwischen Bibliotheks- und Informationswissenschaften und anderen Fächern"
+                     },
+                     "uri" : "http://example.org/jita/AC",
+                     "narrower" : [],
+                     "notation" : [
+                        "AC"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "AZ"
+                     ],
+                     "uri" : "http://example.org/jita/AZ",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Sonstiges in diesem Bereich",
+                        "en" : "None of these, but in this section."
+                     }
+                  }
+               ],
+               "uri" : "http://example.org/jita/A"
+            },
+            {
+               "uri" : "http://example.org/jita/B",
+               "narrower" : [
+                  {
+                     "prefLabel" : {
+                        "en" : "Use and impact of information.",
+                        "de" : "Gebrauch und Einfluss von Informationen"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/BA",
+                     "notation" : [
+                        "BA"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Bibliometric methods.",
+                        "de" : "Bibliometrische Verfahren"
+                     },
+                     "uri" : "http://example.org/jita/BB",
+                     "narrower" : [],
+                     "notation" : [
+                        "BB"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "BC"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Information in society.",
+                        "de" : "Informationen in der Gesellschaft"
+                     },
+                     "uri" : "http://example.org/jita/BC",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "BD"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/BD",
+                     "prefLabel" : {
+                        "en" : "Information society.",
+                        "de" : "Informationsgesellschaft"
+                     }
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/BE",
+                     "prefLabel" : {
+                        "de" : "Informationsökonomie",
+                        "en" : "Information economics."
+                     },
+                     "notation" : [
+                        "BE"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Information policy",
+                        "de" : "Informationspolitik"
+                     },
+                     "uri" : "http://example.org/jita/BF",
+                     "narrower" : [],
+                     "notation" : [
+                        "BF"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Information dissemination and diffusion.",
+                        "de" : "Verbreitung von Informationen"
+                     },
+                     "uri" : "http://example.org/jita/BG",
+                     "narrower" : [],
+                     "notation" : [
+                        "BG"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "BH"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Analyse des Informationsbedarfs und Informationsanforderungen",
+                        "en" : "Information needs and information requirements analysis."
+                     },
+                     "uri" : "http://example.org/jita/BH",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "BI"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Nutzeroberflächen und Usability",
+                        "en" : "User interfaces, usability."
+                     },
+                     "uri" : "http://example.org/jita/BI",
+                     "narrower" : []
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/BZ",
+                     "notation" : [
+                        "BZ"
+                     ]
+                  }
+               ],
+               "prefLabel" : {
+                  "en" : "Information use and sociology of information.",
+                  "de" : "Nutzung von Informationen und Informationssoziologie"
+               },
+               "notation" : [
+                  "B"
+               ]
+            }
+         ],
+         "uri" : "http://example.org/jita/1",
+         "prefLabel" : {
+            "de" : "[Theoretisch und allgemein]: Allgemeines Niveau",
+            "en" : "Theoretical and General"
+         },
+         "notation" : [
+            "1"
+         ]
+      },
+      {
+         "notation" : [
+            "2"
+         ],
+         "narrower" : [
+            {
+               "prefLabel" : {
+                  "de" : "Benutzer und Literacy",
+                  "en" : "Users, literacy and reading."
+               },
+               "narrower" : [
+                  {
+                     "notation" : [
+                        "CA"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Studien zur Nutzung",
+                        "en" : "Use studies."
+                     },
+                     "uri" : "http://example.org/jita/CA",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "CB"
+                     ],
+                     "prefLabel" : {
+                        "en" : "User studies.",
+                        "de" : "Benutzerstudien"
+                     },
+                     "uri" : "http://example.org/jita/CB",
+                     "narrower" : []
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/CC",
+                     "prefLabel" : {
+                        "en" : "User categories: children, young people, social groups.",
+                        "de" : "Benutzerkategorien: Kinder, junge Menschen, soziale Gruppen"
+                     },
+                     "notation" : [
+                        "CC"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/CD",
+                     "prefLabel" : {
+                        "de" : "Anwendertraining, Promotion, Aktivitäten, Bildung",
+                        "en" : "User training, promotion, activities, education."
+                     },
+                     "notation" : [
+                        "CD"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/CE",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Literacy.",
+                        "de" : "Literacy"
+                     },
+                     "notation" : [
+                        "CE"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "CF"
+                     ],
+                     "uri" : "http://example.org/jita/CF",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Reading and story telling.",
+                        "de" : "Lektüre und Erzählungen"
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Sonstiges in diesem Bereich",
+                        "en" : "None of these, but in this section."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/CZ",
+                     "notation" : [
+                        "CZ"
+                     ]
+                  }
+               ],
+               "uri" : "http://example.org/jita/C",
+               "notation" : [
+                  "C"
+               ]
+            },
+            {
+               "narrower" : [
+                  {
+                     "notation" : [
+                        "DA"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Internationale Bibliotheken",
+                        "en" : "World libraries."
+                     },
+                     "uri" : "http://example.org/jita/DA",
+                     "narrower" : []
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DB",
+                     "prefLabel" : {
+                        "de" : "Nationalbibliotheken",
+                        "en" : "National libraries."
+                     },
+                     "notation" : [
+                        "DB"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "DC"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Öffentliche Bibliotheken",
+                        "en" : "Public libraries."
+                     },
+                     "uri" : "http://example.org/jita/DC",
+                     "narrower" : []
+                  },
+                  {
+                     "uri" : "http://example.org/jita/DD",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Akademische Bibliotheken",
+                        "en" : "Academic libraries."
+                     },
+                     "notation" : [
+                        "DD"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "DE"
+                     ],
+                     "uri" : "http://example.org/jita/DE",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Schulbibliotheken",
+                        "en" : "School libraries."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "DF"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Government libraries.",
+                        "de" : "Staatliche Bibliotheken"
+                     },
+                     "uri" : "http://example.org/jita/DF",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "DG"
+                     ],
+                     "uri" : "http://example.org/jita/DG",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Private Bibliotheken",
+                        "en" : "Private libraries."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "DH"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DH",
+                     "prefLabel" : {
+                        "en" : "Special libraries.",
+                        "de" : "Spezial- und Fachbibliotheken"
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Wissenschaftliche Bibliotheken",
+                        "en" : "Science libraries."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DI",
+                     "notation" : [
+                        "DI"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Technische Bibliotheken",
+                        "en" : "Technical libraries."
+                     },
+                     "uri" : "http://example.org/jita/DJ",
+                     "narrower" : [],
+                     "notation" : [
+                        "DJ"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DK",
+                     "prefLabel" : {
+                        "de" : "Bibliotheken in den Bereichen Medizin und Gesundheit",
+                        "en" : "Health libraries, Medical libraries."
+                     },
+                     "notation" : [
+                        "DK"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "DL"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DL",
+                     "prefLabel" : {
+                        "en" : "Archives.",
+                        "de" : "Archive"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "DM"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/DM",
+                     "prefLabel" : {
+                        "de" : "Museen",
+                        "en" : "Museums."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "DZ"
+                     ],
+                     "uri" : "http://example.org/jita/DZ",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     }
+                  }
+               ],
+               "uri" : "http://example.org/jita/D",
+               "prefLabel" : {
+                  "de" : "Bibliotheken als physikalische Sammlungen",
+                  "en" : "Libraries as physical collections."
+               },
+               "notation" : [
+                  "D"
+               ]
+            },
+            {
+               "notation" : [
+                  "E"
+               ],
+               "uri" : "http://example.org/jita/E",
+               "narrower" : [
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/EA",
+                     "prefLabel" : {
+                        "de" : "Massenmedien",
+                        "en" : "Mass media."
+                     },
+                     "notation" : [
+                        "EA"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "EB"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Printing, electronic publishing, broadcasting.",
+                        "de" : "Drucken, elektronische Veröffentlichung, Austrahlungen"
+                     },
+                     "uri" : "http://example.org/jita/EB",
+                     "narrower" : []
+                  },
+                  {
+                     "uri" : "http://example.org/jita/EC",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Buchverkauf",
+                        "en" : "Book selling."
+                     },
+                     "notation" : [
+                        "EC"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "ED"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/ED",
+                     "prefLabel" : {
+                        "de" : "Geistiges Eigentum: Autorenrechte, Eigentum, Urheberrecht und Copyleft",
+                        "en" : "Intellectual property: author's rights, ownership, copyright, copyleft."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "EE"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/EE",
+                     "prefLabel" : {
+                        "en" : "Intellectual freedom.",
+                        "de" : "Intellektuelle Freiheit"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "EF"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/EF",
+                     "prefLabel" : {
+                        "en" : "Censorship.",
+                        "de" : "Zensur"
+                     }
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/EZ",
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "notation" : [
+                        "EZ"
+                     ]
+                  }
+               ],
+               "prefLabel" : {
+                  "de" : "Veröffentlichung und rechtliche Angelegenheiten",
+                  "en" : "Publishing and legal issues."
+               }
+            },
+            {
+               "narrower" : [
+                  {
+                     "uri" : "http://example.org/jita/FA",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Co-operation.",
+                        "de" : "Kooperationen"
+                     },
+                     "notation" : [
+                        "FA"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "FB"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Marketing",
+                        "en" : "Marketing."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/FB"
+                  },
+                  {
+                     "notation" : [
+                        "FC"
+                     ],
+                     "uri" : "http://example.org/jita/FC",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Finance.",
+                        "de" : "Finanzielles"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "FD"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Public relations.",
+                        "de" : "Öffentlichkeitsarbeit"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/FD"
+                  },
+                  {
+                     "notation" : [
+                        "FE"
+                     ],
+                     "uri" : "http://example.org/jita/FE",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Personalmanagement",
+                        "en" : "Personnel management."
+                     }
+                  },
+                  {
+                     "uri" : "http://example.org/jita/FF",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Funding.",
+                        "de" : "Finanzierung"
+                     },
+                     "notation" : [
+                        "FF"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "FG"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Local government.",
+                        "de" : "Lokale Verwaltung"
+                     },
+                     "uri" : "http://example.org/jita/FG",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "FH"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Reorganization.",
+                        "de" : "Umstrukturierung"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/FH"
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/FI",
+                     "prefLabel" : {
+                        "de" : "Unabhängige Autoritäten",
+                        "en" : "Unitary authorities."
+                     },
+                     "notation" : [
+                        "FI"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/FZ",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "notation" : [
+                        "FZ"
+                     ]
+                  }
+               ],
+               "uri" : "http://example.org/jita/F",
+               "prefLabel" : {
+                  "de" : "Management",
+                  "en" : "Management."
+               },
+               "notation" : [
+                  "F"
+               ]
+            },
+            {
+               "prefLabel" : {
+                  "de" : "Industrie, Beruf und Bildung",
+                  "en" : "Industry, profession and education."
+               },
+               "uri" : "http://example.org/jita/G",
+               "narrower" : [
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/GA",
+                     "prefLabel" : {
+                        "en" : "Information industry.",
+                        "de" : "Informationsindustrie"
+                     },
+                     "notation" : [
+                        "GA"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "GB"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Software industry.",
+                        "de" : "Softwareindustrie"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/GB"
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Computer and telecommunication industry.",
+                        "de" : "Computer- und Telekommunikationsindustrie"
+                     },
+                     "uri" : "http://example.org/jita/GC",
+                     "narrower" : [],
+                     "notation" : [
+                        "GC"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "GD"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Organizations.",
+                        "de" : "Organisationen"
+                     },
+                     "uri" : "http://example.org/jita/GD",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "GE"
+                     ],
+                     "uri" : "http://example.org/jita/GE",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Staff.",
+                        "de" : "Mitarbeiterstab"
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Biographies.",
+                        "de" : "Biografien"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/GF",
+                     "notation" : [
+                        "GF"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/GG",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Lernpläne",
+                        "en" : "Curricula aspects."
+                     },
+                     "notation" : [
+                        "GG"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "GH"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Education.",
+                        "de" : "Bildung und Erziehung"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/GH"
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Weiterbildung",
+                        "en" : "Training."
+                     },
+                     "uri" : "http://example.org/jita/GI",
+                     "narrower" : [],
+                     "notation" : [
+                        "GI"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "uri" : "http://example.org/jita/GZ",
+                     "narrower" : [],
+                     "notation" : [
+                        "GZ"
+                     ]
+                  }
+               ],
+               "notation" : [
+                  "G"
+               ]
+            }
+         ],
+         "uri" : "http://example.org/jita/2",
+         "prefLabel" : {
+            "en" : "User oriented, directional, and management functionalities",
+            "de" : "[Benutzerorientierte und direktionale Funktionen sowie Managementfunktionen]: Intermediäres Niveau (Sozio-ökonomische und rechtliche Angelegenheiten miteingeschlossen)"
+         }
+      },
+      {
+         "prefLabel" : {
+            "de" : "[Objekte, pragmatische und technische Angelegenheiten]: Spezifisches Niveau",
+            "en" : "Objects, Pragmatics and Technicalities"
+         },
+         "uri" : "http://example.org/jita/3",
+         "narrower" : [
+            {
+               "prefLabel" : {
+                  "en" : "Information sources, supports, channels.",
+                  "de" : "Informationsquellen, Unterstützung, Kanäle"
+               },
+               "narrower" : [
+                  {
+                     "uri" : "http://example.org/jita/HA",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Periodicals, Newspapers.",
+                        "de" : "Zeitschriften, Zeitungen"
+                     },
+                     "notation" : [
+                        "HA"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HB",
+                     "prefLabel" : {
+                        "de" : "Graue Literatur",
+                        "en" : "Gray literature."
+                     },
+                     "notation" : [
+                        "HB"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Archivierte Materialien",
+                        "en" : "Archival materials."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HC",
+                     "notation" : [
+                        "HC"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Rare books and manuscripts.",
+                        "de" : "Seltene Bücher und Manuskripte"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HD",
+                     "notation" : [
+                        "HD"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HE",
+                     "prefLabel" : {
+                        "en" : "Print materials."
+                     },
+                     "notation" : [
+                        "HE"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "HF"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Microforms.",
+                        "de" : "Mikroformen"
+                     },
+                     "uri" : "http://example.org/jita/HF",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "HG"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Nicht-Printmaterialien",
+                        "en" : "Non-print materials."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HG"
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Audio-visual, Multimedia.",
+                        "de" : "Audio-visuell, Multimedia"
+                     },
+                     "uri" : "http://example.org/jita/HH",
+                     "narrower" : [],
+                     "notation" : [
+                        "HH"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "HI"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Electronic Media.",
+                        "de" : "Elektronische Medien"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HI"
+                  },
+                  {
+                     "notation" : [
+                        "HJ"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HJ",
+                     "prefLabel" : {
+                        "de" : "CD-ROM",
+                        "en" : "CD-ROM."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "HK"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HK",
+                     "prefLabel" : {
+                        "de" : "Online Hosts",
+                        "en" : "Online hosts."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "HL"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Databases and database Networking.",
+                        "de" : "Datenbanken und Vernetzung von Datenbanken"
+                     },
+                     "uri" : "http://example.org/jita/HL",
+                     "narrower" : []
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HM",
+                     "prefLabel" : {
+                        "en" : "OPACs.",
+                        "de" : "OPACs"
+                     },
+                     "notation" : [
+                        "HM"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HN",
+                     "prefLabel" : {
+                        "en" : "e-journals.",
+                        "de" : "e-Journals"
+                     },
+                     "notation" : [
+                        "HN"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "HO"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HO",
+                     "prefLabel" : {
+                        "de" : "e-Books",
+                        "en" : "e-books."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "HP"
+                     ],
+                     "prefLabel" : {
+                        "en" : "e-resources.",
+                        "de" : "e-Resourcen"
+                     },
+                     "uri" : "http://example.org/jita/HP",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "HQ"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Webseiten",
+                        "en" : "Web pages."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/HQ"
+                  },
+                  {
+                     "notation" : [
+                        "HR"
+                     ],
+                     "uri" : "http://example.org/jita/HR",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Portals.",
+                        "de" : "Portale"
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Repositorien",
+                        "en" : "Repositories."
+                     },
+                     "uri" : "http://example.org/jita/HS",
+                     "narrower" : [],
+                     "notation" : [
+                        "HS"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/HZ",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "notation" : [
+                        "HZ"
+                     ]
+                  }
+               ],
+               "uri" : "http://example.org/jita/H",
+               "notation" : [
+                  "H"
+               ]
+            },
+            {
+               "notation" : [
+                  "I"
+               ],
+               "prefLabel" : {
+                  "de" : "Umgang mit Informationen für Informationsdienste, Funktionen von Informationen und Informationstechniken",
+                  "en" : "Information treatment for information services"
+               },
+               "uri" : "http://example.org/jita/I",
+               "narrower" : [
+                  {
+                     "prefLabel" : {
+                        "de" : "Katalogisierung, bibliografische Kontrolle",
+                        "en" : "Cataloging, bibliographic control."
+                     },
+                     "uri" : "http://example.org/jita/IA",
+                     "narrower" : [],
+                     "notation" : [
+                        "IA"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Inhaltsanalyse: Zusammenfassungen, Indizierung, Klassifizierungen",
+                        "en" : "Content analysis (A and I, class.)"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/IB",
+                     "notation" : [
+                        "IB"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "IC"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Index languages, processes and schemes.",
+                        "de" : "Indizierungssprachen, Prozesse und Schemata"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/IC"
+                  },
+                  {
+                     "notation" : [
+                        "ID"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Daten- und Metadatenstrukturen",
+                        "en" : "Knowledge representation."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/ID"
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/IE",
+                     "prefLabel" : {
+                        "en" : "Data and metadata structures.",
+                        "de" : "Repräsentation von Wissen"
+                     },
+                     "notation" : [
+                        "IE"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "IF"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Information transfer: protocols, formats, techniques.",
+                        "de" : "Informationstransfer: Protokolle, Formate (z.B. XML), Techniken"
+                     },
+                     "uri" : "http://example.org/jita/IF",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "IG"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/IG",
+                     "prefLabel" : {
+                        "de" : "Präsentationsformen von Informationen: Hypertext, Hypermedien",
+                        "en" : "Information presentation: hypertext, hypermedia."
+                     }
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Image systems.",
+                        "de" : "Bildsysteme"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/IH",
+                     "notation" : [
+                        "IH"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Filtering.",
+                        "de" : "Filterung"
+                     },
+                     "uri" : "http://example.org/jita/II",
+                     "narrower" : [],
+                     "notation" : [
+                        "II"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Referenzarbeiten",
+                        "en" : "Reference work."
+                     },
+                     "uri" : "http://example.org/jita/IJ",
+                     "narrower" : [],
+                     "notation" : [
+                        "IJ"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/IK",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Design, Entwicklung, Implementierung und Wartung von Informationssystemen und Diensten",
+                        "en" : "Design, development, implementation and maintenance"
+                     },
+                     "notation" : [
+                        "IK"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "IZ"
+                     ],
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "uri" : "http://example.org/jita/IZ",
+                     "narrower" : []
+                  }
+               ]
+            },
+            {
+               "notation" : [
+                  "J"
+               ],
+               "prefLabel" : {
+                  "de" : "Technische Dienstleistungen in Bibliotheken, Archiven und Museen",
+                  "en" : "Technical services in libraries, archives, museum."
+               },
+               "narrower" : [
+                  {
+                     "prefLabel" : {
+                        "de" : "Akquisen",
+                        "en" : "Acquisitions."
+                     },
+                     "uri" : "http://example.org/jita/JA",
+                     "narrower" : [],
+                     "notation" : [
+                        "JA"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Zeitschriftenverwaltung",
+                        "en" : "Serials management."
+                     },
+                     "uri" : "http://example.org/jita/JB",
+                     "narrower" : [],
+                     "notation" : [
+                        "JB"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "JC"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Withdrawals.",
+                        "de" : "Rücknahme"
+                     },
+                     "uri" : "http://example.org/jita/JC",
+                     "narrower" : []
+                  },
+                  {
+                     "uri" : "http://example.org/jita/JD",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Bestandsaufnahme",
+                        "en" : "Stock taking."
+                     },
+                     "notation" : [
+                        "JD"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "JE"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Buchführung",
+                        "en" : "Record keeping."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JE"
+                  },
+                  {
+                     "notation" : [
+                        "JF"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Konservierung von Dokumenten",
+                        "en" : "Paper preservation."
+                     },
+                     "uri" : "http://example.org/jita/JF",
+                     "narrower" : []
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Digitalisierung",
+                        "en" : "Digitization."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JG",
+                     "notation" : [
+                        "JG"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "JH"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Digital preservation.",
+                        "de" : "Digitale Konservierung"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JH"
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Circulation.",
+                        "de" : "Zirkulation"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JI",
+                     "notation" : [
+                        "JI"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/JJ",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Document delivery.",
+                        "de" : "Dokumentenlieferung"
+                     },
+                     "notation" : [
+                        "JJ"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "JK"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JK",
+                     "prefLabel" : {
+                        "de" : "Fernleihe",
+                        "en" : "Interlibrary loans."
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "JZ"
+                     ],
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/JZ"
+                  }
+               ],
+               "uri" : "http://example.org/jita/J"
+            },
+            {
+               "narrower" : [
+                  {
+                     "prefLabel" : {
+                        "de" : "Ressource-Zentren",
+                        "en" : "Resources centers."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/KA",
+                     "notation" : [
+                        "KA"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "KB"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Bibliotheks-, Archivs- und Museumsgebäude",
+                        "en" : "Library, archive and museum buildings."
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/KB"
+                  },
+                  {
+                     "uri" : "http://example.org/jita/KC",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Furniture.",
+                        "de" : "Möbel"
+                     },
+                     "notation" : [
+                        "KC"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "de" : "Fahrzeuge",
+                        "en" : "Vehicles."
+                     },
+                     "uri" : "http://example.org/jita/KD",
+                     "narrower" : [],
+                     "notation" : [
+                        "KD"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/KE",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Architecture.",
+                        "de" : "Architektur"
+                     },
+                     "notation" : [
+                        "KE"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Planning, Design, Removal.",
+                        "de" : "Planung, Design, Demontage"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/KF",
+                     "notation" : [
+                        "KF"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Safety.",
+                        "de" : "Sicherheit"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/KG",
+                     "notation" : [
+                        "KG"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Disaster planning.",
+                        "de" : "Notfallmaßnahmen"
+                     },
+                     "uri" : "http://example.org/jita/KH",
+                     "narrower" : [],
+                     "notation" : [
+                        "KH"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "None of these, but in this section.",
+                        "de" : "Sonstiges in diesem Bereich"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/KZ",
+                     "notation" : [
+                        "KZ"
+                     ]
+                  }
+               ],
+               "uri" : "http://example.org/jita/K",
+               "prefLabel" : {
+                  "de" : "Gebäudetechnologien",
+                  "en" : "Housing technologies."
+               },
+               "notation" : [
+                  "K"
+               ]
+            },
+            {
+               "notation" : [
+                  "L"
+               ],
+               "uri" : "http://example.org/jita/L",
+               "narrower" : [
+                  {
+                     "uri" : "http://example.org/jita/LA",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Telekommunikation",
+                        "en" : "Telecommunications."
+                     },
+                     "notation" : [
+                        "LA"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/LB",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "de" : "Computernetzwerke",
+                        "en" : "Computer networking."
+                     },
+                     "notation" : [
+                        "LB"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Internet, including WWW.",
+                        "de" : "Internet, WWW eingeschlossen"
+                     },
+                     "uri" : "http://example.org/jita/LC",
+                     "narrower" : [],
+                     "notation" : [
+                        "LC"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "LD"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Computers.",
+                        "de" : "Computer"
+                     },
+                     "uri" : "http://example.org/jita/LD",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "LE"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Scanners.",
+                        "de" : "Scanner"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LE"
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Digital cameras.",
+                        "de" : "Digitalkameras"
+                     },
+                     "uri" : "http://example.org/jita/LF",
+                     "narrower" : [],
+                     "notation" : [
+                        "LF"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "LG"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LG",
+                     "prefLabel" : {
+                        "en" : "Photocopiers.",
+                        "de" : "Fotokopierer"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "LH"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Computer and network security.",
+                        "de" : "Computer- und Netzwerksicherheit"
+                     },
+                     "uri" : "http://example.org/jita/LH",
+                     "narrower" : []
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Authentication, and access control.",
+                        "de" : "Authentifizierung und Zugangskontrolle"
+                     },
+                     "uri" : "http://example.org/jita/LI",
+                     "narrower" : [],
+                     "notation" : [
+                        "LI"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LJ",
+                     "prefLabel" : {
+                        "de" : "Software",
+                        "en" : "Software."
+                     },
+                     "notation" : [
+                        "LJ"
+                     ]
+                  },
+                  {
+                     "uri" : "http://example.org/jita/LK",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Software methodologies and engineering.",
+                        "de" : "Methoden der Softwareentwicklung"
+                     },
+                     "notation" : [
+                        "LK"
+                     ]
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Automated language processing.",
+                        "de" : "Automatisierte Sprachverarbeitung"
+                     },
+                     "uri" : "http://example.org/jita/LL",
+                     "narrower" : [],
+                     "notation" : [
+                        "LL"
+                     ]
+                  },
+                  {
+                     "notation" : [
+                        "LM"
+                     ],
+                     "uri" : "http://example.org/jita/LM",
+                     "narrower" : [],
+                     "prefLabel" : {
+                        "en" : "Automatic text retrieval.",
+                        "de" : "Automatische Textrecherche"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "LN"
+                     ],
+                     "prefLabel" : {
+                        "en" : "Data base management systems.",
+                        "de" : "Datenbankmanagementsysteme"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LN"
+                  },
+                  {
+                     "notation" : [
+                        "LO"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LO",
+                     "prefLabel" : {
+                        "en" : "Object-oriented DBMS.",
+                        "de" : "Objektorientierte DBMS"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "LP"
+                     ],
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LP",
+                     "prefLabel" : {
+                        "en" : "Intelligent agents.",
+                        "de" : "Intelligente Agenten"
+                     }
+                  },
+                  {
+                     "notation" : [
+                        "LQ"
+                     ],
+                     "prefLabel" : {
+                        "de" : "Automatisierte Bibliothekssysteme",
+                        "en" : "Library automation systems."
+                     },
+                     "uri" : "http://example.org/jita/LQ",
+                     "narrower" : []
+                  },
+                  {
+                     "notation" : [
+                        "LR"
+                     ],
+                     "prefLabel" : {
+                        "en" : "OPAC systems.",
+                        "de" : "OPAC-Systeme"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LR"
+                  },
+                  {
+                     "prefLabel" : {
+                        "en" : "Search engines.",
+                        "de" : "Suchmaschinen"
+                     },
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LS",
+                     "notation" : [
+                        "LS"
+                     ]
+                  },
+                  {
+                     "narrower" : [],
+                     "uri" : "http://example.org/jita/LZ",
+                     "prefLabel" : {
+                        "de" : "Sonstiges in diesem Bereich",
+                        "en" : "None of these, but in this section."
+                     },
+                     "notation" : [
+                        "LZ"
+                     ]
+                  }
+               ],
+               "prefLabel" : {
+                  "de" : "Informationstechnologie und Bibliothekstechnologie",
+                  "en" : "Information technology and library technology."
+               }
+            }
+         ],
+         "notation" : [
+            "3"
+         ]
+      }
+   ]
+}

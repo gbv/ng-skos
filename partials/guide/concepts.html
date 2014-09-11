@@ -2,7 +2,7 @@
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="concepts-page"><p>A <b>concept</b> in ng-skos is a JSON object with the following keys:</p>
+<div><div class="concepts-page"><p>A <b>concept</b> in ng-skos is a JSON object with the following optional keys:</p>
 <dl>
 <dt>uri
 <dd>URI of the concept, 
@@ -14,26 +14,51 @@
 <dd>object that maps language tags to unordered arrays of alternative labels,
     each given as string
 <dt>notation
-<dd>partly ordered array of notations, 
-    each given as string. The first notation might be used as primary 
-    notation but multiple notations might also be used equivalently. The data
-    type is assumed to be undefined or implicitly known. To support multiple 
-    notations of different type, additional concept keys might be introduced
-    in a later version of ng-skos.
+<dd>ordered array of notations, each given as string. 
+    The first notation might be used as primary notation.
 <dt>narrower
-<dd>...
+<dd>unordered array of narrower concepts.
 <dt>broader
-<dd>...
+<dd>unordered array of broader concepts.
 <dt>related
-<dd>...
+<dd>unordered array of related concepts.
 <dt>ancestors
-<dd>...
+<dd>array of concepts that make up a path of narrower concepts, 
+    possibly to a top concept (only makes sense in monohierarchical
+    classifications).
 <dt>inScheme
 <dd>unordered array of terminologies,
     each given either as string with the URI of the terminology, or as
-    terminology object.
+    <a href="#/guide/terminologies">terminology</a> object.
 </dl>
 
+<h3 id="example">Example</h3>
+<p><code><pre class="prettyprint linenums">
+{
+  uri: "http://example.org/terminology/P",
+  prefLabel: {
+    en: "peace",
+    de: "Frieden"
+  },
+  altLabel: {
+    de: ["Friede"]
+  },
+  notation: ['P'],
+  narrower: [
+    {
+      prefLabel: {
+        en: "world peace",
+        de: "Weltfrieden"
+      } 
+    }
+  ],
+  related: [
+    { 
+      prefLabel: { en: "war", de: "Krieg" } 
+    }
+  ]
+}
+</pre></code></p>
 <h2 id="usage-and-examples">Usage and Examples</h2>
 <p>The <a href="#/api/ng-skos.directive:skosConcept">skosConcept directive</a> can be used to
 display a concept.</p>

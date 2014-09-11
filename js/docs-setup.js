@@ -11,7 +11,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "guide",
       "shortDescription": "How entities are expressed",
-      "keywords": "array better collections concept concepts core corresponding de directive directives empty en encode entities explicitly expressed frieden grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview peace preflabel properties replaced schemes secconcept secscheme services set skos skosaccess sorting supported terminologies uri w3 world"
+      "keywords": "array better collections concept concepts core corresponding directive directives empty encode entities explicitly expressed grouping guide http indicate instance json mapping mappings missing ng-skos notation null object objects optional org overview properties replaced schemes secconcept secscheme services set skos skosaccess sorted supported terminologies uri w3 world"
     },
     {
       "section": "guide",
@@ -29,7 +29,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "Terminologies",
       "shortDescription": "A terminology in ng-skos is a JSON object with the following keys:",
-      "keywords": "acronym array concept guide json language maps names ng-skos object objects overview preferred string strings tags terminologies terminology uris"
+      "keywords": "acronyms alternative array arrays concept guide json language maps names ng-skos object objects overview preferred short string strings tags terminologies terminology unordered uris"
     },
     {
       "section": "guide",
@@ -37,8 +37,8 @@ NG_DOCS={
       "shortName": "Concepts",
       "type": "overview",
       "moduleName": "Concepts",
-      "shortDescription": "A concept in ng-skos is a JSON object with the following keys:",
-      "keywords": "additional alternative array arrays assumed concept concepts data directive display equivalently examples guide implicitly introduced json labels language maps multiple ng-skos notation notations object ordered overview preferred primary string support tags terminologies terminology type undefined unordered uri usage version"
+      "shortDescription": "A concept in ng-skos is a JSON object with the following optional keys:",
+      "keywords": "alternative altlabel array arrays broader classifications concept concepts de directive display en example examples friede frieden guide http json krieg labels language maps monohierarchical narrower ng-skos notation notations object optional org overview path peace preferred preflabel primary sense string tags terminologies terminology top unordered uri usage war weltfrieden world"
     },
     {
       "section": "api",
@@ -92,7 +92,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Scope",
-      "keywords": "api browser concept directive display lookup-notation ng-skos notation opensearchsuggestions scope search selected skosconceptprovider supported template template-url typeahead url variables"
+      "keywords": "addition api browser concept directive display function get-by-notation getbynotation limitations ng-skos notation opensearchsuggestions parameters scope selected suggest-concept supported template template-url typeahead url variables"
     },
     {
       "section": "api",
@@ -141,8 +141,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.service:SkosProvider",
-      "shortName": "SkosProvider",
+      "id": "ng-skos.service:SkosHTTPProvider",
+      "shortName": "SkosHTTPProvider",
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Utility service to facilitate HTTP requests. ",
