@@ -12,7 +12,14 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
     $scope.rvk.byNotation('UN').then(function(response){
         angular.copy(response, $scope.sampleConcept);
     });
- 
+    $scope.rvk.topConcepts.getConceptList().then(function(response){
+        $scope.rvkTopConcepts = response;
+    });
+    $scope.selectTopConcept = function(notation){
+        $scope.rvk.byNotation(notation).then(function(response){
+            angular.copy(response, $scope.sampleConcept);
+        });
+    };
     //$scope.safeApply = function(fn) { 
     //    var phase = this.$root.$$phase; 
     //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
@@ -26,6 +33,7 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
     $scope.insertMapping = function(mapping){
         $scope.currentMapping = mapping;
     }
+    
 }
 
 angular.module('myApp')

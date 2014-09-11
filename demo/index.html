@@ -132,6 +132,14 @@
                         suggest-concept="rvk.suggest"
                     >
                     </skos-concept-browser>
+                    <div class="tmpl-border">
+                        <div ng-repeat="term in rvkTopConcepts.values">
+                            <a ng-click="selectTopConcept(term.notation)" style="text-decoration:none;cursor:pointer;">
+                                <span class="notation">{{term.notation}}</span> 
+                                <span>{{term.label}}</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-1">
                 </div>
