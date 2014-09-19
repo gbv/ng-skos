@@ -22,21 +22,6 @@
  * * **`updateConcept(concept)`**
  * * **`updateConnected(concept)`**
  *
- * @example
- *  <example module="myApp">
- *    <file name="index.html">
- *      <div ng-controller="myController">
- *      </div>
- *    </file>
- *    <file name="script.js">
- *      angular.module('myApp',['ngSKOS']);
- *      function myController($scope, SkosConceptProvider) {
- *          var foo = new SkosConceptProvider({
- *              url: '...'
- *          });
- *      }
- *    </file>
- *  </example>
  */
 angular.module('ngSKOS')
 .factory('SkosConceptProvider',['SkosHTTPProvider',function(SkosHTTPProvider) {

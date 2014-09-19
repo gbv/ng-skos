@@ -108,17 +108,26 @@ function rvkTerminologyService($q, SkosConceptProvider, SkosConceptListProvider,
 
     var rvkByNotation = function(notation) {
         var concept = { notation: [ notation ] };
+        var temp = {};
         var deferred = $q.defer();
         // first get & update concept
         var promise = rvkProvider.updateConcept(concept);
         promise.then(function(){
-            // then get children (TODO: get ancestors)
+            angular.copy(concept, temp);
+            // then get children & ancestors
             if (concept.narrower === true) {
                 getNarrower.updateConcept(concept).then(function(){
-                    deferred.resolve(concept);
+                    angular.copy(temp.altLabel, concept.altLabel);
+                    getBroader.updateConcept(temp).then(function(){
+                        angular.copy(temp.broader, concept.broader);
+                        deferred.resolve(concept);
+                    });
                 });
             } else {
-                deferred.resolve(concept);
+                getBroader.updateConcept(concept).then(function(){
+                    angular.copy(temp.altLabel, concept.altLabel);
+                    deferred.resolve(concept);
+                });
             }
         });
         // promise the final result

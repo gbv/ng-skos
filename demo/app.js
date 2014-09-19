@@ -26,6 +26,10 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
     //
 
     $scope.conceptList = [];
+    $scope.selectedConcept = {};
+    $scope.rvk.byNotation('UN').then(function(response){
+        angular.copy(response, $scope.selectedConcept);
+    });
     $scope.addConcept = function(concept){
         $scope.conceptList.push({
             prefLabel: { de: concept.prefLabel.de },
@@ -36,13 +40,19 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
     $scope.checkDuplicate = function(){
         var dupe = false;
         angular.forEach($scope.conceptList, function(value, key){
-            if(value.uri == $scope.sampleConcept.uri){
+            if(value.uri == $scope.selectedConcept.uri){
                 dupe = true;
             }
         })
         return dupe;
     }
-    
+    $scope.reselectConcept = function(concept){
+        
+        $scope.rvk.byNotation(concept.notation[0]).then(function(response){
+            angular.copy(response, $scope.selectedConcept);
+        });
+        $scope.conceptLabel = {};
+    }
     
 }
 

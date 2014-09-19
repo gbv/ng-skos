@@ -77,7 +77,7 @@
                     <p>
                         Interactive elements can be added, for instance to 
                         change the concept on clicks by loading from a cocoda 
-                        server...(TODO)
+                        server. (See <a href="#browser"><b>skos-concept-browser</b></a> below, for an example using the german <a href="http://rvk.uni-regensburg.de/">RVK</a> concept scheme)
                     </p>
                 </div>
                 <div class="col-md-1">
@@ -125,7 +125,7 @@
         </section>
         <section id="browser" class="fixnav">
             <div class="page-header">
-                <h2>skos-browser</h2>
+                <h2>skos-concept-browser</h2>
             </div>
             <div class="row">
                 <div class="col-md-5">
@@ -137,17 +137,18 @@
                     </skos-concept-browser>
                     <div class="tmpl-border">
                         <div ng-repeat="term in rvkTopConcepts.values">
-                            <a ng-click="selectTopConcept(term.notation)" style="text-decoration:none;cursor:pointer;">
-                                <span class="notation">{{term.notation}}</span> 
-                                <span>{{term.label}}</span>
-                            </a>
+                            <div class="set" ng-click="selectTopConcept(term.notation)" style="text-decoration:none;cursor:pointer;">
+                                <span class="notation top-notation">{{term.notation}}</span> 
+                                <span class="toplabel">{{term.label}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-6">
-                    ...
+                    The directive combines <b>skos-concept</b> (see <a href="#concept">Concept</a>) with a typeahead search field for concept labels provided by the module <a href="https://github.com/gbv/ng-suggest">ng-suggest</a>, as well as a function to look up specific notations.
+                    The box below displays the topmost concepts of the RVK concept scheme. Clicking its links will update the browser's content.
                 </div>
             </div>
         </section>
@@ -158,10 +159,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <div style="min-width:300px;">
+                        <div style="padding-bottom:10px;">Displays selected concept labels in a list format:</div>
                         <div ng-if="!conceptList.length">
-                            <alert style="width:175px;" type="danger">No concepts selected!</alert>
+                            <alert style="width:225px;" type="danger">Select concepts on the right!</alert>
                         </div>
-                        <div skos-concept-list="conceptList">
+                        <div ng-if="conceptList.length"  class="tmpl-border" skos-concept-list="conceptList" on-select="reselectConcept">
+                        </div>
+                        <div ng-if="conceptList.length">
+                            The directive provides an internal function to remove list entries (<span class="glyphicon glyphicon-trash"></span>), as well as an external onSelect() to select a concept from the list, which can then be used elsewhere. The standard template utilizes this function when a label is clicked. In this demo, the function will refresh the concept shown in the adjacent <i>skos-concept-browser</i>.
                         </div>
                     </div>
                 </div>
@@ -171,13 +176,13 @@
                     <div style="width:100%">
                         <span>Select concepts and add them to the concept list:</span>
                         <skos-concept-browser class="tmpl-border"
-                            concept="sampleConcept"
+                            concept="selectedConcept"
                             get-by-notation="rvk.byNotation"
                             suggest-concept="rvk.suggest"
                         >
                         </skos-concept-browser>
                     </div>
-                    <button ng-disabled="checkDuplicate()" ng-click="addConcept(sampleConcept)" title="No duplicates!">
+                    <button ng-disabled="checkDuplicate()" ng-click="addConcept(selectedConcept)" title="No duplicates!">
                         <span>Add concept</span>
                     </button>
                 </div>

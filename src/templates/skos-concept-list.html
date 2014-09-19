@@ -2,12 +2,9 @@
     <ul ng-if="concepts.length" style="list-style-type:none;padding-left:0px;">
         <li ng-repeat="c in concepts" style="max-width:320px;display:block;">
             <span class="notation">{{c.notation[0]}}</span>
-            <span>{{c.prefLabel.de}}</span>
+            <span ng-click="onSelect(c)" style="cursor:pointer;">{{c.prefLabel.de}}</span>
             <div style="display:inline-table">
-                <a ng-if="onSelect" href="" ng-click="onSelect(c)">
-                    <span class="glyphicon glyphicon-search"></span>
-                </a>
-                <a href="" ng-click="removeConcept($index)">
+                <a style="text-decoration:none" href="" ng-click="removeConcept($index)">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </div>
