@@ -160,10 +160,12 @@ ul.ancestors li {
 
 /* SKOS-tree */
 /*  template also uses: .notation*/
-
+.skos-tree{
+    margin-left:-20px;
+}
 .skos-tree ul{
     list-style-type:none;
-    padding-left:30px;
+
 }
 .skos-tree li{
     padding-right:8px;
@@ -183,7 +185,7 @@ ul.ancestors li {
     color:#803A22;
     font-weight:bold;
     cursor:pointer;
-    margin-left:3px;
+    padding-left:3px;
 }
 .simple-list{
     list-style-type:none;

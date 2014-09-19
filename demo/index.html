@@ -35,6 +35,9 @@
                             <li>
                                 <a href="#browser" target="_self">Browser</a>
                             </li>
+                            <li>
+                                <a href="#list" target="_self">Concept List</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -153,6 +156,31 @@
                 <h2>skos-concept-list</h2>
             </div>
             <div class="row">
+                <div class="col-md-5">
+                    <div style="min-width:300px;">
+                        <div ng-if="!conceptList.length">
+                            <alert style="width:175px;" type="danger">No concepts selected!</alert>
+                        </div>
+                        <div skos-concept-list="conceptList">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6">
+                    <div style="width:100%">
+                        <span>Select concepts and add them to the concept list:</span>
+                        <skos-concept-browser class="tmpl-border"
+                            concept="sampleConcept"
+                            get-by-notation="rvk.byNotation"
+                            suggest-concept="rvk.suggest"
+                        >
+                        </skos-concept-browser>
+                    </div>
+                    <button ng-disabled="checkDuplicate()" ng-click="addConcept(sampleConcept)" title="No duplicates!">
+                        <span>Add concept</span>
+                    </button>
+                </div>
             </div>
         </section>
     </div>
@@ -178,6 +206,7 @@
     <script src="../src/directives/skosConcept.js"></script>
     <script src="../src/directives/skosTree.js"></script>
     <script src="../src/directives/skosConceptBrowser.js"></script>
+    <script src="../src/directives/skosConceptList.js"></script>
     <script src="rvk.js"></script>
 </body>
 </html>

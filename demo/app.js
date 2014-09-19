@@ -8,7 +8,7 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
         SkosConceptProvider, SkosConceptListProvider, OpenSearchSuggestions
     );
     // init example via RVK API
-    $scope.sampleConcept = { };
+    $scope.sampleConcept = {};
     $scope.rvk.byNotation('UN').then(function(response){
         angular.copy(response, $scope.sampleConcept);
     });
@@ -25,14 +25,24 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
     //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
     //
 
-   
-    $scope.currentMapping = {
-        from: [],
-        to: [],
+    $scope.conceptList = [];
+    $scope.addConcept = function(concept){
+        $scope.conceptList.push({
+            prefLabel: { de: concept.prefLabel.de },
+            notation: [ concept.notation[0] ],
+            uri: concept.uri
+        });
+    };
+    $scope.checkDuplicate = function(){
+        var dupe = false;
+        angular.forEach($scope.conceptList, function(value, key){
+            if(value.uri == $scope.sampleConcept.uri){
+                dupe = true;
+            }
+        })
+        return dupe;
     }
-    $scope.insertMapping = function(mapping){
-        $scope.currentMapping = mapping;
-    }
+    
     
 }
 
@@ -46,6 +56,9 @@ angular.module('myApp')
 	});
 
 })
-.config(function($locationProvider) {
+.config(function($locationProvider, $anchorScrollProvider) {
     $locationProvider.html5Mode(true);
-}).controller('MainCtrl', function ($$rootScope, $location) { });
+})
+.controller('MainCtrl', function ($$rootScope, $location) { 
+    
+});
