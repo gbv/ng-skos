@@ -4,7 +4,13 @@
  * @restrict A
  * @description
  *
- * ...
+ * Displays a hierarchical view of a concept and its transitive narrowers.
+ *
+ * ## Customization
+ *
+ * The [default
+ * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-tree.html) 
+ * can be changed with parameter `templateUrl`.
  *
  * ## Source code
  *

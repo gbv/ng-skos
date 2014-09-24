@@ -1,7 +1,8 @@
 <div style="" class="skos-tree">
     <p class="set" ng-if="!tree.topConcepts">
         <span ng-if="tree.notation" class="notation">{{tree.notation[0]}}</span>
-        <span class="nlabel" style="display:table-cell;">{{tree.prefLabel.de}}</span>
+        <span skos-label="tree" class="nlabel" style="display:table-cell;">
+        </span>
     </p>
     <ul>
         <li ng-repeat="n in tree.narrower ? tree.narrower : tree.topConcepts">

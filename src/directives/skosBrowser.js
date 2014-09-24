@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name ng-skos.directive:skosConceptBrowser
+ * @name ng-skos.directive:skosBrowser
  * @restrict E
  * @scope
  * @description
@@ -17,13 +17,25 @@
  *
  * By now, only getByNotation is supported.
  *
+ * ## Customization
+ *
+ * The [default 
+ * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-browser.html)
+ * can be changed with parameter `templateUrl`.
+ *
+ * ## Source code
+ *
+ * The most recent [source 
+ * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosBrowser.js)
+ * of this directive is available at GitHub.
+ *
  * @param {string} concept selected [concept](http://gbv.github.io/jskos/jskos.html#concepts)
  * @param {string} suggest-concept OpenSearchSuggestions for typeahead
  * @param {string} get-by-notation function to look up by notation (promise)
  * @param {string} template-url URL of a template to display the concept browser
  */
 angular.module('ngSKOS')
-.directive('skosConceptBrowser', function() {
+.directive('skosBrowser', function() {
     return {
         restrict: 'E',
         scope: { 
@@ -35,7 +47,7 @@ angular.module('ngSKOS')
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 
-                   attrs.templateUrl : 'template/skos-concept-browser.html';
+                   attrs.templateUrl : 'template/skos-browser.html';
         },
         link: function link(scope, element, attr) {
             if (scope.getByNotation) {

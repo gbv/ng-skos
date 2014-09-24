@@ -26,10 +26,16 @@
  * In addition the helper method `isEmptyObject` is provided to check whether an object
  * is empty.
  *
+ * ## Customization
+ *
+ * The [default
+ * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-concept.html) 
+ * can be changed with parameter `templateUrl`.
+ *
  * ## Source code
  *
- * The most recent 
- * [source code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosConcept.js)
+ * The most recent [source 
+ * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosConcept.js)
  * of this directive is available at GitHub.
  * 
  * @param {string} skos-concept Assignable angular expression with a

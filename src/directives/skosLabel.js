@@ -7,6 +7,12 @@
  * Displays the preferred label of a concept.
  * Changes on the preferred label(s) are reflected in the display.
  *
+ * ## Source code
+ *
+ * The most recent [source 
+ * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosLabel.js)
+ * of this directive is available at GitHub.
+ *
  * @param {string} skos-label Assignable angular expression with 
  *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) data to bind to.
  * @param {string=} lang optional language. If not specified, an arbitrary
@@ -56,13 +62,9 @@ angular.module('ngSKOS')
             function updateLanguage(language) {
                 scope.language = language ? language : attrs.lang;
 
-                //console.log("updateLanguage: "+scope.language);
-                //console.log(scope.concept.prefLabel);
-
                 language = scope.concept ? selectLanguage(scope.concept.prefLabel, scope.language) : "";
 
                 if (language != scope.language) {
-                    // console.log("use language "+language+" instead of "+scope.language);
                     scope.language = language;
                 }
             }
