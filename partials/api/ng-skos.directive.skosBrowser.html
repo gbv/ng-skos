@@ -4,15 +4,26 @@
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><h4 id="description_scope">Scope</h4>
-<p>The following variables are added to the scope, in addition to parameters:</p>
+<div class="description"><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>Provides a browsing interface to a concept scheme.</p>
+<p>The concept scheme must be provided as object with lookup functions to look
+up a concept by URI (<code>lookupURI</code>), by notation (<code>lookupNotation</code>), and/or by
+a unique preferred label (<code>lookupLabel</code>). Each lookup function, if given, 
+must return an AngularJS promise to return a single concept in JSKOS format.
+<em>Searching</em> in a concept scheme is not supported by this directive but one
+can provide an additional OpenSearchSuggestion service (see
+<a href="http://gbv.github.io/ng-suggest/">ng-suggest</a>) with field <code>suggest</code>.</p>
+<h4 id="description_scope">Scope</h4>
+<p>The following variables are added to the scope, if the corresponding
+lookup function have been provided:</p>
 <ul>
-<li>notation
+<li>selectURI
 <li>selectNotation
+<li>selectLabel
 </ul>
 
-<h4 id="description_limitations">Limitations</h4>
-<p>By now, only getByNotation is supported.</p>
+<p>The current version only tries either one of this methods.</p>
+<p>The variable <code>loading</code> can be used to indicate loading delay.</p>
+<p>Suggestions are not fully supported yet.</p>
 <h4 id="description_customization">Customization</h4>
 <p>The <a href="https://github.com/gbv/ng-skos/blob/master/src/templates/skos-browser.html">default 
 template</a>
@@ -25,8 +36,7 @@ of this directive is available at GitHub.</p>
 <h2 id="usage">Usage</h2>
 <div class="usage">as element:<pre class="prettyprint linenums">&lt;skos-browser
        concept="{string}"
-       suggest-concept="{string}"
-       get-by-notation="{string}"
+       concept-scheme="{string}"
        template-url="{string}"&gt;
 &lt;/skos-browser&gt;</pre>
 <h3 id="usage_directive-info">Directive info</h3>
@@ -34,8 +44,7 @@ of this directive is available at GitHub.</p>
 </ul>
 </div>
 <h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>selected <a href="http://gbv.github.io/jskos/jskos.html#concepts">concept</a></p>
-</div></td></tr><tr><td>suggest-concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>OpenSearchSuggestions for typeahead</p>
-</div></td></tr><tr><td>get-by-notation</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>function to look up by notation (promise)</p>
+</div></td></tr><tr><td>concept-scheme</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>object with lookup methods</p>
 </div></td></tr><tr><td>template-url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>URL of a template to display the concept browser</p>
 </div></td></tr></tbody></table></div>
 </div>

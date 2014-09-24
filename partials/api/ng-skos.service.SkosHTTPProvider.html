@@ -6,14 +6,12 @@
 <div><h2 id="description">Description</h2>
 <div class="description"><div class="ng-skos-service-page ng-skos-service-skoshttpprovider-page"><p>Utility service to facilitate HTTP requests. </p>
 <p>This service implements use of URL templates to perform HTTP requests with 
-optional transformation of JSON responses and error handling. Directly use
-<a href="#/api/ng-skos.service:SkosConceptProvider">SkosConceptProvider</a> and
-<a href="#/api/ng-skos.service:SkosConceptListProvider">SkosConceptListProvider</a>
-instead.</p>
+optional transformation of JSON responses and error handling.</p>
+<p>The service is not related to JSKOS but used as utility in ng-skos.</p>
 <h4 id="description_configuration">Configuration</h4>
 <ul>
 <li><strong><code>url</code></strong>: URL template for requests</li>
-<li><strong><code>jsonp</code></strong>: enable JSONP</li>
+<li><strong><code>jsonp</code></strong>: enable JSONP (true/false/0/1/name)</li>
 <li><strong><code>transform</code></strong>: custom transformation function to map expected response format</li>
 </ul>
 <h4 id="description_methods">Methods</h4>

@@ -16,15 +16,16 @@ code</a>
 of this directive is available at GitHub.</p>
 </div></div>
 <h2 id="usage">Usage</h2>
-<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY skos-list="{string}"
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY skos-list
+     concepts="{string}"
      on-select="{string}"
      can-remove="{string}"
      template-url="{string}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>skosList</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>Object containing an array of concepts</p>
-</div></td></tr><tr><td>onSelect</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>function handling the selection of one list item</p>
-</div></td></tr><tr><td>canRemove</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>support a <code>removeConcept</code> method to remove list items</p>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>concepts</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>array of JSKOS concepts to display</p>
+</div></td></tr><tr><td>onSelect</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>function handling the selection of one concept</p>
+</div></td></tr><tr><td>canRemove</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>support a <code>removeConcept</code> method to remove concepts</p>
 </div></td></tr><tr><td>templateUrl</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslist-page"><p>URL of a template to display the concept list</p>
 </div></td></tr></tbody></table></div>
 </div>

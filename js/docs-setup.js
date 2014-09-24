@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "skosBrowser",
       "type": "directive",
       "moduleName": "ng-skos",
-      "shortDescription": "Scope",
-      "keywords": "addition api browser changed code concept concepts customization directive display function get-by-notation getbynotation github html io js limitations ng-skos notation opensearchsuggestions parameter parameters scope selected source suggest-concept supported template template-url templateurl typeahead url variables"
+      "shortDescription": "Provides a browsing interface to a concept scheme.",
+      "keywords": "additional angularjs api browser browsing changed code concept concept-scheme concepts corresponding current customization delay directive display field format fully function functions github html indicate interface io js jskos label loading lookup lookuplabel lookupnotation lookupuri methods ng-skos notation object opensearchsuggestion parameter preferred promise provide provided return scheme scope selected service single source suggestions supported template template-url templateurl unique uri url variable variables version"
     },
     {
       "section": "api",
@@ -55,7 +55,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "This directive displays a list of concepts ",
-      "keywords": "api array canremove changed code concept concepts customization directive display displays function github handling html io item items js list lists manipulate method ng-skos object onselect options parameter remove removeconcept selection skoslist source support template templateurl url"
+      "keywords": "api array canremove changed code concept concepts customization directive display displays function github handling html io js jskos list lists manipulate method ng-skos onselect options parameter remove removeconcept selection source support template templateurl url"
     },
     {
       "section": "api",
@@ -65,15 +65,6 @@ NG_DOCS={
       "moduleName": "ng-skos",
       "shortDescription": "Displays a hierarchical view of a concept and its transitive narrowers.",
       "keywords": "angular api changed code concept customization directive display displays function github hierarchical html js module myapp mycontroller narrowers ng-controller ng-skos ngskos parameter script skos-tree source template template-url templateurl transitive tree url view"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.service:SkosConceptListProvider",
-      "shortName": "SkosConceptListProvider",
-      "type": "service",
-      "moduleName": "ng-skos",
-      "shortDescription": "Get an ordered list of concepts via HTTP.",
-      "keywords": "api concepts configuration enable expected format function getconceptlist github html http io jsonp list map methods ng-skos objects ordered queried response return server service template transform transformation updateconceptlist url"
     },
     {
       "section": "api",
@@ -91,7 +82,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Utility service to facilitate HTTP requests. ",
-      "keywords": "api configuration custom directly enable error expected facilitate format function handling http implements json jsonp map methods ng-skos optional perform request requests response responses service template templates transform transformation url utility"
+      "keywords": "api configuration custom enable error expected facilitate format function handling http implements jskos json jsonp map methods ng-skos optional perform request requests response responses service template templates transform transformation url utility"
     }
   ],
   "apis": {
