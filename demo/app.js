@@ -7,6 +7,7 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
         $q,
         SkosConceptProvider, SkosConceptListProvider, OpenSearchSuggestions
     );
+
     // init example via RVK API
     $scope.sampleConcept = {};
     $scope.rvk.byNotation('UN').then(function(response){
@@ -20,10 +21,6 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
             angular.copy(response, $scope.sampleConcept);
         });
     };
-    //$scope.safeApply = function(fn) { 
-    //    var phase = this.$root.$$phase; 
-    //    if(phase == '$apply' || phase == '$digest') { if(fn) fn(); } else { this.$apply(fn); } };
-    //
 
     $scope.conceptList = [];
     $scope.selectedConcept = {};
