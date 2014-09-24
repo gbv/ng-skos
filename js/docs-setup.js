@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "API Reference",
       "shortDescription": "ng-skos - API Reference",
-      "keywords": "angularjs api based directives git guide http introduction knowledge managed module ng-skos org organization overview public reference repository services simple skos system terminologies w3 work"
+      "keywords": "api based git illustrated knowledge managed module ng-skos org organization overview public reference repository simple system terminologies w3 work"
     },
     {
       "section": "api",
@@ -23,30 +23,21 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "ng-skos.directive:skosBrowser",
+      "shortName": "skosBrowser",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "Scope",
+      "keywords": "addition api browser changed code concept concepts customization directive display function get-by-notation getbynotation github html io js limitations ng-skos notation opensearchsuggestions parameter parameters scope selected source suggest-concept supported template template-url templateurl typeahead url variables"
+    },
+    {
+      "section": "api",
       "id": "ng-skos.directive:skosConcept",
       "shortName": "skosConcept",
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a concept. ",
-      "keywords": "addition angular api array assignable automatically bind bounded call changes check clicked code concept concepts connected directive display empty expression function github helper html io isemptyobject js language method ng-skos object preferred provided reflected scope skos-click skos-concept source strings template template-url updated url variable variables"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.directive:skosConceptBrowser",
-      "shortName": "skosConceptBrowser",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "Scope",
-      "keywords": "addition api browser concept concepts directive display function get-by-notation getbynotation github html io limitations ng-skos notation opensearchsuggestions parameters scope selected suggest-concept supported template template-url typeahead url variables"
-    },
-    {
-      "section": "api",
-      "id": "ng-skos.directive:skosConceptList",
-      "shortName": "skosConceptList",
-      "type": "directive",
-      "moduleName": "ng-skos",
-      "shortDescription": "This directive displays a list of concepts ",
-      "keywords": "api array code concept concepts directive display displays function github handling html io item js list lists manipulate ng-skos object onselect options selection skosconceptlist source template templateurl url"
+      "keywords": "addition angular api array assignable automatically bind bounded call changed changes check clicked code concept concepts connected customization directive display empty expression function github helper html io isemptyobject js language method ng-skos object parameter preferred provided reflected scope skos-click skos-concept source strings template template-url templateurl updated url variable variables"
     },
     {
       "section": "api",
@@ -55,7 +46,16 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Displays the preferred label of a concept.",
-      "keywords": "$scope alternative angular api arbitrary assignable beispiel bind changes concept concepts data de directive display displays elaborated en example expression fr function future github heuristics html io js label lang lang2 language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected sampleconcept script select selected skos-label text type versions"
+      "keywords": "$scope alternative angular api arbitrary assignable beispiel bind changes code concept concepts data de directive display displays elaborated en example expression fr function future github heuristics html io js label lang lang2 language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected sampleconcept script select selected skos-label source text type versions"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosList",
+      "shortName": "skosList",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "This directive displays a list of concepts ",
+      "keywords": "api array canremove changed code concept concepts customization directive display displays function github handling html io item items js list lists manipulate method ng-skos object onselect options parameter remove removeconcept selection skoslist source support template templateurl url"
     },
     {
       "section": "api",
@@ -63,8 +63,8 @@ NG_DOCS={
       "shortName": "skosTree",
       "type": "directive",
       "moduleName": "ng-skos",
-      "shortDescription": "...",
-      "keywords": "angular api code directive display function github html js module myapp mycontroller ng-controller ng-skos ngskos script skos-tree source template template-url tree url"
+      "shortDescription": "Displays a hierarchical view of a concept and its transitive narrowers.",
+      "keywords": "angular api changed code concept customization directive display displays function github hierarchical html js module myapp mycontroller narrowers ng-controller ng-skos ngskos parameter script skos-tree source template template-url templateurl transitive tree url view"
     },
     {
       "section": "api",
@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Get concepts via HTTP. ",
-      "keywords": "angular api broader concept concepts configuration custom enable expected foo format function getconcept github html http io js json jsonp links map methods module myapp mycontroller narrower ng-controller ng-skos ngskos object queried requests response return script server service skosconceptprovider template transform transformation updateconcept updateconnected url var"
+      "keywords": "api broader concept concepts configuration custom enable expected format function getconcept github html http io json jsonp links map methods narrower ng-skos object queried requests response return server service template transform transformation updateconcept updateconnected url"
     },
     {
       "section": "api",

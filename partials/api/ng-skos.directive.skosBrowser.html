@@ -1,0 +1,41 @@
+<h1><code ng:non-bindable="">skosBrowser</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">ng-skos</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><h4 id="description_scope">Scope</h4>
+<p>The following variables are added to the scope, in addition to parameters:</p>
+<ul>
+<li>notation
+<li>selectNotation
+</ul>
+
+<h4 id="description_limitations">Limitations</h4>
+<p>By now, only getByNotation is supported.</p>
+<h4 id="description_customization">Customization</h4>
+<p>The <a href="https://github.com/gbv/ng-skos/blob/master/src/templates/skos-browser.html">default 
+template</a>
+can be changed with parameter <code>templateUrl</code>.</p>
+<h4 id="description_source-code">Source code</h4>
+<p>The most recent <a href="https://github.com/gbv/ng-skos/blob/master/src/directives/skosBrowser.js">source 
+code</a>
+of this directive is available at GitHub.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;skos-browser
+       concept="{string}"
+       suggest-concept="{string}"
+       get-by-notation="{string}"
+       template-url="{string}"&gt;
+&lt;/skos-browser&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>selected <a href="http://gbv.github.io/jskos/jskos.html#concepts">concept</a></p>
+</div></td></tr><tr><td>suggest-concept</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>OpenSearchSuggestions for typeahead</p>
+</div></td></tr><tr><td>get-by-notation</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>function to look up by notation (promise)</p>
+</div></td></tr><tr><td>template-url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skosbrowser-page"><p>URL of a template to display the concept browser</p>
+</div></td></tr></tbody></table></div>
+</div>

@@ -48,6 +48,16 @@ body{
     border-radius: 0px 3px 0px 0px;
     background-color:#F7F7F7;
 }
+.toplabel{
+    color:#428bca;
+    cursor:pointer;
+    display:table-cell;
+    padding-left:4px;
+}
+.top-notation{
+    cursor:pointer;
+    white-space:nowrap;
+}
 #footer{
     background-color:lightgrey;
     margin-top:60px;
