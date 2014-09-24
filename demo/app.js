@@ -1,30 +1,35 @@
 angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest']);
 
-function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosConceptListProvider) {
+function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider) {
 
     // RVK-Zugriff ausgelagert in rvk.js
-    $scope.rvk = rvkTerminologyService(
+    var rvk = rvkConceptScheme(
         $q,
-        SkosConceptProvider, SkosConceptListProvider, OpenSearchSuggestions
+        SkosConceptProvider, SkosHTTPProvider, OpenSearchSuggestions
     );
 
-    // init example via RVK API
+    rvk.getTopConcepts().then(function(response){
+        rvk.topConcepts = response;
+    });
+
+    // demo of skos-browser
     $scope.sampleConcept = {};
-    $scope.rvk.byNotation('UN').then(function(response){
+    
+    rvk.lookupNotation('UN').then(function(response){
         angular.copy(response, $scope.sampleConcept);
     });
-    $scope.rvk.topConcepts.getConceptList().then(function(response){
-        $scope.rvkTopConcepts = response;
-    });
-    $scope.selectTopConcept = function(notation){
-        $scope.rvk.byNotation(notation).then(function(response){
+
+    $scope.selectTopConcept = function(concept){
+        rvk.lookupNotation(concept.notation).then(function(response){
             angular.copy(response, $scope.sampleConcept);
         });
     };
 
+
+    // demo of skos-list
     $scope.conceptList = [];
     $scope.selectedConcept = {};
-    $scope.rvk.byNotation('UN').then(function(response){
+    rvk.lookupNotation('UN').then(function(response){
         angular.copy(response, $scope.selectedConcept);
     });
     $scope.addConcept = function(concept){
@@ -44,13 +49,13 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
         return dupe;
     }
     $scope.reselectConcept = function(concept){
-        
-        $scope.rvk.byNotation(concept.notation[0]).then(function(response){
+        rvk.lookupNotation(concept.notation[0]).then(function(response){
             angular.copy(response, $scope.selectedConcept);
         });
         $scope.conceptLabel = {};
     }
     
+    $scope.rvk = rvk;
 }
 
 angular.module('myApp')
@@ -65,7 +70,4 @@ angular.module('myApp')
 })
 .config(function($locationProvider, $anchorScrollProvider) {
     $locationProvider.html5Mode(true);
-})
-.controller('MainCtrl', function ($$rootScope, $location) { 
-    
 });

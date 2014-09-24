@@ -36,7 +36,7 @@
                                 <a href="#browser" target="_self">Browser</a>
                             </li>
                             <li>
-                                <a href="#list" target="_self">Concept List</a>
+                                <a href="#list" target="_self">List</a>
                             </li>
                         </ul>
                     </li>
@@ -121,7 +121,8 @@
                     </div>
                 </div>
             </div>
-        </section>        <section id="tree" class="fixnav">
+        </section>
+        <section id="tree" class="fixnav">
             <div class="page-header">
                 <h2>skos-tree
                     <small><a href="../#/api/ng-skos.directive:skosTree">
@@ -137,7 +138,7 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-6">
-                    This directive implements a way to present dynamically loaded content in a tree view. (TODO, currently static placeholder)
+                    This directive implements a way to display a hierarchical (part of a) concept scheme.
                 </div>
             </div>
         </section>
@@ -153,17 +154,12 @@
                 <div class="col-md-5">
                     <skos-browser class="tmpl-border" 
                         concept="sampleConcept"
-                        get-by-notation="rvk.byNotation"
-                        suggest-concept="rvk.suggest"
+                        concept-scheme="rvk"
                     >
                     </skos-browser>
-                    <div class="tmpl-border">
-                        <div ng-repeat="term in rvkTopConcepts.values">
-                            <div class="set" ng-click="selectTopConcept(term.notation)" style="text-decoration:none;cursor:pointer;">
-                                <span class="notation top-notation">{{term.notation}}</span> 
-                                <span class="toplabel">{{term.label}}</span>
-                            </div>
-                        </div>
+                    <div class="tmpl-border" ng-if="rvk.topConcepts">
+                        <div><em>Select a top concept for browsing!</em></div>
+                        <skos-list concepts="rvk.topConcepts" on-select="selectTopConcept" />
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -185,12 +181,13 @@
             <div class="row">
                 <div class="col-md-5">
                     <div style="min-width:300px;">
-                        <div style="padding-bottom:10px;">Displays selected concept labels in a list format:</div>
+                        <div style="padding-bottom:10px;">Displays selected concept labels in a list format</div>
                         <div ng-if="!conceptList.length">
                             <alert style="width:225px;" type="danger">Select concepts on the right!</alert>
                         </div>
-                        <div ng-if="conceptList.length" class="tmpl-border" 
-                             skos-list="conceptList" on-select="reselectConcept" can-remove="1">
+                        <div class="tmpl-border" ng-if="conceptList.length">
+                            <skos-list concepts="conceptList" on-select="reselectConcept" can-remove="1"> 
+                            </skos-list>
                         </div>
                         <div ng-if="conceptList.length">
                             The directive provides an internal function to remove list entries (<span class="glyphicon glyphicon-remove"></span>), as well as an external onSelect() to select a concept from the list, which can then be used elsewhere. The standard template utilizes this function when a label is clicked. In this demo, the function will refresh the concept shown in the adjacent <i>skos-browser</i>.
@@ -204,8 +201,7 @@
                         <span>Select concepts and add them to the concept list:</span>
                         <skos-browser class="tmpl-border"
                             concept="selectedConcept"
-                            get-by-notation="rvk.byNotation"
-                            suggest-concept="rvk.suggest"
+                            concept-scheme="rvk"
                         >
                         </skos-browser>
                     </div>
@@ -233,7 +229,6 @@
     <script src="../lib/ng-suggest.js"></script>
     <script src="../src/services/SkosHTTPProvider.js"></script>
     <script src="../src/services/SkosConceptProvider.js"></script>
-    <script src="../src/services/SkosConceptListProvider.js"></script>
     <script src="../src/directives/skosLabel.js"></script>
     <script src="../src/directives/skosConcept.js"></script>
     <script src="../src/directives/skosTree.js"></script>

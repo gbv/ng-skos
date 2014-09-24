@@ -19,19 +19,18 @@
  * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosList.js)
  * of this directive is available at GitHub.
  *
- * @param {string} skosList Object containing an array of concepts
- * @param {string} onSelect function handling the selection of one list item
- * @param {string} canRemove support a `removeConcept` method to remove list items
+ * @param {string} concepts array of JSKOS concepts to display
+ * @param {string} onSelect function handling the selection of one concept
+ * @param {string} canRemove support a `removeConcept` method to remove concepts
  * @param {string} templateUrl URL of a template to display the concept list
  *
-*/
-
+ */
 angular.module('ngSKOS')
 .directive('skosList', function(){
     return {
-        restrict: 'A',
+        restrict: 'E',
         scope: {
-            concepts: '=skosList',
+            concepts: '=concepts',
             onSelect: '=onSelect',
             canRemove: '=canRemove',
         },

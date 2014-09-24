@@ -6,15 +6,14 @@
  * Utility service to facilitate HTTP requests. 
  *
  * This service implements use of URL templates to perform HTTP requests with 
- * optional transformation of JSON responses and error handling. Directly use
- * [SkosConceptProvider](#/api/ng-skos.service:SkosConceptProvider) and
- * [SkosConceptListProvider](#/api/ng-skos.service:SkosConceptListProvider)
- * instead.
+ * optional transformation of JSON responses and error handling.
+ *
+ * The service is not related to JSKOS but used as utility in ng-skos.
  * 
  * ## Configuration
  * 
  * * **`url`**: URL template for requests
- * * **`jsonp`**: enable JSONP
+ * * **`jsonp`**: enable JSONP (true/false/0/1/name)
  * * **`transform`**: custom transformation function to map expected response format
  *
  * ## Methods

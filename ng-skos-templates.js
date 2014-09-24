@@ -2,7 +2,7 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('template/skos-browser.html',
-    "<div ng-if=\"suggestConcept\" style=\"margin:1em 0em\"><input class=\"form-control\" suggest-typeahead=\"suggestConcept\" typeahead-on-select=\"selectNotation($item.notation)\" ng-model=\"conceptLabel\" placeholder=\"Search by terms (typeahead)\" typeahead-loading=\"loadingLocations\" typeahead-editable=\"false\"><i ng-show=\"loadingLocations\" class=\"glyphicon glyphicon-refresh typeahead-loading\"></i></div><div ng-if=\"selectNotation\" class=\"search-top\" style=\"overflow:hidden;margin-bottom:15px\"><form ng-submit=\"selectNotation(notation)\"><span style=\"float:left\"><input class=\"form-control search-top-input\" ng-model=\"notation\" placeholder=\"Enter full notation\"></span> <button type=\"submit\" ng-disabled=\"!notation.length\" class=\"search-top-button\"><span class=\"glyphicon glyphicon-search\"></span></form></div><div skos-concept=\"concept\" skos-click=\"selectConcept\" language=\"language\"></div>"
+    "<div ng-if=\"scheme.suggest\" style=\"margin:1em 0em\"><input class=\"form-control\" suggest-typeahead=\"scheme.suggest\" typeahead-on-select=\"selectNotation($item.description)\" ng-model=\"conceptLabel\" placeholder=\"Search by terms (typeahead)\" typeahead-loading=\"loading\" typeahead-editable=\"false\"><i ng-show=\"loading\" class=\"glyphicon glyphicon-refresh typeahead-loading\"></i></div><div ng-if=\"selectNotation\" class=\"search-top\" style=\"overflow:hidden;margin-bottom:15px\"><form ng-submit=\"selectNotation(notation)\"><span style=\"float:left\"><input class=\"form-control search-top-input\" ng-model=\"notation\" placeholder=\"Enter full notation\"></span> <button type=\"submit\" ng-disabled=\"!notation.length\" class=\"search-top-button\"><span class=\"glyphicon glyphicon-search\"></span></form></div><div skos-concept=\"concept\" skos-click=\"selectConcept\" language=\"language\"></div>"
   );
 
 
@@ -17,12 +17,12 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('template/skos-list.html',
-    "<div><ul ng-if=\"concepts.length\" style=\"list-style-type:none;padding-left:0px\"><li ng-repeat=\"c in concepts\" style=\"display:block\"><div style=\"display:table\"><div style=\"display:table-row\"><span style=\"display:table-cell\"><span style=\"whitespace:nowrap\" class=\"notation\">{{c.notation[0]}}</span></span> <span style=\"display:table-cell\"><span skos-label=\"c\" ng-click=\"onSelect(c)\" style=\"cursor:pointer;margin-left:3px\"></span></span> <span ng-if=\"canRemove\" style=\"display:table-cell\"><a style=\"text-decoration:none\" ng-click=\"removeConcept($index)\"><span class=\"glyphicon glyphicon-remove\"></span></a></span></div></div></li></ul></div>"
+    "<ul ng-if=\"concepts.length\" style=\"list-style-type:none;padding-left:0px\"><li ng-repeat=\"c in concepts\" style=\"display:block\"><div style=\"display:table\"><div style=\"display:table-row\"><span style=\"display:table-cell\"><span style=\"whitespace:nowrap\" class=\"notation\">{{c.notation[0]}}</span></span> <span style=\"display:table-cell\"><span skos-label=\"c\" ng-click=\"onSelect(c)\" style=\"cursor:pointer;margin-left:3px\"></span></span> <span ng-if=\"canRemove\" style=\"display:table-cell\"><a style=\"text-decoration:none\" ng-click=\"removeConcept($index)\"><span class=\"glyphicon glyphicon-remove\"></span></a></span></div></div></li></ul>"
   );
 
 
   $templateCache.put('template/skos-tree.html',
-    "<div style=\"\" class=\"skos-tree\"><p class=\"set\" ng-if=\"!tree.topConcepts\"><span ng-if=\"tree.notation\" class=\"notation\">{{tree.notation[0]}}</span> <span skos-label=\"tree\" class=\"nlabel\" style=\"display:table-cell\"></span></p><ul><li ng-repeat=\"n in tree.narrower ? tree.narrower : tree.topConcepts\"><span skos-tree=\"n\"></span></li></ul></div>"
+    "<div style=\"\" class=\"skos-tree\"><p class=\"set\" ng-if=\"!tree.topConcepts\"><span ng-if=\"tree.notation\" class=\"notation\">{{tree.notation[0]}}</span> <span skos-label=\"tree\" style=\"display:table-cell\"></span></p><ul><li ng-repeat=\"n in tree.narrower ? tree.narrower : tree.topConcepts\"><span skos-tree=\"n\"></span></li></ul></div>"
   );
 
 }]);

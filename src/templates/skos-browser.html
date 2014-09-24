@@ -1,13 +1,13 @@
-<div ng-if="suggestConcept" style="margin:1em 0em;">
+<div ng-if="scheme.suggest" style="margin:1em 0em;">
     <input class="form-control"
-        suggest-typeahead="suggestConcept"
-        typeahead-on-select="selectNotation($item.notation)"
+        suggest-typeahead="scheme.suggest"
+        typeahead-on-select="selectNotation($item.description)"
         ng-model="conceptLabel"
         placeholder="Search by terms (typeahead)"
-        typeahead-loading="loadingLocations"
+        typeahead-loading="loading"
         typeahead-editable="false"
     />
-    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh typeahead-loading"></i>
+    <i ng-show="loading" class="glyphicon glyphicon-refresh typeahead-loading"></i>
 </div>
 <div ng-if="selectNotation"
      class="search-top" style="overflow:hidden;margin-bottom:15px;">

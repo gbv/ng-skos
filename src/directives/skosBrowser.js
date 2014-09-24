@@ -7,13 +7,13 @@
  *
  * Provides a browsing interface to a concept scheme.
  *
- * For dynamic browsing, the browser requires a lookup function to query a
- * concept by notation (`get-by-notation`), by URI (`get-by-uri`), or by
- * a unique preferred label (`get-by-label`). Each function is expected to
- * return an AngularJS promise to return a single concept in JSKOS format.
- *
- * Please note that *searching* is not supported by this directive -- each
- * lookup function must either return a single concept or none.
+ * The concept scheme must be provided as object with lookup functions to look
+ * up a concept by URI (`lookupURI`), by notation (`lookupNotation`), and/or by
+ * a unique preferred label (`lookupLabel`). Each lookup function, if given, 
+ * must return an AngularJS promise to return a single concept in JSKOS format.
+ * *Searching* in a concept scheme is not supported by this directive but one
+ * can provide an additional OpenSearchSuggestion service (see
+ * [ng-suggest](http://gbv.github.io/ng-suggest/)) with field `suggest`.
  *
  * ## Scope
  *
@@ -28,6 +28,10 @@
  *
  * The current version only tries either one of this methods.
  *
+ * The variable `loading` can be used to indicate loading delay.
+ *
+ * Suggestions are not fully supported yet.
+ *
  * ## Customization
  *
  * The [default 
@@ -41,10 +45,7 @@
  * of this directive is available at GitHub.
  *
  * @param {string} concept selected [concept](http://gbv.github.io/jskos/jskos.html#concepts)
- * @param {string} suggest-concept OpenSearchSuggestions for typeahead
- * @param {string} get-by-uri function to look up by uri
- * @param {string} get-by-notation function to look up by notation (given as array)
- * @param {string} get-by-label function to look up by label (given as prefLabel object)
+ * @param {string} concept-scheme object with lookup methods
  * @param {string} template-url URL of a template to display the concept browser
  */
 angular.module('ngSKOS')
@@ -52,11 +53,8 @@ angular.module('ngSKOS')
     return {
         restrict: 'E',
         scope: { 
-            concept: '=',
-            suggestConcept: '=',
-            getByURI: '=',
-            getByNotation: '=',
-            getByLabel: '=',
+            concept: '=concept',
+            scheme: '=conceptScheme',
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 
@@ -65,10 +63,10 @@ angular.module('ngSKOS')
         link: function link(scope, element, attr) {
 
             angular.forEach(['URI','Notation','Label'],function(value){
-                var lookup = scope['getBy'+value];
+                var lookup = scope.scheme['lookup'+value];
                 if (lookup) {
                     scope['select'+value] = function(query) {
-                        console.log('selectBy'+value+': '+query);
+                        console.log('skosBrowser.select'+value+': '+query);
                         lookup(query).then(
                             function(response) { 
                                 angular.copy(response, scope.concept);
