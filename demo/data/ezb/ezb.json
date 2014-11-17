@@ -1,0 +1,26 @@
+{
+    "prefLabel": {
+        "de": "EZB Klassifikation",
+        "en": "EZB classification"
+    },
+    "notation": ["EZB"],
+    "uri": "http://uri.gbv.de/terminology/ezb/",
+    "topConcepts": [
+        {
+            "prefLabel": {
+                "de": "Allgemeine und vergleichende Sprach- und Literaturwissenschaft. Indogermanistik. Außereuropäische Sprachen und Literaturen",
+                "en": "Linguistics and Literary Studies" 
+            },
+            "notation": ["E"],
+            "uri": "http://uri.gbv.de/terminology/ezb/E",
+        },
+        {
+            "prefLabel": {
+                "de": "",
+                "en": "" 
+            },
+            "notation": [""]
+        },
+
+    ]
+}
