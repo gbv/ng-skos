@@ -197,3 +197,17 @@ ul.ancestors li {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #EEE;
 }
+/* SKOS-list*/
+.skos-simple-list{
+    list-style-type:none;
+    padding:0px;
+    margin-bottom:0px;
+}
+.skos-list-notation{
+    cursor:pointer;
+    white-space:nowrap;
+}
+.skos-list-label{
+    cursor:pointer;
+    padding-left:4px;
+}

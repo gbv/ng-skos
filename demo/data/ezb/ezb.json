@@ -13,7 +13,8 @@
             },
             "notation": ["E"],
             "uri": "http://uri.gbv.de/terminology/ezb/E",
-        },
+            "narrower": []
+        }, 
         {
             "prefLabel": {
                 "de": "Allgemeines, Fachübergreifendes",
@@ -21,6 +22,7 @@
             },
             "notation": ["AZ"],
             "uri": "http://uri.gbv.de/terminology/ezb/AZ",
+            "narrower": []
         },
         {
             "prefLabel": {
@@ -29,6 +31,7 @@
             },
             "notation": ["H"],
             "uri": "http://uri.gbv.de/terminology/ezb/H",
+            "narrower": []
         },
         {
             "prefLabel": {
@@ -36,7 +39,8 @@
                 "en": "Archaeology" 
             },
             "notation": ["LD-LG"],
-            "uri": "http://uri.gbv.de/terminology/ezb/LD-LG",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/LD-LG"
         },
         {
             "prefLabel": {
@@ -44,7 +48,8 @@
                 "en": "Architecture, Civil Engineering" 
             },
             "notation": ["ZH-ZI"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZH-ZI",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZH-ZI"
         },
         {
             "prefLabel": {
@@ -52,7 +57,8 @@
                 "en": "History of Education" 
             },
             "notation": ["DD"],
-            "uri": "http://uri.gbv.de/terminology/ezb/DD",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/DD"
         },
         {
             "prefLabel": {
@@ -60,7 +66,8 @@
                 "en": "Biology" 
             },
             "notation": ["W"],
-            "uri": "http://uri.gbv.de/terminology/ezb/W",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/W"
         },
         {
             "prefLabel": {
@@ -68,7 +75,8 @@
                 "en": "Chemistry and Pharmacology" 
             },
             "notation": ["V"],
-            "uri": "http://uri.gbv.de/terminology/ezb/V",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/V"
         },
         {
             "prefLabel": {
@@ -76,7 +84,8 @@
                 "en": "Electrical Engineering, Measurement and Control Technology" 
             },
             "notation": ["ZN"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZN",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZN"
         },
         {
             "prefLabel": {
@@ -84,7 +93,8 @@
                 "en": "Energy, environment protection, Nuclear Power Engineering" 
             },
             "notation": ["ZP"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZP",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZP"
         },
         {
             "prefLabel": {
@@ -92,7 +102,8 @@
                 "en": "Ethnic Sciences" 
             },
             "notation": ["LA-LC"],
-            "uri": "http://uri.gbv.de/terminology/ezb/LA-LC",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/LA-LC"
         },
         {
             "prefLabel": {
@@ -100,7 +111,8 @@
                 "en": "Geography" 
             },
             "notation": ["R"],
-            "uri": "http://uri.gbv.de/terminology/ezb/R",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/R"
         },
         {
             "prefLabel": {
@@ -108,7 +120,8 @@
                 "en": "Geosciences" 
             },
             "notation": ["TE-TZ"],
-            "uri": "http://uri.gbv.de/terminology/ezb/TE-TZ",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/TE-TZ"
         },
         {
             "prefLabel": {
@@ -116,7 +129,8 @@
                 "en": "German, Dutch and Scandinavian Studies" 
             },
             "notation": ["G"],
-            "uri": "http://uri.gbv.de/terminology/ezb/G",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/G"
         },
         {
             "prefLabel": {
@@ -124,7 +138,8 @@
                 "en": "History" 
             },
             "notation": ["N"],
-            "uri": "http://uri.gbv.de/terminology/ezb/N",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/N"
         },
         {
             "prefLabel": {
@@ -132,7 +147,8 @@
                 "en": "Computer Science" 
             },
             "notation": ["SQ-SU"],
-            "uri": "http://uri.gbv.de/terminology/ezb/SQ-SU",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/SQ-SU"
         },
         {
             "prefLabel": {
@@ -140,7 +156,8 @@
                 "en": "Information science and librarianship, Study of (ancient and medieval) manuscripts" 
             },
             "notation": ["AN"],
-            "uri": "http://uri.gbv.de/terminology/ezb/AN",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/AN"
         },
         {
             "prefLabel": {
@@ -148,7 +165,8 @@
                 "en": "Classical studies" 
             },
             "notation": ["F"],
-            "uri": "http://uri.gbv.de/terminology/ezb/F",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/F"
         },
         {
             "prefLabel": {
@@ -156,7 +174,8 @@
                 "en": "Art History" 
             },
             "notation": ["LH-LO"],
-            "uri": "http://uri.gbv.de/terminology/ezb/LH-LO",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/LH-LO"
         },
         {
             "prefLabel": {
@@ -164,7 +183,8 @@
                 "en": "Agriculture, Forestry etc." 
             },
             "notation": ["ZA-ZE"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZA-ZE",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZA-ZE"
         },
         {
             "prefLabel": {
@@ -172,7 +192,8 @@
                 "en": "Mechanical Engineering" 
             },
             "notation": ["ZL"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZL",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZL"
         },
         {
             "prefLabel": {
@@ -180,7 +201,8 @@
                 "en": "Mathematics" 
             },
             "notation": ["SA-SP"],
-            "uri": "http://uri.gbv.de/terminology/ezb/SA-SP",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/SA-SP"
         },
         {
             "prefLabel": {
@@ -188,7 +210,8 @@
                 "en": "Media resources and Communication sciences, Journalism" 
             },
             "notation": ["AP"],
-            "uri": "http://uri.gbv.de/terminology/ezb/AP",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/AP"
         },
         {
             "prefLabel": {
@@ -196,7 +219,8 @@
                 "en": "Medicine" 
             },
             "notation": ["WW-YZ"],
-            "uri": "http://uri.gbv.de/terminology/ezb/WW-YZ",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/WW-YZ"
         },
         {
             "prefLabel": {
@@ -204,7 +228,8 @@
                 "en": "Musicology" 
             },
             "notation": ["LP-LZ"],
-            "uri": "http://uri.gbv.de/terminology/ezb/LP-LZ",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/LP-LZ"
         },
         {
             "prefLabel": {
@@ -212,7 +237,8 @@
                 "en": "Sciences" 
             },
             "notation": ["TA-TD"],
-            "uri": "http://uri.gbv.de/terminology/ezb/TA-TD",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/TA-TD"
         },
         {
             "prefLabel": {
@@ -220,7 +246,8 @@
                 "en": "Education" 
             },
             "notation": ["D"],
-            "uri": "http://uri.gbv.de/terminology/ezb/D",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/D"
         },
         {
             "prefLabel": {
@@ -228,7 +255,8 @@
                 "en": "Philosophy" 
             },
             "notation": ["CA-CI"],
-            "uri": "http://uri.gbv.de/terminology/ezb/CA-CI",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/CA-CI"
         },
         {
             "prefLabel": {
@@ -236,7 +264,8 @@
                 "en": "Physics" 
             },
             "notation": ["U"],
-            "uri": "http://uri.gbv.de/terminology/ezb/U",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/U"
         },
         {
             "prefLabel": {
@@ -244,7 +273,8 @@
                 "en": "Political Science" 
             },
             "notation": ["MA-MM"],
-            "uri": "http://uri.gbv.de/terminology/ezb/MA-MM",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/MA-MM"
         },
         {
             "prefLabel": {
@@ -252,7 +282,8 @@
                 "en": "Psychology" 
             },
             "notation": ["CL-CZ"],
-            "uri": "http://uri.gbv.de/terminology/ezb/CL-CZ",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/CL-CZ"
         },
         {
             "prefLabel": {
@@ -260,7 +291,8 @@
                 "en": "Law" 
             },
             "notation": ["P"],
-            "uri": "http://uri.gbv.de/terminology/ezb/P",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/P"
         },
         {
             "prefLabel": {
@@ -268,7 +300,8 @@
                 "en": "Romance Studies" 
             },
             "notation": ["I"],
-            "uri": "http://uri.gbv.de/terminology/ezb/I",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/I"
         },
         {
             "prefLabel": {
@@ -276,7 +309,8 @@
                 "en": "Slavonic Studies" 
             },
             "notation": ["K"],
-            "uri": "http://uri.gbv.de/terminology/ezb/K",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/K"
         },
         {
             "prefLabel": {
@@ -284,7 +318,8 @@
                 "en": "Sociology" 
             },
             "notation": ["MN-MS"],
-            "uri": "http://uri.gbv.de/terminology/ezb/MN-MS",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/MN-MS"
         },
         {
             "prefLabel": {
@@ -292,7 +327,8 @@
                 "en": "Sports Science" 
             },
             "notation": ["ZX-ZY"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZX-ZY",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZX-ZY"
         },
         {
             "prefLabel": {
@@ -300,7 +336,8 @@
                 "en": "Technology" 
             },
             "notation": ["ZG"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZG",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZG"
         },
         {
             "prefLabel": {
@@ -308,7 +345,8 @@
                 "en": "Theology and Religious Studies" 
             },
             "notation": ["B"],
-            "uri": "http://uri.gbv.de/terminology/ezb/B",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/B"
         },
         {
             "prefLabel": {
@@ -316,7 +354,8 @@
                 "en": "Process Engineering, Biotechnology" 
             },
             "notation": ["ZM"],
-            "uri": "http://uri.gbv.de/terminology/ezb/ZM",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZM"
         },
         {
             "prefLabel": {
@@ -324,7 +363,8 @@
                 "en": "Economics" 
             },
             "notation": ["Q"],
-            "uri": "http://uri.gbv.de/terminology/ezb/Q",
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/Q"
         },
         {
             "prefLabel": {
@@ -332,8 +372,9 @@
                 "en": "Nature of Science, Research, Systems of Higher Education, Museum science" 
             },
             "notation": ["AK-AL"],
-            "uri": "http://uri.gbv.de/terminology/ezb/AK-AL",
-        },
+            "narrower": [],
+            "uri": "http://uri.gbv.de/terminology/ezb/AK-AL"
+        }
     ]
 }
 

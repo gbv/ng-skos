@@ -1,6 +1,21 @@
-angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest']);
+angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
+.run(function($rootScope,$http) {
+    
+        $http.get('data/jita/jita.json').success(function(jita){
+            $rootScope.jita = jita;
+            $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
+            // TODO: JITA-Zugriff als TerminologyProvider
+        });
+        $http.get('data/ezb/ezb.json').success(function(ezb){
+            $rootScope.ezb = ezb;
+        });
 
-function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider) {
+})
+.config(function($locationProvider, $anchorScrollProvider) {
+    $locationProvider.html5Mode(true);
+});
+
+function myController($scope, $rootScope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider) {
 
     // RVK-Zugriff ausgelagert in rvk.js
     var rvk = rvkConceptScheme(
@@ -47,27 +62,24 @@ function myController($scope, $q, OpenSearchSuggestions, SkosConceptProvider, Sk
             }
         })
         return dupe;
-    }
+    };
     $scope.reselectConcept = function(concept){
         rvk.lookupNotation(concept.notation[0]).then(function(response){
             angular.copy(response, $scope.selectedConcept);
         });
         $scope.conceptLabel = {};
-    }
+    };
     
     $scope.rvk = rvk;
+    $scope.treeActive = {};
+    $scope.tree = function(){
+        if($scope.treeSelect == 'jita'){
+            angular.copy($scope.jita, $scope.treeActive);
+        }
+        if($scope.treeSelect == 'ezb'){
+            angular.copy($rootScope.ezb, $scope.treeActive);
+        }
+    };
+    $scope.language = "en";
 }
 
-angular.module('myApp')
-.run(function($rootScope,$http) {
-    
-	$http.get('data/jita/jita.json').success(function(jita){
-        $rootScope.jita = jita;
-        $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
-        // TODO: JITA-Zugriff als TerminologyProvider
-	});
-
-})
-.config(function($locationProvider, $anchorScrollProvider) {
-    $locationProvider.html5Mode(true);
-});

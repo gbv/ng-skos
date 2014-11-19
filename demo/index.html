@@ -132,7 +132,14 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="tmpl-border" skos-tree="jita">
+                    <div>
+                        Chose concept scheme to display: 
+                        <select ng-model="treeSelect" ng-change="tree()">
+                            <option selected>jita</option>
+                            <option>ezb</option>
+                        </select>
+                    </div>
+                    <div ng-if="treeSelect" class="tmpl-border" skos-tree="treeActive">
                     </div>
                 </div>
                 <div class="col-md-1">
