@@ -139,7 +139,8 @@
                             <option>ezb</option>
                         </select>
                     </div>
-                    <div ng-if="treeSelect" class="tmpl-border" skos-tree="treeActive">
+                    <div ng-if="!treeSelect" class="tmpl-border" skos-tree="jita"></div>
+                    <div ng-if="treeSelect" language="language" class="tmpl-border" skos-tree="treeActive">
                     </div>
                 </div>
                 <div class="col-md-1">

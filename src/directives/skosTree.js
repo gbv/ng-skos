@@ -44,6 +44,7 @@ angular.module('ngSKOS')
         transclude: true,
         scope: {
             tree:'=skosTree',
+            language:'=language'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 
