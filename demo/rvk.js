@@ -105,8 +105,7 @@ function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchS
  
 
     var rvkByNotation = function(notation) {
-        var concept = { notation: notation };
-
+        var concept = { notation: [notation] };
         var temp = {};
 
         var deferred = $q.defer();

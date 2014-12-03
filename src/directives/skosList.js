@@ -26,25 +26,72 @@
  *
  */
 angular.module('ngSKOS')
-.directive('skosList', function(){
+.directive('skosList', function($timeout){
     return {
         restrict: 'E',
         scope: {
             concepts: '=concepts',
             onSelect: '=onSelect',
-            canRemove: '=canRemove',
+            canRemove: '=removeable',
+            showLabels: '=showLabels'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ?
                    attrs.templateUrl : 'template/skos-list.html';
         },
         link: function link(scope, element, attr) {
-            if (scope.canRemove) {
-                scope.removeConcept = function(index) { 
-                    scope.concepts.splice(index, 1);
-                };
-            }
+            scope.removeConcept = function(index) { 
+                scope.concepts.splice(index, 1);
+            };
+            scope.tabFocus = null;
             scope.$watch('concepts');
+            scope.clicked = function(index){
+                scope.tabFocus = index;
+                scope.onSelect(scope.concepts[index]);
+            };
+            scope.focused = function(index){
+                scope.tabFocus = index;
+            };
+            scope.onKeyDown = function($event, first, last, index) {
+                var key = $event.keyCode;
+                scope.tabFocus = index;
+                if(key == 38){
+                    $event.preventDefault();
+                    if(!first){
+                        scope.tabFocus--;
+                    } else {
+                        scope.tabFocus = scope.concepts.length - 1;
+                    }
+                    $timeout(function(){
+                        var fc = angular.element("[list-id=" + scope.tabFocus + "]");
+                        fc.focus();
+                    },0,false);
+                } else if(key == 40){
+                    $event.preventDefault();
+                    if(last){
+                        scope.tabFocus = 0;
+                    } else {
+                        scope.tabFocus++;
+                    }
+                    $timeout(function(){
+                        var fc = angular.element("[list-id=" + scope.tabFocus + "]");
+                        fc.focus();
+                    },0,false);
+                } else if(key == 46){
+                    $event.preventDefault();
+                    if(last){
+                        scope.tabFocus--;
+                    }
+                    scope.removeConcept(index);
+                    $timeout(function(){
+                        var fc = angular.element("[list-id=" + scope.tabFocus + "]");
+                        fc.focus();
+                    },0);
+                } else if(key == 13){
+                    $event.preventDefault();
+                    scope.onSelect(scope.concepts[index]);
+                }
+            };
         }
     };
 });

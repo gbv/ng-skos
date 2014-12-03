@@ -211,3 +211,6 @@ ul.ancestors li {
     cursor:pointer;
     padding-left:4px;
 }
+.list-item-selected{
+    background-color: #C6E2FF;
+}

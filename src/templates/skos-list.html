@@ -1,15 +1,21 @@
 <ul ng-if="concepts.length" class="skos-simple-list">
     <li ng-repeat="c in concepts">
-        <div class="set">
-            <span style="whitespace:nowrap;" class="notation skos-list-notation">{{c.notation[0]}}</span>
-            <span skos-label="c" ng-click="onSelect(c)" lang="{{language}}"
-                class="skos-list-label">
-            </span>
-            <span ng-if="canRemove" style="margin-left:5px;">
-                <a style="text-decoration:none;cursor:pointer;" ng-click="removeConcept($index)">
-                    <span class="glyphicon glyphicon-remove"></span>
+        <div class="set" 
+            tabindex="0"
+            ng-keydown="onKeyDown($event, $first, $last, $index)"
+            list-id="{{$index}}"
+            ng-class="tabFocus == $index || (tabFocus === null && $index == 0) ? 'list-item-selected' : ''"
+            ng-focus="focused($index)">
+            <span style="whitespace:nowrap;" class="notation skos-list-notation" title="{{c.prefLabel.de}}" ng-click="clicked($index)">{{c.notation[0]}}</span>
+            <span ng-if="showLabels" skos-label="c" lang="{{language}}" class="skos-list-label" ng-click="clicked($index)"></span>
+            <div style="display:inline-table;padding-left:3px;">
+                <a href="" ng-click="onSelect(c)" style="text-decoration:none;">
+                    <span style="vertical-align:middle;top:0px;" class="glyphicon glyphicon-info-sign"></span>
                 </a>
-            </span>
+                <a ng-if="canRemove" href="" ng-click="removeConcept($index)" style="text-decoration:none">
+                    <span style="vertical-align:middle;top:0px;" class="glyphicon glyphicon-trash"></span>
+                </a>
+            </div>
         </div>
     </li>
 </ul>
