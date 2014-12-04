@@ -4,10 +4,16 @@
             tabindex="0"
             ng-keydown="onKeyDown($event, $first, $last, $index)"
             list-id="{{$index}}"
-            ng-class="tabFocus == $index || (tabFocus === null && $index == 0) ? 'list-item-selected' : ''"
-            ng-focus="focused($index)">
-            <span style="whitespace:nowrap;" class="notation skos-list-notation" title="{{c.prefLabel.de}}" ng-click="clicked($index)">{{c.notation[0]}}</span>
-            <span ng-if="showLabels" skos-label="c" lang="{{language}}" class="skos-list-label" ng-click="clicked($index)"></span>
+            ng-class="tabFocus == $index ? 'list-item-selected' : ''"
+            ng-focus="onFocus($index)">
+            <span style="whitespace:nowrap;" 
+                  class="notation skos-list-notation" 
+                  title="{{c.prefLabel.de}}" 
+                  ng-click="onClick($index)">{{c.notation[0]}}</span>
+            <span ng-if="showLabels" skos-label="c" 
+                  lang="{{language}}" 
+                  class="skos-list-label" 
+                  ng-click="onClick($index)"></span>
             <div style="display:inline-table;padding-left:3px;">
                 <a href="" ng-click="onSelect(c)" style="text-decoration:none;">
                     <span style="vertical-align:middle;top:0px;" class="glyphicon glyphicon-info-sign"></span>
