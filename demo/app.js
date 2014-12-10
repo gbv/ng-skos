@@ -17,13 +17,6 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
 
 function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider) {
 
-    window.addEventListener("keydown", function(e) {
-        // space and arrow keys
-        if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-            e.preventDefault();
-        }
-    }, false);
-
     // RVK-Zugriff ausgelagert in rvk.js
     var rvk = rvkConceptScheme(
         $q,
@@ -60,10 +53,6 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
             notation: [ concept.notation[0] ],
             uri: concept.uri
         });
-        $timeout(function(){
-            setf = angular.element("[list-id='0']");
-            setf.focus();
-        },0);
     };
     $scope.checkDuplicate = function(){
         var dupe = false;

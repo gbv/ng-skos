@@ -45,7 +45,7 @@
  * of this directive is available at GitHub.
  *
  * @param {string} concept selected [concept](http://gbv.github.io/jskos/jskos.html#concepts)
- * @param {string} concept-scheme object with lookup methods
+ * @param {string} concept scheme object with lookup methods
  * @param {string} template-url URL of a template to display the concept browser
  */
 angular.module('ngSKOS')

@@ -22,6 +22,7 @@
  * @param {string} concepts array of JSKOS concepts to display
  * @param {string} onSelect function handling the selection of one concept
  * @param {string} canRemove support a `removeConcept` method to remove concepts
+ * @param {string} showLabels chose, if concept labels should be shown as well as notations
  * @param {string} templateUrl URL of a template to display the concept list
  *
  */
@@ -41,13 +42,13 @@ angular.module('ngSKOS')
         },
         link: function link(scope, element, attr) {
             scope.$watch('concepts');
-
+            scope.ID = Math.random().toString(36).slice(2);
             scope.removeConcept = function(index) { 
                 scope.concepts.splice(index, 1);
             };
             scope.focusConcept = function(index) {
                 // TODO: remove depenency on jQuery
-                var fc = angular.element("[list-id=" + index + "]");
+                var fc = angular.element("[list-id=" + scope.ID + "_" + index + "]");
                 fc.focus();
             };
             scope.tabFocus = 0;
