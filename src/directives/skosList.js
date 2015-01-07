@@ -34,15 +34,18 @@ angular.module('ngSKOS')
             concepts: '=concepts',
             onSelect: '=onSelect',
             canRemove: '=removeable',
-            showLabels: '=showLabels'
+            showLabels: '=showLabels',
+            language: '=language'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ?
                    attrs.templateUrl : 'template/skos-list.html';
         },
         link: function link(scope, element, attr) {
+            
             scope.$watch('concepts');
             scope.ID = Math.random().toString(36).slice(2);
+            
             scope.removeConcept = function(index) { 
                 scope.concepts.splice(index, 1);
             };
@@ -66,19 +69,23 @@ angular.module('ngSKOS')
 
                 if ([38,40,46,13].indexOf(key) == -1 || length == 0) return;
                 $event.preventDefault();
-
+                
+                // up
                 if(key == 38){
                     scope.tabFocus = (scope.tabFocus + length - 1) % length;
                     $timeout(function(){ scope.focusConcept(scope.tabFocus) },0,false);
+                // down
                 } else if(key == 40){
                     scope.tabFocus = (scope.tabFocus + 1) % length;
                     $timeout(function(){ scope.focusConcept(scope.tabFocus) },0,false);
-                } else if(key == 46){
+                // del
+                } else if(key == 46 && scope.canRemove == true){
                     if(last){
                         scope.tabFocus--;
                     }
                     scope.removeConcept(index);
                     $timeout(function(){ scope.focusConcept(scope.tabFocus) },0,false);
+                // enter
                 } else if(key == 13){
                     $event.preventDefault();
                     scope.onSelect(scope.concepts[index]);

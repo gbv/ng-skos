@@ -54,15 +54,15 @@ angular.module('ngSKOS')
     return {
         restrict: 'A',
         scope: { 
-            concept: '=skosLabel',
+            label: '=skosLabel',
         },
-        template: '{{concept.prefLabel[language] ? concept.prefLabel[language] : "???"}}',
+        template: '{{label[language] ? label[language] : "???"}}',
         link: function(scope, element, attrs) {
 
             function updateLanguage(language) {
                 scope.language = language ? language : attrs.lang;
 
-                language = scope.concept ? selectLanguage(scope.concept.prefLabel, scope.language) : "";
+                language = scope.label ? selectLanguage(scope.label, scope.language) : "";
 
                 if (language != scope.language) {
                     scope.language = language;
@@ -85,7 +85,7 @@ angular.module('ngSKOS')
             attrs.$observe('lang', updateLanguage);
 
             // update with same language if prefLabels changed
-            scope.$watch('concept.prefLabel', function(value) {
+            scope.$watch('label.prefLabel', function(value) {
                 updateLanguage();
             }, true);
         },

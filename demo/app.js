@@ -28,24 +28,24 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
     });
 
     // demo of skos-browser
-    $scope.sampleConcept = {};
+    $scope.selectedBrowserConcept = {};
     
     rvk.lookupNotation('UN').then(function(response){
-        angular.copy(response, $scope.sampleConcept);
+        angular.copy(response, $scope.selectedBrowserConcept);
     });
 
     $scope.selectTopConcept = function(concept){
         rvk.lookupNotation(concept.notation).then(function(response){
-            angular.copy(response, $scope.sampleConcept);
+            angular.copy(response, $scope.selectedBrowserConcept);
         });
     };
 
 
     // demo of skos-list
     $scope.conceptList = [];
-    $scope.selectedConcept = {};
+    $scope.selectedListConcept = {};
     rvk.lookupNotation('UN').then(function(response){
-        angular.copy(response, $scope.selectedConcept);
+        angular.copy(response, $scope.selectedListConcept);
     });
     $scope.addConcept = function(concept){
         $scope.conceptList.push({
@@ -57,7 +57,7 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
     $scope.checkDuplicate = function(){
         var dupe = false;
         angular.forEach($scope.conceptList, function(value, key){
-            if(value.uri == $scope.selectedConcept.uri){
+            if(value.uri == $scope.selectedListConcept.uri){
                 dupe = true;
             }
         })
@@ -66,7 +66,7 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
     $scope.reselectConcept = function(concept){
         console.log(concept);
         rvk.lookupNotation(concept.notation[0]).then(function(response){
-            angular.copy(response, $scope.selectedConcept);
+            angular.copy(response, $scope.selectedListConcept);
         });
         $scope.conceptLabel = {};
     };
