@@ -56,7 +56,7 @@ angular.module('ngSKOS')
         scope: { 
             label: '=skosLabel',
         },
-        template: '{{label[language] ? label[language] : "???"}}',
+        template: '{{label[language] ? label[language] : label}}',
         link: function(scope, element, attrs) {
 
             function updateLanguage(language) {
@@ -85,7 +85,7 @@ angular.module('ngSKOS')
             attrs.$observe('lang', updateLanguage);
 
             // update with same language if prefLabels changed
-            scope.$watch('label.prefLabel', function(value) {
+            scope.$watch('label', function(value) {
                 updateLanguage();
             }, true);
         },

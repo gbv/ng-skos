@@ -5,8 +5,8 @@
         </span>
     </p>
     <ul>
-        <li ng-repeat="n in tree.narrower ? tree.narrower : tree.topConcepts">
-            <span skos-tree="n"></span>
+        <li ng-repeat="n in tree.narrower ? tree.narrower : tree.topConcepts" lang="{{language}}">
+            <span skos-tree="n" language="language"></span>
         </li>
     </ul>
 </div>

@@ -11,6 +11,10 @@ body{
 .fixnav {
     padding-top:30px;
 }
+.lang-select{
+    margin-top:15px;
+    color:#777;
+}
 .tmpl-border {
     border: 1px solid #999;
     padding:10px 20px 5px 20px;

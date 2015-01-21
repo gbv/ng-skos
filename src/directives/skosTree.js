@@ -58,7 +58,7 @@ angular.module('ngSKOS')
                     compiledContents = $compile(contents, transclude);
                 }
                 compiledContents(scope, function(clone, scope) {
-                         iElement.append(clone); 
+                         iElement.append(clone);
                 });
             };
         }
