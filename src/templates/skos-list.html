@@ -6,19 +6,18 @@
             list-id="{{ID + '_' + $index}}"
             ng-focus="onFocus($index)">
             <span style="whitespace:nowrap;" 
-                  class="notation skos-list-notation" 
-                  title="{{c.prefLabel}}"
+                  class="notation skos-list-notation"
                   ng-click="onClick($index)">{{c.notation[0]}}</span>
             <span ng-if="showLabels" skos-label="c.prefLabel" 
                   lang="{{language}}" 
                   class="skos-list-label" 
                   ng-click="onClick($index)"></span>
             <div style="display:inline-table;padding-left:3px;">
-                <a href="" ng-click="onSelect(c)" style="text-decoration:none;">
-                    <span style="vertical-align:middle;top:0px;" class="glyphicon glyphicon-info-sign" title="Select concept (ENTER)"></span>
+                <a ng-if="onSelect" href="" ng-click="onSelect(c)" style="text-decoration:none;vertical-align:middle;">
+                    <span class="glyphicon glyphicon-info-sign" title="Select concept (ENTER)"></span>
                 </a>
-                <a ng-if="canRemove" href="" ng-click="removeConcept($index)" style="text-decoration:none">
-                    <span style="vertical-align:middle;top:0px;" class="glyphicon glyphicon-trash" title="Remove concept (DEL)"></span>
+                <a ng-if="canRemove" href="" ng-click="removeConcept($index)" style="text-decoration:none;vertical-align:middle;">
+                    <span class="glyphicon glyphicon-trash" title="Remove concept (DEL)"></span>
                 </a>
             </div>
         </div>
