@@ -68,8 +68,8 @@
                "narrower" : [
                   {
                      "prefLabel" : {
-                        "en" : "Use and impact of information.",
-                        "de" : "Gebrauch und Einfluss von Informationen"
+                        "de" : "Gebrauch und Einfluss von Informationen",
+                        "en" : "Use and impact of information."
                      },
                      "narrower" : [],
                      "uri" : "http://example.org/jita/BA",

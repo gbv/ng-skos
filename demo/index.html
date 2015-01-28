@@ -6,6 +6,7 @@
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
   <link href="ng-skos.css" rel="stylesheet" />
   <link href="app.css" rel="stylesheet" />
+    <script src="../grunt-scripts/lib/jquery-2.1.1.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
 </head>
 <body ng-controller="myController">
@@ -40,6 +41,13 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="navbar-btn lang-select">
+                        Language:
+                        <select ng-model="language">
+                            <option>de</option>
+                            <option>en</option>
+                        </select>
+                    </li>
                 </ul>
             </div>
         </div> 
@@ -67,11 +75,7 @@
                         Used as element or attribute to display a concept.
                     </p>
                     <p>
-                        <select ng-model="language">
-                            <option>de</option>
-                            <option>en</option>
-                        </select>
-                        Language: {{language}}
+
                     </p>
                     <div class="tmpl-border" skos-concept="sampleSkosConcept" language="language" template-url="template/skos-concept-thesaurus.html">
                     </div>
@@ -113,10 +117,10 @@
                     </p>
                     <div class="concept-label">
                         <ul>
-                            <li><span skos-label="sampleConcept" lang="de" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" lang="en" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" class="show-lang"/></li>
-                            <li><span skos-label="sampleConcept" lang="fr" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="de" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="en" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="fr" class="show-lang"/></li>
                         </ul>
                     </div>
                 </div>
@@ -132,7 +136,15 @@
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="tmpl-border" skos-tree="jita">
+                    <div>
+                        Chose concept scheme to display: 
+                        <select ng-model="treeSelect" ng-change="tree()">
+                            <option selected>jita</option>
+                            <option>ezb</option>
+                        </select>
+                    </div>
+                    <div ng-if="!treeSelect" skos-tree="jita" language="language" class="tmpl-border"></div>
+                    <div ng-if="treeSelect" skos-tree="treeActive" language="language" class="tmpl-border">
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -153,13 +165,13 @@
             <div class="row">
                 <div class="col-md-5">
                     <skos-browser class="tmpl-border" 
-                        concept="sampleConcept"
+                        concept="selectedBrowserConcept"
                         concept-scheme="rvk"
                     >
                     </skos-browser>
                     <div class="tmpl-border" ng-if="rvk.topConcepts">
-                        <div><em>Select a top concept for browsing!</em></div>
-                        <skos-list concepts="rvk.topConcepts" on-select="selectTopConcept" />
+                        <p><em>Select a top concept for browsing from this <a href="#list">skos-list</a>!</em></p>
+                        <skos-list concepts="rvk.topConcepts" language="language" on-select="selectTopConcept" show-labels="true" />
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -183,31 +195,45 @@
                     <div style="min-width:300px;">
                         <div style="padding-bottom:10px;">Displays selected concept labels in a list format</div>
                         <div ng-if="!conceptList.length">
-                            <alert style="width:225px;" type="danger">Select concepts on the right!</alert>
-                        </div>
-                        <div class="tmpl-border" ng-if="conceptList.length">
-                            <skos-list concepts="conceptList" on-select="reselectConcept" can-remove="1"> 
-                            </skos-list>
+                            <alert style="width:225px;" type="danger">Select concepts by using the <i>skos-browser</i>!</alert>
                         </div>
                         <div ng-if="conceptList.length">
-                            The directive provides an internal function to remove list entries (<span class="glyphicon glyphicon-remove"></span>), as well as an external onSelect() to select a concept from the list, which can then be used elsewhere. The standard template utilizes this function when a label is clicked. In this demo, the function will refresh the concept shown in the adjacent <i>skos-browser</i>.
+                            <div style="display:block">
+                                <form style="background-color:#EEE;padding:3px 4px;display:inline;">
+                                    <input type="checkbox" name="remove" ng-model="rm">Removable concepts</input>
+                                    <input type="checkbox" name="labels" ng-model="sl">Show item labels</input>
+                                </form>
+                            </div>
+                            <div class="tmpl-border">
+                                <skos-list concepts="conceptList" on-select="reselectConcept" removeable="rm" show-labels="sl"> 
+                                </skos-list>
+                            </div>
                         </div>
+                        <div style="width:100%">
+                            <span>Select concepts and add them to the concept list:</span>
+                            <skos-browser class="tmpl-border"
+                                concept="selectedListConcept"
+                                concept-scheme="rvk">
+                            </skos-browser>
+                        </div>
+                        <button ng-disabled="checkDuplicate()" ng-click="addConcept(selectedListConcept)" title="No duplicates!">
+                            <span>Add concept</span>
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-6">
-                    <div style="width:100%">
-                        <span>Select concepts and add them to the concept list:</span>
-                        <skos-browser class="tmpl-border"
-                            concept="selectedConcept"
-                            concept-scheme="rvk"
-                        >
-                        </skos-browser>
+                    <div>
+                        The directive provides an internal function to remove list entries (<span class="glyphicon glyphicon-trash"></span>),
+                        as well as an external <b>onSelect()</b> to select a concept from the list, which can then be used elsewhere.
+                        The standard template utilizes this function when a label is clicked.
+                        In this demo, the function will refresh the concept shown in the adjacent <i>skos-browser</i>.
+                        <p>
+                        When a list item is focused, the list can be navigated and manipulated via keyboard (arrow keys to navigate, <i>Enter</i> to select and <i>Del</i> to remove the selected item).
+                        </p>
+                        The attributes <i>removeable</i> and <i>show-labels</i> determine, if items should be allowed to be removed and if the preferred labels should be displayed, respectively.
                     </div>
-                    <button ng-disabled="checkDuplicate()" ng-click="addConcept(selectedConcept)" title="No duplicates!">
-                        <span>Add concept</span>
-                    </button>
                 </div>
             </div>
         </section>

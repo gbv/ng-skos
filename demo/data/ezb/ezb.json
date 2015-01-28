@@ -1,0 +1,360 @@
+{
+    "prefLabel": {
+        "de": "EZB Klassifikation",
+        "en": "EZB classification"
+    },
+    "notation": ["EZB"],
+    "uri": "http://uri.gbv.de/terminology/ezb/",
+    "topConcepts": [
+        {
+            "prefLabel": {
+                "de": "Allgemeine und vergleichende Sprach- und Literaturwissenschaft. Indogermanistik. Außereuropäische Sprachen und Literaturen",
+                "en": "Linguistics and Literary Studies" 
+            },
+            "notation": ["E"],
+            "uri": "http://uri.gbv.de/terminology/ezb/E"
+        }, 
+        {
+            "prefLabel": {
+                "de": "Allgemeines, Fachübergreifendes",
+                "en": "General, Interdisciplinary" 
+            },
+            "notation": ["AZ"],
+            "uri": "http://uri.gbv.de/terminology/ezb/AZ"
+        },
+        {
+            "prefLabel": {
+                "de": "Anglistik. Amerikanistik",
+                "en": "English, American Studies" 
+            },
+            "notation": ["H"],
+            "uri": "http://uri.gbv.de/terminology/ezb/H"
+        },
+        {
+            "prefLabel": {
+                "de": "Archäologie",
+                "en": "Archaeology" 
+            },
+            "notation": ["LD-LG"],
+            "uri": "http://uri.gbv.de/terminology/ezb/LD-LG"
+        },
+        {
+            "prefLabel": {
+                "de": "Architektur, Bauingenieur- und Vermessungswesen",
+                "en": "Architecture, Civil Engineering" 
+            },
+            "notation": ["ZH-ZI"],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZH-ZI"
+        },
+        {
+            "prefLabel": {
+                "de": "Bildungsgeschichte",
+                "en": "History of Education" 
+            },
+            "notation": ["DD"],
+            "uri": "http://uri.gbv.de/terminology/ezb/DD"
+        },
+        {
+            "prefLabel": {
+                "de": "Biologie",
+                "en": "Biology" 
+            },
+            "notation": ["W"],
+            "uri": "http://uri.gbv.de/terminology/ezb/W"
+        },
+        {
+            "prefLabel": {
+                "de": "Chemie und Pharmazie",
+                "en": "Chemistry and Pharmacology" 
+            },
+            "notation": ["V"],
+            "uri": "http://uri.gbv.de/terminology/ezb/V"
+        },
+        {
+            "prefLabel": {
+                "de": "Elektrotechnik, Mess- und Regelungstechnik",
+                "en": "Electrical Engineering, Measurement and Control Technology" 
+            },
+            "notation": ["ZN"],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZN"
+        },
+        {
+            "prefLabel": {
+                "de": "Energie, Umweltschutz, Kerntechnik",
+                "en": "Energy, environment protection, Nuclear Power Engineering" 
+            },
+            "notation": ["ZP"],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZP"
+        },
+        {
+            "prefLabel": {
+                "de": "Ethnologie (Volks- und Völkerkunde)",
+                "en": "Ethnic Sciences" 
+            },
+            "notation": ["LA-LC"],
+            "uri": "http://uri.gbv.de/terminology/ezb/LA-LC"
+        },
+        {
+            "prefLabel": {
+                "de": "Geographie",
+                "en": "Geography" 
+            },
+            "notation": ["R"],
+            "uri": "http://uri.gbv.de/terminology/ezb/R"
+        },
+        {
+            "prefLabel": {
+                "de": "Geowissenschaften",
+                "en": "Geosciences" 
+            },
+            "notation": ["TE-TZ"],
+            "uri": "http://uri.gbv.de/terminology/ezb/TE-TZ"
+        },
+        {
+            "prefLabel": {
+                "de": "Germanistik. Niederländische Philologie. Skandinavistik",
+                "en": "German, Dutch and Scandinavian Studies" 
+            },
+            "notation": ["G"],
+            "uri": "http://uri.gbv.de/terminology/ezb/G"
+        },
+        {
+            "prefLabel": {
+                "de": "Geschichte",
+                "en": "History" 
+            },
+            "notation": ["N"],
+            "uri": "http://uri.gbv.de/terminology/ezb/N"
+        },
+        {
+            "prefLabel": {
+                "de": "Informatik",
+                "en": "Computer Science" 
+            },
+            "notation": ["SQ-SU"],
+            "uri": "http://uri.gbv.de/terminology/ezb/SQ-SU"
+        },
+        {
+            "prefLabel": {
+                "de": "Informations-, Buch- und Bibliothekswesen, Schrift- und Handschriftenkunde",
+                "en": "Information science and librarianship, Study of (ancient and medieval) manuscripts" 
+            },
+            "notation": ["AN"],
+            "uri": "http://uri.gbv.de/terminology/ezb/AN"
+        },
+        {
+            "prefLabel": {
+                "de": "Klassische Philologie. Byzantinistik. Mittellateinische und neugriechische Philologie. Neulatein",
+                "en": "Classical studies" 
+            },
+            "notation": ["F"],
+            "uri": "http://uri.gbv.de/terminology/ezb/F"
+        },
+        {
+            "prefLabel": {
+                "de": "Kunstgeschichte",
+                "en": "Art History" 
+            },
+            "notation": ["LH-LO"],
+            "uri": "http://uri.gbv.de/terminology/ezb/LH-LO"
+        },
+        {
+            "prefLabel": {
+                "de": "Land- und Forstwirtschaft. Gartenbau. Fischereiwirtschaft. Hauswirtschaft. Ernährung",
+                "en": "Agriculture, Forestry etc." 
+            },
+            "notation": ["ZA-ZE"],
+            "uri": "http://uri.gbv.de/terminology/ezb/ZA-ZE"
+        },
+        {
+            "prefLabel": {
+                "de": "Maschinenwesen, Werkstoffwissenschaften, Fertigungstechnik, Bergbau u. Hüttenwesen, Verkehrstechnik, Feinwerktechnik",
+                "en": "Mechanical Engineering" 
+            },
+            "notation": ["ZL"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/ZL"
+        },
+        {
+            "prefLabel": {
+                "de": "Mathematik",
+                "en": "Mathematics" 
+            },
+            "notation": ["SA-SP"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/SA-SP"
+        },
+        {
+            "prefLabel": {
+                "de": "Medien- und Kommunikationswissenschaften, Publizistik",
+                "en": "Media resources and Communication sciences, Journalism" 
+            },
+            "notation": ["AP"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/AP"
+        },
+        {
+            "prefLabel": {
+                "de": "Medizin",
+                "en": "Medicine" 
+            },
+            "notation": ["WW-YZ"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/WW-YZ"
+        },
+        {
+            "prefLabel": {
+                "de": "Musikwissenschaft",
+                "en": "Musicology" 
+            },
+            "notation": ["LP-LZ"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/LP-LZ"
+        },
+        {
+            "prefLabel": {
+                "de": "Naturwissenschaft allgemein",
+                "en": "Sciences" 
+            },
+            "notation": ["TA-TD"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/TA-TD"
+        },
+        {
+            "prefLabel": {
+                "de": "Pädagogik",
+                "en": "Education" 
+            },
+            "notation": ["D"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/D"
+        },
+        {
+            "prefLabel": {
+                "de": "Philosophie",
+                "en": "Philosophy" 
+            },
+            "notation": ["CA-CI"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/CA-CI"
+        },
+        {
+            "prefLabel": {
+                "de": "Physik",
+                "en": "Physics" 
+            },
+            "notation": ["U"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/U"
+        },
+        {
+            "prefLabel": {
+                "de": "Politologie",
+                "en": "Political Science" 
+            },
+            "notation": ["MA-MM"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/MA-MM"
+        },
+        {
+            "prefLabel": {
+                "de": "Psychologie",
+                "en": "Psychology" 
+            },
+            "notation": ["CL-CZ"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/CL-CZ"
+        },
+        {
+            "prefLabel": {
+                "de": "Rechtswissenschaft",
+                "en": "Law" 
+            },
+            "notation": ["P"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/P"
+        },
+        {
+            "prefLabel": {
+                "de": "Romanistik",
+                "en": "Romance Studies" 
+            },
+            "notation": ["I"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/I"
+        },
+        {
+            "prefLabel": {
+                "de": "Slavistik",
+                "en": "Slavonic Studies" 
+            },
+            "notation": ["K"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/K"
+        },
+        {
+            "prefLabel": {
+                "de": "Soziologie",
+                "en": "Sociology" 
+            },
+            "notation": ["MN-MS"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/MN-MS"
+        },
+        {
+            "prefLabel": {
+                "de": "Sport",
+                "en": "Sports Science" 
+            },
+            "notation": ["ZX-ZY"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/ZX-ZY"
+        },
+        {
+            "prefLabel": {
+                "de": "Technik allgemein",
+                "en": "Technology" 
+            },
+            "notation": ["ZG"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/ZG"
+        },
+        {
+            "prefLabel": {
+                "de": "Theologie und Religionswissenschaft",
+                "en": "Theology and Religious Studies" 
+            },
+            "notation": ["B"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/B"
+        },
+        {
+            "prefLabel": {
+                "de": "Verfahrenstechnik, Biotechnologie, Lebensmitteltechnologie",
+                "en": "Process Engineering, Biotechnology" 
+            },
+            "notation": ["ZM"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/ZM"
+        },
+        {
+            "prefLabel": {
+                "de": "Wirtschaftswissenschaften",
+                "en": "Economics" 
+            },
+            "notation": ["Q"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/Q"
+        },
+        {
+            "prefLabel": {
+                "de": "Wissenschaftskunde, Forschung, Hochschul-, Museumswesen",
+                "en": "Nature of Science, Research, Systems of Higher Education, Museum science" 
+            },
+            "notation": ["AK-AL"],
+
+            "uri": "http://uri.gbv.de/terminology/ezb/AK-AL"
+        }
+    ]
+}
+

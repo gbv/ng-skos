@@ -28,7 +28,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Provides a browsing interface to a concept scheme.",
-      "keywords": "additional angularjs api browser browsing changed code concept concept-scheme concepts corresponding current customization delay directive display field format fully function functions github html indicate interface io js jskos label loading lookup lookuplabel lookupnotation lookupuri methods ng-skos notation object opensearchsuggestion parameter preferred promise provide provided return scheme scope selected service single source suggestions supported template template-url templateurl unique uri url variable variables version"
+      "keywords": "additional angularjs api browser browsing changed code concept concepts corresponding current customization delay directive display field format fully function functions github html indicate interface io js jskos label loading lookup lookuplabel lookupnotation lookupuri methods ng-skos notation object opensearchsuggestion parameter preferred promise provide provided return scheme scope selected service single source suggestions supported template template-url templateurl unique uri url variable variables version"
     },
     {
       "section": "api",
@@ -55,7 +55,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "This directive displays a list of concepts ",
-      "keywords": "api array canremove changed code concept concepts customization directive display displays function github handling html io js jskos list lists manipulate method ng-skos onselect options parameter remove removeconcept selection source support template templateurl url"
+      "keywords": "api array canremove changed chose code concept concepts customization directive display displays function github handling html io js jskos labels list lists manipulate method ng-skos notations onselect options parameter remove removeconcept selection showlabels source support template templateurl url"
     },
     {
       "section": "api",
@@ -89,6 +89,7 @@ NG_DOCS={
     "api": true
   },
   "html5Mode": false,
+  "editExample": true,
   "startPage": "/api",
   "scripts": [
     "angular.min.js",
