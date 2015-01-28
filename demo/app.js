@@ -64,7 +64,6 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
         return dupe;
     };
     $scope.reselectConcept = function(concept){
-        console.log(concept);
         rvk.lookupNotation(concept.notation[0]).then(function(response){
             angular.copy(response, $scope.selectedListConcept);
         });

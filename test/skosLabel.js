@@ -30,12 +30,12 @@ describe('skos-label directive', function() {
     });
 
     it('should display a label of requested language',function(){
-        compileDirective('<span skos-label="myConcept" lang="en"/>');
+        compileDirective('<span skos-label="myConcept.prefLabel" lang="en"/>');
         expect(element.html()).toBe('chair')
     });
 
     it('should reflect concept label changes',function(){
-        compileDirective('<span skos-label="myConcept" lang="en"/>');
+        compileDirective('<span skos-label="myConcept.prefLabel" lang="en"/>');
 
         scope.myConcept.prefLabel.en = 'stool';
         scope.$digest();
@@ -60,7 +60,7 @@ describe('skos-label directive', function() {
 */
 
     it('should reflect lang attribute changes',function(){
-        compileDirective('<span skos-label="myConcept" lang="{{myLang}}"/>');
+        compileDirective('<span skos-label="myConcept.prefLabel" lang="{{myLang}}"/>');
         scope.myLang = "de";
         scope.$digest();
         expect(element.html()).toBe('Stuhl');
