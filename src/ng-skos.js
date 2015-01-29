@@ -8,4 +8,4 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',['ngSanitize'])
-.value('version', '0.0.4');
+.value('version', '0.0.5');

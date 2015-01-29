@@ -48,6 +48,11 @@ Versions can be bumped with one of
     grunt version:bump:minor  # e.g. 1.1.1 to 1.2.0
     grunt version:bump:major  # e.g. 1.1.1 to 2.0.0
  
+Before release:
+
+    grunt build
+    git commit -m "bump version"
+
 The new version can then be released
 
     grunt publish

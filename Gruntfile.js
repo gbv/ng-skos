@@ -128,6 +128,7 @@ module.exports = function(grunt) {
         release: {
             options: {
                 bump: false,
+                commit: false
             }
         },
         shell: {
