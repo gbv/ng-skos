@@ -42,7 +42,6 @@ A suffix can be added for developer releases.
 
 Major and minor release 0.0 may change features also in patch releases.
 
-Only release after successful tests!
-
-    npm publish
+[grunt-release](https://www.npmjs.com/package/grunt-release) ist used for releasing
+and bumping version numbers. Only release after successful tests!
 

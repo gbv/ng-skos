@@ -11,6 +11,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-version');
     grunt.loadNpmTasks('grunt-template');
+    grunt.loadNpmTasks('grunt-release');
 
     grunt.initConfig({
         pkg: require('./package.json'),

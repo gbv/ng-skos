@@ -1,13 +1,16 @@
-# ng-skos [![Build Status](https://travis-ci.org/gbv/ng-skos.svg?branch=master)](https://travis-ci.org/gbv/ng-skos)
+# ng-skos
 
 > [AngularJS](https://angularjs.org/) module to interact with Simple Knowledge Organization Systems (SKOS)
 
 See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
 
+[![NPM Version](https://img.shields.io/npm/v/ng-skos.svg)][https://www.npmjs.com/package/ng-daia]
+[![Build Status](https://travis-ci.org/gbv/ng-skos.svg)](https://travis-ci.org/gbv/ng-skos)
+[![Test Coverage](https://coveralls.io/repos/gbv/ng-skos/badge.svg?branch=master)](https://coveralls.io/r/gbv/ng-skos?branch=master)
+
 ## Installation
 
-In your Node.js project install [ng-daia from
-npmjs](https://www.npmjs.com/package/ng-daia):
+In your Node.js project install ing-daia from nmpjs:
 
 ```bash
 $ npm install ng-skos --safe
