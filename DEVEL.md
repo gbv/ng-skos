@@ -42,6 +42,15 @@ A suffix can be added for developer releases.
 
 Major and minor release 0.0 may change features also in patch releases.
 
-[grunt-release](https://www.npmjs.com/package/grunt-release) ist used for releasing
-and bumping version numbers. Only release after successful tests!
+Versions can be bumped with one of
+
+    grunt version:bump:patch  # e.g. 1.1.1 to 1.0.2
+    grunt version:bump:minor  # e.g. 1.1.1 to 1.2.0
+    grunt version:bump:major  # e.g. 1.1.1 to 2.0.0
+ 
+The new version can then be released
+
+    grunt publish
+
+Documentation and demo sites are not updated with this task.
 

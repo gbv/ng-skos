@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/ng-skos.svg?style=flat)](https://www.npmjs.com/package/ng-skos)
 [![Build Status](https://travis-ci.org/gbv/ng-skos.svg)](https://travis-ci.org/gbv/ng-skos)
 [![Test Coverage](https://coveralls.io/repos/gbv/ng-skos/badge.svg?branch=master)](https://coveralls.io/r/gbv/ng-skos?branch=master)
-[![GitHub Issues](https://img.shields.io/github/issues-raw/badges/shields.svg?style=flat)](https://github.com/gbv/ng-skos/issues)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/gbv/ng-skos.svg?style=flat)](https://github.com/gbv/ng-skos/issues)
 
 ## Install
 

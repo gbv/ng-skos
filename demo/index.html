@@ -3,52 +3,56 @@
 <head>
   <meta charset="utf-8">
   <title>ng-skos demo application</title>
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
   <link href="ng-skos.css" rel="stylesheet" />
   <link href="app.css" rel="stylesheet" />
     <script src="../lib/jquery-2.1.1.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
 </head>
 <body ng-controller="myController">
 <header>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../">ng-skos</a>
+                <a class="navbar-brand" href="//gbv.github.io/ng-skos/">ng-skos</a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" type="button" class="dropdown-toggle">
-                            Jump to directive
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#concept" target="_self">Concept</a>
-                            </li>
-                            <li>
-                                <a href="#label" target="_self">Label</a>
-                            </li>
-                            <li>
-                                <a href="#tree" target="_self">Tree</a>
-                            </li>
-                            <li>
-                                <a href="#browser" target="_self">Browser</a>
-                            </li>
-                            <li>
-                                <a href="#list" target="_self">List</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="navbar-btn lang-select">
-                        Language:
-                        <select ng-model="language">
-                            <option>de</option>
-                            <option>en</option>
-                        </select>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" type="button" class="dropdown-toggle">
+                        Jump to directive
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#concept" target="_self">Concept</a>
+                        </li>
+                        <li>
+                            <a href="#label" target="_self">Label</a>
+                        </li>
+                        <li>
+                            <a href="#tree" target="_self">Tree</a>
+                        </li>
+                        <li>
+                            <a href="#browser" target="_self">Browser</a>
+                        </li>
+                        <li>
+                            <a href="#list" target="_self">List</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-btn lang-select">
+                Language:
+                <select ng-model="language">
+                    <option>de</option>
+                    <option>en</option>
+                </select>
+                <a href="//github.com/gbv/ng-skos" class="btn btn-sm">
+                  <i class="fa fa-lg fa-github"></i>
+                </a>
             </div>
         </div> 
     </nav>
@@ -57,7 +61,8 @@
     <div class="container">
         <section class="fixnav">
         <p>
-            This page illustrates features and use of AngularJS library ng-skos.
+            This page illustrates features and use of AngularJS library ng-skos
+            (version {{version}}).
             See the <a href="../">API reference</a> for details.
         </p>
         </section>
@@ -90,7 +95,7 @@
                     </div>
                     <p>
                         Interactive elements can be added, for instance to 
-                        change the concept on clicks by loading from a cocoda 
+                        change the concept on clicks by loading from a terminology 
                         server. (See <a href="#browser"><b>skos-browser</b></a> below, for an example using the german <a href="http://rvk.uni-regensburg.de/">RVK</a> concept scheme)
                     </p>
                 </div>

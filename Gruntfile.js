@@ -9,18 +9,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ngdocs');
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-version');
     grunt.loadNpmTasks('grunt-template');
+    grunt.loadNpmTasks('grunt-version');
     grunt.loadNpmTasks('grunt-release');
+    grunt.loadNpmTasks('grunt-git-is-clean');
 
     grunt.initConfig({
         pkg: require('./package.json'),
-        version: { // take version number from package.json
-            moduleVersion: {
-                options: { prefix: "\\('version',\\s*'" },
-                src: ['src/*.js']
-            },
-        },
         template: {
             index: {
                 options: {
@@ -117,9 +112,22 @@ module.exports = function(grunt) {
                 }
             }
         },
+        // update/bump version number in package and source files
+        version: {
+            bump: {
+                src: ['package.json', 'bower.json'],
+            },
+            module: {
+                options: { 
+                    prefix: "\\('version',\\s*'" 
+                },
+                src: ['src/ng-skos.js'],
+            },
+        },
+        // release to npmjs and GitHub
         release: {
             options: {
-                additionalFiles: ['bower.json']
+                bump: false,
             }
         },
         shell: {
@@ -173,4 +181,6 @@ module.exports = function(grunt) {
     grunt.registerTask('site', ['docs','shell:site']);
     grunt.registerTask('test',['karma:unit']);
     grunt.registerTask('watch',['karma:watch']);
+
+    grunt.registerTask('publish',['ng-skos','git-is-clean','test','release']);
 };
