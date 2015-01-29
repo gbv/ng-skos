@@ -1,6 +1,6 @@
 {
   "name": "ng-skos",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jakob Voß <voss@gbv.de>",
   "contributor": [
     "Moritz Horn <moritz.horn@gmail.com>"
@@ -12,15 +12,18 @@
     "skos",
     "classification",
     "thesaurus",
-    "authority files"
+    "authority-files"
   ],
   "license": "AGPL",
-  "homepage": "http://gbv.github.io/ng-skos/",
+  "homepage": "https://gbv.github.io/ng-skos/",
   "repository": {
     "type": "git",
     "url": "git://github.com/gbv/ng-skos.git"
   },
   "main": "ng-skos.min.js",
+  "dependencies": {
+    "angular": "~1.2.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-angular-templates": "~0.5.4",

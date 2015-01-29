@@ -1,0 +1,29 @@
+{
+  "name": "ng-skos",
+  "main": "ng-skos.min.js",
+  "version": "0.0.2",
+  "homepage": "https://gbv.github.io/ng-skos/",
+  "authors": [
+    "Jakob Voss <voss@gbv.de>",
+    "Moritz Horn <moritz.horn@gmail.com>"
+  ],
+  "description": "AngularJS module to work with simple knowledge organization systems (SKOS)",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "skos",
+    "classification",
+    "thesaurus",
+    "authority-files"
+  ],
+  "license": "AGPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "~1.2.0"
+  }
+}

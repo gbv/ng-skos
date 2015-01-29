@@ -117,6 +117,11 @@ module.exports = function(grunt) {
                 }
             }
         },
+        release: {
+            options: {
+                additionalFiles: ['bower.json']
+            }
+        },
         shell: {
             demo: {
                 command: [
