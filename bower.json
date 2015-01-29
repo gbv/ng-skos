@@ -18,10 +18,17 @@
   ],
   "license": "AGPL",
   "ignore": [
-    "**/.*",
+    ".*",
     "node_modules",
     "bower_components",
-    "test"
+    "src",
+    "demo",
+    "test",
+    "docs",
+    "lib",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "push_site"
   ],
   "dependencies": {
     "angular": "~1.2.0"
