@@ -174,13 +174,13 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default',['docs']);
-    grunt.registerTask('ng-skos',['version','ngtemplates','concat','ngmin','uglify']);
-    grunt.registerTask('docs',['clean','ng-skos','template','ngdocs','shell:demo']);
+
+    grunt.registerTask('build',['version','ngtemplates','concat','ngmin','uglify']);
+    grunt.registerTask('test',['karma:unit']);
+    grunt.registerTask('publish',['build','git-is-clean','test','release']);
+
+    grunt.registerTask('docs',['clean','build','template','ngdocs','shell:demo']);
     grunt.registerTask('gh-pages', ['test','shell:working_copy_must_be_clean','site','shell:gh_pages']);
     grunt.registerTask('push-site', ['gh-pages','shell:push_site']);
     grunt.registerTask('site', ['docs','shell:site']);
-    grunt.registerTask('test',['karma:unit']);
-    grunt.registerTask('watch',['karma:watch']);
-
-    grunt.registerTask('publish',['ng-skos','git-is-clean','test','release']);
 };

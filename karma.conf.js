@@ -3,8 +3,7 @@ module.exports = function(config) {
         files: [
             'lib/angular.min.js',
             'lib/angular-*.js',
-            'src/*.js',
-            'src/**/*.js',
+            'ng-skos.js',
             'test/**/*.js',
         ],
         frameworks: ['jasmine'],
