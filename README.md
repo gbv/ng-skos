@@ -2,36 +2,30 @@
 
 > [AngularJS](https://angularjs.org/) module to interact with Simple Knowledge Organization Systems (SKOS)
 
-See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
-
-[![NPM Version](https://img.shields.io/npm/v/ng-skos.svg)][https://www.npmjs.com/package/ng-daia]
+[![npm version](https://img.shields.io/npm/v/ng-skos.svg?style=flat)](https://www.npmjs.com/package/ng-skos)
 [![Build Status](https://travis-ci.org/gbv/ng-skos.svg)](https://travis-ci.org/gbv/ng-skos)
 [![Test Coverage](https://coveralls.io/repos/gbv/ng-skos/badge.svg?branch=master)](https://coveralls.io/r/gbv/ng-skos?branch=master)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/badges/shields.svg)](https://github.com/gbv/ng-skos/issues)
 
 ## Install
 
 ### npm
 
-In your Node.js project install ing-daia from nmpjs:
-
 ```bash
-$ npm install ng-skos --safe
-```
-
-Then require it in your client-side JavaScript files:
-
-```javascript
-$ var ng_skos = require('ng-skos');
+npm install ng-skos --safe
 ```
 
 ### bower
 
 ```bash
-$ bower install ng-skos
+bower install ng-skos
 ```
+
+## Usage
+
+See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
 
 ## Development
 
-See `DEVEL.md` for developer documentation.
-
-
+See `DEVEL.md` for development documentation. Contributions and
+[feedback](https://github.com/gbv/ng-skos/issues) is appreciated.
