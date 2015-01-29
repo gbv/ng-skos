@@ -8,11 +8,12 @@
  * This service implements use of URL templates to perform HTTP requests with 
  * optional transformation of JSON responses and error handling.
  *
- * The service is not related to JSKOS but used as utility in ng-skos.
+ * The service is not related to JSKOS but used as utility in ng-skos. A future
+ * release of ng-skos may drop it favor of $http or $resource
  * 
  * ## Configuration
  * 
- * * **`url`**: URL template for requests
+ * * **`url`**: URL requests
  * * **`jsonp`**: enable JSONP (true/false/0/1/name)
  * * **`transform`**: custom transformation function to map expected response format
  *
@@ -21,10 +22,9 @@
  * * **`get([url])`**: perform a HTTP request
  *
  */
-angular.module('ngSKOS')
+angular.module('ngSKOS') // TODO: rename to SkosHTTP?
 .factory('SkosHTTPProvider',['$http','$q',function($http,$q) {
 
-    // constructor
     var SkosHTTPProvider = function(args) {
         if (!args) { args = {}; }
         this.transform = args.transform;

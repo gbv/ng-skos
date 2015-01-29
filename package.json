@@ -4,11 +4,14 @@
   "author": "Jakob Voß <voss@gbv.de>",
   "contributor": ["Moritz Horn <moritz.horn@gmail.com>"], 
   "description": "AngularJS module to work with simple knowledge organization systems (SKOS)",
+  "keywords": ["angular","angularjs","skos","classification","thersaurus","authority files"],
   "license": "AGPL",
+  "homepage": "http://gbv.github.io/ng-skos/",
   "repository": {
     "type": "git",
     "url": "git://github.com/gbv/ng-skos.git"
   },
+  "main": "ng-skos.min.js",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-angular-templates": "~0.5.4",
@@ -23,5 +26,8 @@
     "grunt-template": "~0.2.3",
     "karma": "~0.10.9",
     "karma-jasmine": "~0.1.5"
+  },
+  "scripts": {
+    "test": "grunt test"
   }
 }

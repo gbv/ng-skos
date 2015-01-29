@@ -1,44 +1,26 @@
 # ng-skos [![Build Status](https://travis-ci.org/gbv/ng-skos.svg?branch=master)](https://travis-ci.org/gbv/ng-skos)
 
-> [AngularJS](http://angularjs.org/) module to interact with Simple Knowledge Organization Systems (SKOS)
+> [AngularJS](https://angularjs.org/) module to interact with Simple Knowledge Organization Systems (SKOS)
 
-## Usage and documentation
+See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
 
-See <http://gbv.github.io/ng-skos/>.
+## Installation
 
-## Requirements
+In your Node.js project install [ng-daia from
+npmjs](https://www.npmjs.com/package/ng-daia):
 
-Require AngularJS >= 1.2.
+```bash
+$ npm install ng-skos --safe
+```
+
+Then require it in your client-side JavaScript files:
+
+```javascript
+$ var ng_skos = require('ng-skos');
+```
 
 ## Development
 
-First, **clone** the repository from <https://github.com/gbv/ng-skos>.
+See `DEVEL.md` for developer documentation.
 
-Second, install Node.js unless it is already installed. Node.js includes `npm`
-to install additional packages. Locally **install all required packages**
-listed in `package.json` (for global installation call `npm` via `sudo -H`):
-
-    npm install -g grunt-cli
-    npm install
-
-Testing is configured in `karma.conf.js` and **unit tests** are located in
-directory `test` written with [Jasmine](http://pivotal.github.io/jasmine/). 
-
-To execute of all unit tests call:
-
-    grunt test
-
-For contious testing (tests are re-run on changes), call:
-
-    grunt watch
-
-As configured in `.travis.yml` the tests are automatically 
-[executed at travis-ci](https://travis-ci.org/gbv/ng-skos)
-when pushed to GitHub.
-
-To build the **documentation**, written using
-[ngdoc](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation),
-call
-
-    grunt docs
 

@@ -11,3 +11,6 @@ terminologies, based on the Simple Knowledge Organization System
 git repository at <https://github.com/gbv/ng-skos>.
 
 See the [demo](demo) for an illustrated overview.
+
+Requires AngularJS >= 1.2.
+

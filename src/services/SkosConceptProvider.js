@@ -10,6 +10,8 @@
  * The concept object may contain
  * links to narrower and broader concepts, among other information.
  * 
+ * This service is experimental.
+ *
  * ## Configuration
  * 
  * * **`url`**: URL template for requests
