@@ -9,7 +9,7 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',[])
-.constant('ngSKOS.version', '0.0.5');
+.constant('ngSKOS.version', '0.0.7');
 
 /**
  * @ngdoc directive
