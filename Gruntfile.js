@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-ngdocs');
-    grunt.loadNpmTasks('grunt-ngmin');
+    grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-version');
     grunt.loadNpmTasks('grunt-release');
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
             app: {
                 cwd:  'src/templates',
                 src: '**.html', 
-                dest: 'ng-skos-templates.js',
+                dest: 'templates.js',
             },
             options: {
                 module: 'ngSKOS',
@@ -75,15 +75,16 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'src/*.js','src/**/*.js',
-                    'ng-skos-templates.js'
+                    'templates.js'
                 ],
                 dest: 'ng-skos.js',
             },
         },
-        ngmin: {
+        ngAnnotate: {
             angular: {
-                src: ['ng-skos.js'],
-                dest: 'ng-skos.js',
+                files: {
+                    'ng-skos.js': ['ng-skos.js']
+                }
             }
         },
         uglify : {
@@ -164,7 +165,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default',['docs']);
 
-    grunt.registerTask('build',['version','ngtemplates','concat','ngmin','uglify']);
+    grunt.registerTask('build',['version','ngtemplates','concat','ngAnnotate','uglify']);
     grunt.registerTask('test',['karma:unit']);
     grunt.registerTask('publish',['build','git-is-clean','test','release']);
 
