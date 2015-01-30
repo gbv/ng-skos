@@ -22,7 +22,6 @@ module.exports = function(grunt) {
                 navTemplate: 'src/docs-nav.html',
                 scripts: [ 
                     'angular.js',
-                    'lib/angular-resource.min.js',
                     'ng-skos.min.js',
                 ]
             },

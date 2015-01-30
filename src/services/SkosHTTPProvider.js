@@ -9,7 +9,8 @@
  * optional transformation of JSON responses and error handling.
  *
  * The service is not related to JSKOS but used as utility in ng-skos. A future
- * release of ng-skos may drop it favor of $http or $resource
+ * release of ng-skos may drop it favor of $http or 
+ * use [$resource](//docs.angularjs.org/api/ngResource/service/$resource).
  * 
  * ## Configuration
  * 
@@ -22,7 +23,7 @@
  * * **`get([url])`**: perform a HTTP request
  *
  */
-angular.module('ngSKOS') // TODO: rename to SkosHTTP?
+angular.module('ngSKOS')
 .factory('SkosHTTPProvider',['$http','$q',function($http,$q) {
 
     var SkosHTTPProvider = function(args) {
