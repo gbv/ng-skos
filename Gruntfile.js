@@ -105,7 +105,7 @@ module.exports = function(grunt) {
             },
             module: {
                 options: { 
-                    prefix: "\\('version',\\s*'" 
+                    prefix: "\\('ngSKOS.version',\\s*'" 
                 },
                 src: ['src/ng-skos.js'],
             },
