@@ -133,19 +133,9 @@ module.exports = function(grunt) {
                     "perl -pi -e 's|<script src=\"\\.\\./lib|<script src=\"../grunt-scripts/lib|' docs/demo/*.html"
                 ].join('&&')
             },
-            site: {
-                command: "rm -rf site && mkdir site && cp -r docs/* site"
-            },
-            working_copy_must_be_clean: {
-                command: "if git status --porcelain 2>/dev/null | grep -q .; then exit 1; fi",
-                options: { failOnError: true } 
-            },
-            push_site: {
-                command: "git push origin gh-pages",
-                options: { failOnError: true } 
-            },
             gh_pages: {
                 command: [
+                    'rm -rf site && mkdir site && cp -r docs/* site',
                     'git checkout gh-pages',
                     'git pull origin gh-pages',
                     'cp -rf site/* .',
@@ -159,6 +149,10 @@ module.exports = function(grunt) {
                     stderr: true,
                     failOnError: true
                 } 
+            },
+            push_gh_pages: {
+                command: "git push origin gh-pages",
+                options: { failOnError: true } 
             }
         }
     });
@@ -167,10 +161,12 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build',['version','ngtemplates','concat','ngAnnotate','uglify']);
     grunt.registerTask('test',['karma:unit']);
-    grunt.registerTask('publish',['build','git-is-clean','test','release']);
+    grunt.registerTask('publish',['build','git-is-clean','test','release','homepage']);
 
     grunt.registerTask('docs',['clean','build','shell:docindex','ngdocs','shell:demo']);
-    grunt.registerTask('gh-pages', ['test','shell:working_copy_must_be_clean','site','shell:gh_pages']);
-    grunt.registerTask('push-site', ['gh-pages','shell:push_site']);
+
+    grunt.registerTask('gh-pages', ['test','git-is-clean','shell:gh_pages']);
+    grunt.registerTask('homepage', ['gh-pages','git-is-clean','shell:push_gh_pages']);
+
     grunt.registerTask('site', ['docs','shell:site']);
 };
