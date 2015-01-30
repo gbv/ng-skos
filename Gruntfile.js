@@ -9,25 +9,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ngdocs');
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-template');
     grunt.loadNpmTasks('grunt-version');
     grunt.loadNpmTasks('grunt-release');
     grunt.loadNpmTasks('grunt-git-is-clean');
 
     grunt.initConfig({
         pkg: require('./package.json'),
-        template: {
-            index: {
-                options: {
-                     data: function() { 
-                        return grunt.config.get('pkg'); 
-                    }
-                },
-                files: {
-                    'src/index.ngdoc': ['src/index.ngdoc.tpl']
-                }
-            }
-        },
         ngdocs: {
             options: {
                 html5Mode: false,
@@ -36,7 +23,6 @@ module.exports = function(grunt) {
                 scripts: [ 
                     'angular.js',
                     'lib/angular-resource.min.js',
-                    'lib/angular-sanitize.min.js',
                     'ng-skos.min.js',
                 ]
             },
@@ -132,6 +118,9 @@ module.exports = function(grunt) {
             }
         },
         shell: {
+            docindex: {
+                command: "cp src/index.ngdoc.tpl src/index.ngdoc && cat README.md >> src/index.ngdoc"
+            },
             demo: {
                 command: [
                     "rm -rf docs/demo",
@@ -180,7 +169,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test',['karma:unit']);
     grunt.registerTask('publish',['build','git-is-clean','test','release']);
 
-    grunt.registerTask('docs',['clean','build','template','ngdocs','shell:demo']);
+    grunt.registerTask('docs',['clean','build','shell:docindex','ngdocs','shell:demo']);
     grunt.registerTask('gh-pages', ['test','shell:working_copy_must_be_clean','site','shell:gh_pages']);
     grunt.registerTask('push-site', ['gh-pages','shell:push_site']);
     grunt.registerTask('site', ['docs','shell:site']);
