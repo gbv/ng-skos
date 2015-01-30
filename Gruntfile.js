@@ -139,7 +139,7 @@ module.exports = function(grunt) {
                     "find docs/demo -type l -exec rm '{}' ';'",
                     "cp ng-skos.js docs/grunt-scripts",
                     "cp -r lib docs/grunt-scripts",
-                    "cp demo/ng-skos.css docs/demo",
+                    "cp ng-skos.css docs",
                     "perl -pi -e 's|<script src=\"\\.\\./src.+|<script src=\"../grunt-scripts/ng-skos.js\"></script>|' docs/demo/*.html",
                     "perl -pi -e 's|<script src=\"\\.\\./lib|<script src=\"../grunt-scripts/lib|' docs/demo/*.html"
                 ].join('&&')
