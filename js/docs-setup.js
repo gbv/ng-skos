@@ -9,8 +9,8 @@ NG_DOCS={
       "shortName": "API Reference",
       "type": "overview",
       "moduleName": "API Reference",
-      "shortDescription": "ng-skos - API Reference",
-      "keywords": "api based git illustrated knowledge managed module ng-skos org organization overview public reference repository simple system terminologies w3 work"
+      "shortDescription": "ng-skos",
+      "keywords": "api appreciated bash bower contributions coverage devel development documentation examples github install interact io issues knowledge md module ng-skos npm npmjs org organization overview reference shields simple status svg systems usage version"
     },
     {
       "section": "api",
@@ -73,7 +73,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Get concepts via HTTP. ",
-      "keywords": "api broader concept concepts configuration custom enable expected format function getconcept github html http io json jsonp links map methods narrower ng-skos object queried requests response return server service template transform transformation updateconcept updateconnected url"
+      "keywords": "api broader concept concepts configuration custom enable expected experimental format function getconcept github html http io json jsonp links map methods narrower ng-skos object queried requests response return server service template transform transformation updateconcept updateconnected url"
     },
     {
       "section": "api",
@@ -82,19 +82,16 @@ NG_DOCS={
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Utility service to facilitate HTTP requests. ",
-      "keywords": "api configuration custom enable error expected facilitate format function handling http implements jskos json jsonp map methods ng-skos optional perform request requests response responses service template templates transform transformation url utility"
+      "keywords": "$http angularjs api configuration custom drop enable error expected facilitate favor format function future handling http implements jskos json jsonp map methods ng-skos optional org perform release request requests response responses service templates transform transformation url utility"
     }
   ],
   "apis": {
     "api": true
   },
   "html5Mode": false,
-  "editExample": true,
   "startPage": "/api",
   "scripts": [
     "angular.min.js",
-    "angular-resource.min.js",
-    "angular-sanitize.min.js",
     "ng-skos.min.js"
   ]
 };

@@ -13,9 +13,11 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
 })
 .config(function($locationProvider, $anchorScrollProvider) {
     $locationProvider.html5Mode(true);
-});
-
-function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider) {
+})
+.controller('myController',[
+    '$scope','$timeout','$rootScope','$q',
+    'OpenSearchSuggestions','SkosConceptProvider','SkosHTTPProvider','ngSKOS.version',
+    function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider,version) {
 
     // RVK-Zugriff ausgelagert in rvk.js
     var rvk = rvkConceptScheme(
@@ -81,5 +83,7 @@ function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, S
         }
     };
     $scope.language = "en";
-}
+
+    $scope.version = version;
+}]);
 
