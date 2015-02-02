@@ -1,0 +1,26 @@
+<h1><code ng:non-bindable="">SkosConceptSource</code>
+<div><span class="hint">service in module <code ng:non-bindable="">ng-skos</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ng-skos-service-page ng-skos-service-skosconceptsource-page"><p>Get concepts via HTTP. </p>
+<p>The server to be queried with this service is expected to return a JSON
+object with one <a href="http://gbv.github.io/jskos/jskos.html#concepts">concept</a>
+The concept object may contain
+links to narrower and broader concepts, among other information.</p>
+<p>This service is experimental.</p>
+<h4 id="description_configuration">Configuration</h4>
+<ul>
+<li><strong><code>url</code></strong>: URL template for requests</li>
+<li><strong><code>jsonp</code></strong>: enable JSONP</li>
+<li><strong><code>transform</code></strong>: custom transformation function to map expected response format</li>
+</ul>
+<h4 id="description_methods">Methods</h4>
+<ul>
+<li><strong><code>getConcept(concept)</code></strong></li>
+<li><strong><code>updateConcept(concept)</code></strong></li>
+<li><strong><code>updateConnected(concept)</code></strong></li>
+</ul>
+</div></div>
+</div>

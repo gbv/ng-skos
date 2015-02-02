@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "API Reference"
+    "api": "Documentation"
   },
   "pages": [
     {
@@ -10,7 +10,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "API Reference",
       "shortDescription": "ng-skos",
-      "keywords": "api appreciated bash bower contributions coverage devel development documentation examples github install interact io issues knowledge md module ng-skos npm npmjs org organization overview reference shields simple status svg systems usage version"
+      "keywords": "api appreciated bash bower contributing contributions coverage development documentation examples github install interact io issues knowledge md module ng-skos npm npmjs org organization overview reference shields simple status svg systems usage version"
+    },
+    {
+      "section": "api",
+      "id": "contributing",
+      "shortName": "Contributing",
+      "type": "overview",
+      "moduleName": "ng-skos",
+      "shortDescription": "Contributing",
+      "keywords": "api application automatically backwards break bug build bump bumped call change changes code commit compatibility conf configured consists contious contributing demo dependencies developer docs documentation don execute executed existing features fixes git github global grunt grunt-cli includes increment install installation installing io issue js json karma listed major middle minor ng-skos node npm number numeric org overview package packages parts patch prepend publish pushed re-run release released releases repository running sites source src sudo suffix task test testing tests three tracker travis travis-ci unit updated version versions watch written yml"
     },
     {
       "section": "api",
@@ -68,8 +77,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.service:SkosConceptProvider",
-      "shortName": "SkosConceptProvider",
+      "id": "ng-skos.service:SkosConceptSource",
+      "shortName": "SkosConceptSource",
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Get concepts via HTTP. ",
@@ -77,8 +86,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "ng-skos.service:SkosHTTPProvider",
-      "shortName": "SkosHTTPProvider",
+      "id": "ng-skos.service:SkosHTTP",
+      "shortName": "SkosHTTP",
       "type": "service",
       "moduleName": "ng-skos",
       "shortDescription": "Utility service to facilitate HTTP requests. ",
@@ -89,6 +98,7 @@ NG_DOCS={
     "api": true
   },
   "html5Mode": false,
+  "editExample": true,
   "startPage": "/api",
   "scripts": [
     "angular.min.js",
