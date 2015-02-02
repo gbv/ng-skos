@@ -25,7 +25,7 @@ bower install ng-skos --safe
 
 See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
 
-## Development
+## Contributing
 
-See `DEVEL.md` for development documentation. Contributions and
+See [`CONTRIBUTING.md`] for development documentation. Contributions and
 [feedback](https://github.com/gbv/ng-skos/issues) is appreciated.

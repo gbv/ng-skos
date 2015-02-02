@@ -26,11 +26,11 @@ module.exports = function(grunt) {
                 ]
             },
             api: {
-                title: 'API Reference',
+                title: 'Documentation',
                 src: [
                     'src/*.js',
                     'src/**/*.js',
-                    'src/*.ngdoc',
+                    '*.ngdoc',
                 ],
             },
         },
@@ -118,8 +118,12 @@ module.exports = function(grunt) {
             }
         },
         shell: {
-            docindex: {
-                command: "cp src/index.ngdoc.tpl src/index.ngdoc && cat README.md >> src/index.ngdoc"
+            prepare_ngdocs: {
+                command: [
+                    'cp src/index.ngdoc.tpl index.ngdoc',
+                    'cat README.md >> index.ngdoc',
+                    'cp CONTRIBUTING.md contributing.ngdoc'
+                ].join('&&')
             },
             demo: {
                 command: [
@@ -163,7 +167,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test',['karma:unit']);
     grunt.registerTask('publish',['build','git-is-clean','test','release','homepage']);
 
-    grunt.registerTask('docs',['clean','build','shell:docindex','ngdocs','shell:demo']);
+    grunt.registerTask('docs',['clean','build','shell:prepare_ngdocs','ngdocs','shell:demo']);
 
     grunt.registerTask('gh-pages', ['test','git-is-clean','shell:gh_pages']);
     grunt.registerTask('homepage', ['gh-pages','git-is-clean','shell:push_gh_pages']);

@@ -1,4 +1,21 @@
-# Development guidelines
+@ngdoc overview
+@name Contributing
+@module ng-skos
+@id contributing
+@description
+
+# Contributing
+
+## Overview
+
+* <http://github.com/gbv/ng-skos/issues>: issue tracker
+* <http://github.com/gbv/ng-skos>: source code repository
+
+  * `src` : source code
+  * `test` : unit tests
+  * `demo` : demo application
+
+## How to set up your development environment
 
 First, **clone** the repository from <https://github.com/gbv/ng-skos>.
 

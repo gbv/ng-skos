@@ -1,5 +1,6 @@
 /**
  * @ngdoc service
+ * @module ng-skos
  * @name ng-skos.service:SkosHTTPProvider
  * @description
  * 
