@@ -1,4 +1,4 @@
-function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchSuggestions) {
+function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions) {
 
     function transformNode(node) {
         return {
@@ -8,7 +8,7 @@ function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchS
         };
     };
 
-    var rvkProvider = new SkosConceptProvider({
+    var rvkProvider = new SkosConceptSource({
         //url:'data/rvk/{notation}.json',
         //jsonp: false,
 
@@ -41,7 +41,7 @@ function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchS
 
     // get all direct children of the concept
     // TODO: cleanup this code
-    var getNarrower = new SkosConceptProvider({
+    var getNarrower = new SkosConceptSource({
         url: "http://rvk.uni-regensburg.de/api/json/children/{notation}",
         transform: function(item) {
             var node = item.node;
@@ -79,7 +79,7 @@ function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchS
     });
 
     // get the direct ancestor of the concept
-    var getBroader = new SkosConceptProvider({
+    var getBroader = new SkosConceptSource({
         url: "http://rvk.uni-regensburg.de/api/json/ancestors/{notation}",
         transform: function(item) {
             var node = item.node;
@@ -136,7 +136,7 @@ function rvkConceptScheme($q, SkosConceptProvider, SkosHTTPProvider, OpenSearchS
     // expected to promise an array of JSKOS
     // [concept](http://gbv.github.io/jskos/jskos.html#concepts)
     var getTopConcepts = function() {
-        var provider = new SkosHTTPProvider({
+        var provider = new SkosHTTP({
             url: "http://rvk.uni-regensburg.de/api/json/children",
             jsonp: 'jsonp',
             transform: function(response) { 

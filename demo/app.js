@@ -16,13 +16,13 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
 })
 .controller('myController',[
     '$scope','$timeout','$rootScope','$q',
-    'OpenSearchSuggestions','SkosConceptProvider','SkosHTTPProvider','ngSKOS.version',
-    function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, SkosConceptProvider, SkosHTTPProvider,version) {
+    'OpenSearchSuggestions','SkosConceptSource','SkosHTTP','ngSKOS.version',
+    function myController($scope, $timeout, $rootScope, $q, OpenSearchSuggestions, SkosConceptSource, SkosHTTP,version) {
 
     // RVK-Zugriff ausgelagert in rvk.js
     var rvk = rvkConceptScheme(
         $q,
-        SkosConceptProvider, SkosHTTPProvider, OpenSearchSuggestions
+        SkosConceptSource, SkosHTTP, OpenSearchSuggestions
     );
 
     rvk.getTopConcepts().then(function(response){

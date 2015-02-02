@@ -1,6 +1,6 @@
 /**
  * @ngdoc service
- * @name ng-skos.service:SkosConceptProvider
+ * @name ng-skos.service:SkosConceptSource
  * @description
  * 
  * Get concepts via HTTP. 
@@ -26,15 +26,15 @@
  *
  */
 angular.module('ngSKOS')
-.factory('SkosConceptProvider',['SkosHTTPProvider',function(SkosHTTPProvider) {
+.factory('SkosConceptSource',['SkosHTTP',function(SkosHTTP) {
 
-    // inherit from SkosHTTPProvider
-    var SkosConceptProvider = function(args) {
-        SkosHTTPProvider.call(this, args);
+    // inherit from SkosHTTP
+    var SkosConceptSource = function(args) {
+        SkosHTTP.call(this, args);
     };
-    SkosConceptProvider.prototype = new SkosHTTPProvider();
+    SkosConceptSource.prototype = new SkosHTTP();
     
-    SkosConceptProvider.prototype.getConcept = function(concept) {
+    SkosConceptSource.prototype.getConcept = function(concept) {
         var url;
         // look up by uri / notation / prefLabel
         if (this.url) {
@@ -55,7 +55,7 @@ angular.module('ngSKOS')
         return this.get(url);
     };
     
-    SkosConceptProvider.prototype.updateConcept = function(concept) {
+    SkosConceptSource.prototype.updateConcept = function(concept) {
         return this.getConcept(concept).then(
             function(response) {
                 angular.copy(response, concept);
@@ -63,7 +63,7 @@ angular.module('ngSKOS')
         );
     };
 
-    SkosConceptProvider.prototype.updateConnected = function(concept, which) {
+    SkosConceptSource.prototype.updateConnected = function(concept, which) {
         if (angular.isString(which)) {
             which = [which];
         } else if (!angular.isArray(which)) {
@@ -77,5 +77,5 @@ angular.module('ngSKOS')
         });
     };
  
-    return SkosConceptProvider;
+    return SkosConceptSource;
 }]);

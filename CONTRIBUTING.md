@@ -15,31 +15,30 @@
   * `test` : unit tests
   * `demo` : demo application
 
-## How to set up your development environment
+## Installing Dependencies
 
-First, **clone** the repository from <https://github.com/gbv/ng-skos>.
+Install [Node.js](https://nodejs.org/) and [Grunt](https://gruntjs.com/).
+Node.js includes `npm` which is used to install Grunt and other packages listed
+in `package.json`:
 
-Second, install Node.js unless it is already installed. Node.js includes `npm`
-to install additional packages. Locally **install all required packages**
-listed in `package.json` (for global installation call `npm` via `sudo -H`):
-
-    npm install -g grunt-cli
+    npm install -g grunt-cli   # prepend "sudo -H" for global installation
     npm install
 
-Testing is configured in `karma.conf.js` and **unit tests** are located in
-directory `test` written with [Jasmine](http://pivotal.github.io/jasmine/). 
+## Running the Unit Tests
 
-To execute of all unit tests call:
+Unit tests are written with [Jasmine](http://pivotal.github.io/jasmine/) and executed with
+[Karma](https://karma-runner.github.io/). Testing is configured in `karma.conf.js`.
+
+To execute all unit tests call:
 
     grunt test
 
-For contious testing (tests are re-run on changes), call:
+For contious testing (tests are re-run on changes):
 
     grunt watch
 
-As configured in `.travis.yml` the tests are automatically 
-[executed at travis-ci](https://travis-ci.org/gbv/ng-skos)
-when pushed to GitHub.
+As configured in `.travis.yml` the tests are automatically [executed at
+travis-ci](https://travis-ci.org/gbv/ng-skos) when pushed to GitHub.
 
 To build the **documentation**, written using
 [ngdoc](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation),

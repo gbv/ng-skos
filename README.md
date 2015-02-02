@@ -27,5 +27,6 @@ See <https://gbv.github.io/ng-skos/> for documentation and usage examples!
 
 ## Contributing
 
-See [`CONTRIBUTING.md`] for development documentation. Contributions and
-[feedback](https://github.com/gbv/ng-skos/issues) is appreciated.
+See [`CONTRIBUTING.md`](#/api/contributing) for development documentation.
+Contributions and [feedback](https://github.com/gbv/ng-skos/issues) is
+appreciated!
