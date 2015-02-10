@@ -197,6 +197,12 @@ ul.ancestors li {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #EEE;
 }
+/* SKOS-browser */
+.typeahead-loading-right{
+    position:absolute;
+    top:9px;
+    right:6px;
+}
 /* SKOS-list*/
 .skos-simple-list{
     list-style-type:none;

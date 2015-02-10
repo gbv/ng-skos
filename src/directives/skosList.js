@@ -35,7 +35,8 @@ angular.module('ngSKOS')
             onSelect: '=onSelect',
             canRemove: '=removeable',
             showLabels: '=showLabels',
-            language: '=language'
+            language: '=language',
+            listname:'=listName'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ?
@@ -44,14 +45,16 @@ angular.module('ngSKOS')
         link: function link(scope, element, attr) {
             
             scope.$watch('concepts');
-            scope.ID = Math.random().toString(36).slice(2);
             
             scope.removeConcept = function(index) { 
                 scope.concepts.splice(index, 1);
             };
             scope.focusConcept = function(index) {
                 // TODO: remove depenency on jQuery
-                var fc = angular.element("[list-id=" + scope.ID + "_" + index + "]");
+                if(!scope.listname){
+                    scope.listname = Math.random().toString(36).slice(2);
+                }
+                var fc = angular.element("[list-name=" + scope.listname + "_" + index + "]");
                 fc.focus();
             };
             scope.tabFocus = 0;

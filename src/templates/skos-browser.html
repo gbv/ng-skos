@@ -1,4 +1,4 @@
-<div ng-if="scheme.suggest" style="margin:1em 0em;">
+<div ng-if="scheme.suggest" style="margin:1em 0em;position:relative;">
     <input class="form-control"
         suggest-typeahead="scheme.suggest"
         typeahead-on-select="selectNotation($item.description)"
@@ -7,7 +7,7 @@
         typeahead-loading="loading"
         typeahead-editable="false"
     />
-    <i ng-show="loading" class="glyphicon glyphicon-refresh typeahead-loading"></i>
+    <span ng-show="loading" class="typeahead-loading-right"><i class="glyphicon glyphicon-refresh"></i></span>
 </div>
 <div ng-if="selectNotation"
      class="search-top" style="overflow:hidden;margin-bottom:15px;">
