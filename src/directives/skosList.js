@@ -36,7 +36,7 @@ angular.module('ngSKOS')
             canRemove: '=removeable',
             showLabels: '=showLabels',
             language: '=language',
-            listname:'=listName'
+            listname:'@listName'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ?
@@ -54,7 +54,7 @@ angular.module('ngSKOS')
                 if(!scope.listname){
                     scope.listname = Math.random().toString(36).slice(2);
                 }
-                var fc = angular.element("[list-name=" + scope.listname + "_" + index + "]");
+                var fc = angular.element("[list-index=" + scope.listname + "_" + index + "]");
                 fc.focus();
             };
             scope.tabFocus = 0;
