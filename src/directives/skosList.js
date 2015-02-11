@@ -35,7 +35,7 @@ angular.module('ngSKOS')
             onSelect: '=onSelect',
             canRemove: '=removeable',
             showLabels: '=showLabels',
-            language: '=language',
+            lang: '=language',
             listname:'@listName'
         },
         templateUrl: function(elem, attrs) {
@@ -45,6 +45,19 @@ angular.module('ngSKOS')
         link: function link(scope, element, attr) {
             
             scope.$watch('concepts');
+            scope.$watch('lang', function(lang){
+                scope.popOverTitle = function(label){
+                    if(scope.showLabels != true){
+                        if(label[lang]){
+                            return label[lang];
+                        }else{
+                            for(lang in label){
+                                return label[lang];
+                            }
+                        }
+                    }
+                }
+            });
             
             scope.removeConcept = function(index) { 
                 scope.concepts.splice(index, 1);
