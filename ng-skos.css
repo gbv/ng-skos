@@ -122,35 +122,27 @@ ul.ancestors li {
     margin:4px 0px 5px 6px;
     font-style:italic;
 }
-/* 'skos-concept' relations (broader, narrower, related) display*/
+/* 'skos-concept' relations (broader, narrower, related) display */
 .skos-concept-relation li:hover {
-    background-color:#ddd;
-    border-radius:3px;
-    color:#2a6496;
+    cursor:pointer;
 }
 .skos-concept-relation li{
-    text-decoration:none;
-    cursor:pointer;
-    display:inline-block;
-    margin: 0 0 0 1em;
+    display:table-row;
+}
+.skos-concept-relation div{
+    display:table-cell;
+}
+.skos-concept-relation-label{
+    padding:0px 3px;
+}
+.skos-concept-relation-label:hover{
+    background-color:#ddd;
 }
 .skos-concept-relation ul{
     margin: 0;
-    padding: 0 0 0 1.1em;
-    list-style: none;
-    text-indent: -1.1em;
 }
 .skos-concept-relation span{
     color:#428bca;
-}
-.skos-concept-relation-broader li:before{
-    content:'\2196';
-}
-.skos-concept-relation-narrower li:before{
-    content:'\2198';
-}
-.skos-concept-relation-related li:before{
-    content:'\2799';
 }
 /* styles for header, containing notation, prefLabel and uri-link */
 .top-alt{
@@ -196,6 +188,12 @@ ul.ancestors li {
 }
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #EEE;
+}
+/* SKOS-browser */
+.typeahead-loading-right{
+    position:absolute;
+    top:9px;
+    right:6px;
 }
 /* SKOS-list*/
 .skos-simple-list{
