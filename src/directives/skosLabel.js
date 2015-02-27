@@ -4,42 +4,50 @@
  * @restrict A
  * @description
  *
- * Displays the preferred label of a concept.
- * Changes on the preferred label(s) are reflected in the display.
+ * Shows the multilingual label of a concept or concept scheme, given as
+ * JSON object with language codes mapped to labels. A preferred language 
+ * can be selected with parameter `lang`. The language a label is actually
+ * shown in, is made available as element attribute `skos-lang`.
  *
- * @param {string} skos-label Assignable angular expression with 
- *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) data to bind to.
- * @param {string=} lang optional language. If not specified, an arbitrary
- *      preferred label is selected. Future versions of this directive may
- *      use more elaborated heuristics to select an alternative language.
+ * Future versions of this directive may use more elaborated heuristics 
+ * to select an alternative languages.
+ *
+ * @param {string} skos-label Expression with multilingual label data
+ * @param {string=} lang preferred language to show. If not available,
+ *      a language is chosen based on the given label data.
  *
  * @example
  <example module="myApp">
   <file name="index.html">
     <div ng-controller="myController">
-      <dl>
-        <dt>en</dt>
-        <dd><span skos-label="sampleConcept" lang="en"/></dd>
-        <dt>de</dt>
-        <dd><span skos-label="sampleConcept" lang="de"/></dd>
-        <dt><input type="text" ng-model="lang2"/></dt>
-        <dd><span skos-label="sampleConcept" lang="{{lang2}}"/></dd>
+      <ul>
+        <li skos-label="example" lang="en" />
+        <li skos-label="example" lang="de" />
+        <li>
+         <span skos-label="example" lang="{{language}}"/>
+         <input type="text" ng-model="language" class="input-small"/>
+         (select language)
+        </li>
       </dl>
-      <pre>{{sampleConcept}}</pre>
     </div>
   </file>
   <file name="script.js">
     angular.module('myApp',['ngSKOS']);
 
     function myController($scope) {
-        $scope.sampleConcept = {
-            prefLabel: { 
-                en: "example",
-                de: "Beispiel",
-            },
+        $scope.example = {
+            en: "example",
+            de: "Beispiel",
         };
-        $scope.lang2 = "fr";
+        $scope.language = "fr";
     }
+  </file>
+  <file name="style.css">
+   *[skos-label]:after { 
+      content: "\00a0" attr(skos-lang); 
+      vertical-align: super;
+      color: gray;
+   }
   </file>
 </example>
  */
@@ -61,6 +69,8 @@ angular.module('ngSKOS')
                 if (language != scope.language) {
                     scope.language = language;
                 }
+
+                attrs.$set('skos-lang', language);
             }
 
             function selectLanguage(labels, language) {
@@ -68,17 +78,22 @@ angular.module('ngSKOS')
                     if ( language && labels[language] ) {
                         return language;
                     } else {
-                        for (language in labels) {
-                            return language;
-                        }
+                        return guessLanguage(labels);
                     }
                 }
             }
 
-            // update if lang attribute changed (also called once at initialization)
+            function guessLanguage(labels) {
+                // TODO: https://github.com/gbv/ng-skos/issues/17
+                for (var language in labels) {
+                    return language; // take arbitrary language
+                }
+            }
+
+            // update if lang attribute changed (also called at initialization)
             attrs.$observe('lang', updateLanguage);
 
-            // update with same language if prefLabels changed
+            // update if labels changed
             scope.$watch('label', function(value) {
                 updateLanguage();
             }, true);

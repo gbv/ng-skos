@@ -25,7 +25,7 @@ describe('skos-label directive', function() {
     };
 
     it('should always display a concept label',function(){
-        compileDirective('<span skos-label="myConcept"/>');
+        compileDirective('<span skos-label="myConcept.prefLabel"/>');
         expect(element.html()).toBeTruthy();
     });
 
@@ -50,20 +50,14 @@ describe('skos-label directive', function() {
         expect(element.html()).toBe('chair');
     });
 
-/*
-    it('should reflect lang attribute changes',function(){
-        compileDirective('<span skos-label="myConcept" lang="en"/>');
-        element.attr('lang','de');
-        scope.$digest();
-        expect(element.html()).toBe('Stuhl');
-    });
-*/
-
     it('should reflect lang attribute changes',function(){
         compileDirective('<span skos-label="myConcept.prefLabel" lang="{{myLang}}"/>');
-        scope.myLang = "de";
+        expect(element.html()).toBe('chair');
+        expect(element.attr('skos-lang')).toBe('en');
+        scope.myLang = 'de';
         scope.$digest();
         expect(element.html()).toBe('Stuhl');
+        expect(element.attr('skos-lang')).toBe('de');
     });
 
 });
