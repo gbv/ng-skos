@@ -7,8 +7,9 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
   <link href="../ng-skos.css" rel="stylesheet" />
   <link href="app.css" rel="stylesheet" />
-    <script src="../grunt-scripts/lib/jquery-2.1.1.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
 </head>
 <body ng-controller="myController">
 <header>
@@ -18,8 +19,8 @@
                 <a class="navbar-brand" href="//gbv.github.io/ng-skos/">ng-skos</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a data-toggle="dropdown" type="button" class="dropdown-toggle">
+                <li class="dropdown" dropdown>
+                    <a dropdown-toggle type="button" class="dropdown-toggle">
                         Jump to directive
                         <b class="caret"></b>
                     </a>
@@ -176,7 +177,7 @@
                     </skos-browser>
                     <div class="tmpl-border" ng-if="rvk.topConcepts">
                         <p><em>Select a top concept for browsing from this <a href="#list">skos-list</a>!</em></p>
-                        <skos-list concepts="rvk.topConcepts" language="language" on-select="selectTopConcept" show-labels="true" />
+                        <skos-list concepts="rvk.topConcepts" language="language" on-select="selectTopConcept" list-name="skosbrowser" show-labels="true" />
                     </div>
                 </div>
                 <div class="col-md-1">
@@ -210,7 +211,7 @@
                                 </form>
                             </div>
                             <div class="tmpl-border">
-                                <skos-list concepts="conceptList" on-select="reselectConcept" removeable="rm" show-labels="sl"> 
+                                <skos-list concepts="conceptList" on-select="reselectConcept" list-name="skoslist" removeable="rm" show-labels="sl"> 
                                 </skos-list>
                             </div>
                         </div>
@@ -246,23 +247,22 @@
 </div>
 <div id="footer">
     <p>
-        This demo page is using parts of the <a href="http://angular-ui.github.io/bootstrap/">AngularJS Bootstrap UI</a> and <a href="http://getbootstrap.com/">Bootstrap CSS</a>
+        This demo page is using parts of the <a href="//angular-ui.github.io/bootstrap/">AngularJS Bootstrap UI</a> and <a href="http://getbootstrap.com/">Bootstrap CSS</a>
     </p>
     <p>
         Glyphicons courtesy of <a href="http://glyphicons.com/">Glyphicons.com</a>
     </p>
 </div>
     <script src="app.js"></script>
-    <script src="../grunt-scripts/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/lib/ng-suggest.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
-    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../src/ng-skos.js"></script>
+    <script src="../node_modules/ng-suggest/ng-suggest.min.js"></script>
+    <script src="../src/services/SkosHTTP.js"></script>
+    <script src="../src/services/SkosConceptSource.js"></script>
+    <script src="../src/directives/skosLabel.js"></script>
+    <script src="../src/directives/skosConcept.js"></script>
+    <script src="../src/directives/skosTree.js"></script>
+    <script src="../src/directives/skosBrowser.js"></script>
+    <script src="../src/directives/skosList.js"></script>
     <script src="rvk.js"></script>
 </body>
 </html>

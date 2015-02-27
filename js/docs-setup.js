@@ -37,7 +37,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Provides a browsing interface to a concept scheme.",
-      "keywords": "additional angularjs api browser browsing changed code concept concepts corresponding current customization delay directive display field format fully function functions github html indicate interface io js jskos label loading lookup lookuplabel lookupnotation lookupuri methods ng-skos notation object opensearchsuggestion parameter preferred promise provide provided return scheme scope selected service single source suggestions supported template template-url templateurl unique uri url variable variables version"
+      "keywords": "additional angularjs api browser browsing changed concept concepts corresponding current customization delay directive display field format fully function functions github html indicate interface io jskos label loading lookup lookuplabel lookupnotation lookupuri methods ng-skos notation object opensearchsuggestion parameter preferred promise provide provided return scheme scope selected service single suggestions supported template template-url templateurl unique uri url variable variables version"
     },
     {
       "section": "api",
@@ -46,7 +46,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a concept. ",
-      "keywords": "addition angular api array assignable automatically bind bounded call changed changes check clicked code concept concepts connected customization directive display empty expression function github helper html io isemptyobject js language method ng-skos object parameter preferred provided reflected scope skos-click skos-concept source strings template template-url templateurl updated url variable variables"
+      "keywords": "addition angular api array assignable automatically bind bounded call changed changes check clicked concept concepts connected customization directive display empty expression function github helper html io isemptyobject language method ng-skos object parameter preferred provided reflected scope skos-click skos-concept strings template template-url templateurl updated url variable variables"
     },
     {
       "section": "api",
@@ -54,8 +54,8 @@ NG_DOCS={
       "shortName": "skosLabel",
       "type": "directive",
       "moduleName": "ng-skos",
-      "shortDescription": "Displays the preferred label of a concept.",
-      "keywords": "$scope alternative angular api arbitrary assignable beispiel bind changes code concept concepts data de directive display displays elaborated en example expression fr function future github heuristics html io js label lang lang2 language module myapp mycontroller ng-controller ng-model ng-skos ngskos optional preferred preflabel reflected sampleconcept script select selected skos-label source text type versions"
+      "shortDescription": "Shows the multilingual label of a concept or concept scheme, given as",
+      "keywords": "$scope alternative angular api attr attribute based beispiel chosen class codes color concept content css data de directive elaborated element en example expression fr function future gray heuristics html input-small js json label labels lang language languages mapped module multilingual myapp mycontroller ng-controller ng-model ng-skos ngskos object parameter preferred scheme script select selected skos-label skos-lang style super text type versions vertical-align"
     },
     {
       "section": "api",
@@ -64,7 +64,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "This directive displays a list of concepts ",
-      "keywords": "api array canremove changed chose code concept concepts customization directive display displays function github handling html io js jskos labels list lists manipulate method ng-skos notations onselect options parameter remove removeconcept selection showlabels source support template templateurl url"
+      "keywords": "api array canremove changed chose concept concepts customization directive display displays function github handling html io jskos labels list lists manipulate method ng-skos notations onselect options parameter remove removeconcept selection showlabels support template templateurl url"
     },
     {
       "section": "api",
@@ -73,7 +73,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Displays a hierarchical view of a concept and its transitive narrowers.",
-      "keywords": "angular api changed code concept customization directive display displays function github hierarchical html js module myapp mycontroller narrowers ng-controller ng-skos ngskos parameter script skos-tree source template template-url templateurl transitive tree url view"
+      "keywords": "angular api changed concept customization directive display displays function hierarchical html js module myapp mycontroller narrowers ng-controller ng-skos ngskos parameter script skos-tree template template-url templateurl transitive tree url view"
     },
     {
       "section": "api",

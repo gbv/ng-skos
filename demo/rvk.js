@@ -153,7 +153,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
             return {
                 values: response.node.map(function(node) {
                     return {
-                        prefLabel: node.benennung,
+                        label: node.benennung,
                         description: node.notation
                     };
                 })
