@@ -18,7 +18,7 @@
   "homepage": "https://gbv.github.io/ng-skos/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/gbv/ng-skos.git"
+    "url": "git@github.com:gbv/ng-skos.git"
   },
   "main": "ng-skos.min.js",
   "dependencies": {
@@ -36,7 +36,7 @@
     "grunt-git-is-clean": "^0.1.2",
     "grunt-karma": "~0.6.2",
     "grunt-ng-annotate": "~0.9.2",
-    "grunt-ngdocs": "~0.2.5",
+    "grunt-ngdocs": "^0.2.7",
     "grunt-release": "^0.10.0",
     "grunt-shell": "~0.6.0",
     "grunt-version": "~0.3.0",

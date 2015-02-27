@@ -13,12 +13,6 @@
  * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-list.html) 
  * can be changed with parameter `templateUrl`.
  *
- * ## Source code
- *
- * The most recent [source 
- * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosList.js)
- * of this directive is available at GitHub.
- *
  * @param {string} concepts array of JSKOS concepts to display
  * @param {string} onSelect function handling the selection of one concept
  * @param {string} canRemove support a `removeConcept` method to remove concepts

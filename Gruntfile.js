@@ -14,12 +14,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-git-is-clean');
 
     grunt.initConfig({
-        pkg: require('./package.json'),
+        pkg: require('package.json'),
         ngdocs: {
             options: {
-                html5Mode: false,
                 titleLink: '#/api',
                 navTemplate: 'src/docs-nav.html',
+                sourceLink: 'https://github.com/gbv/ng-skos/blob/{{sha}}/{{file}}#L{{codeline}}',
+                editLink: 'https://github.com/gbv/ng-skos/edit/master/{{file}}',
                 scripts: [ 
                     'angular.js',
                     'ng-skos.min.js',

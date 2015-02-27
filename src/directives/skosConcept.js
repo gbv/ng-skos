@@ -32,12 +32,6 @@
  * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-concept.html) 
  * can be changed with parameter `templateUrl`.
  *
- * ## Source code
- *
- * The most recent [source 
- * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosConcept.js)
- * of this directive is available at GitHub.
- * 
  * @param {string} skos-concept Assignable angular expression with a
  *      [concept](http://gbv.github.io/jskos/jskos.html#concepts) to bind to
  * @param {string} language Assignable angular expression with 

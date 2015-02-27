@@ -12,12 +12,6 @@
  * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-tree.html) 
  * can be changed with parameter `templateUrl`.
  *
- * ## Source code
- *
- * The most recent [source 
- * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosTree.js)
- * of this directive is available at GitHub.
- *
  * @param {string} skos-tree Tree to display
  * @param {string} template-url URL of a template to display the tree
  *
