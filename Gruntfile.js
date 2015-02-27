@@ -132,10 +132,10 @@ module.exports = function(grunt) {
                     "cp -r demo docs",
                     "find docs/demo -type l -exec rm '{}' ';'",
                     "cp ng-skos.js docs/grunt-scripts",
-                    "cp -r lib docs/grunt-scripts",
+                    "cp node_modules/ng-suggest/ng-suggest.min.js docs/grunt-scripts",
                     "cp ng-skos.css docs",
                     "perl -pi -e 's|<script src=\"\\.\\./src.+|<script src=\"../grunt-scripts/ng-skos.js\"></script>|' docs/demo/*.html",
-                    "perl -pi -e 's|<script src=\"\\.\\./lib|<script src=\"../grunt-scripts/lib|' docs/demo/*.html"
+                    "perl -pi -e 's|<script src=\"\\.\\./node_modules/ng-suggest|<script src=\"../grunt-scripts|' docs/demo/*.html"
                 ].join('&&')
             },
             gh_pages: {
