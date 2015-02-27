@@ -12,13 +12,13 @@
 ### npm
 
 ```bash
-npm install ng-skos --safe
+npm install ng-skos --save
 ```
 
 ### bower
 
 ```bash
-bower install ng-skos --safe
+bower install ng-skos --save
 ```
 
 ## Usage
