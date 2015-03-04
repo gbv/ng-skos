@@ -15,7 +15,17 @@
         "en": "nuclear physics", 
         "de": "Kernphysik" 
     },
-    "note": { "en": ["this is a note"] },
+    "altLabel":
+        {
+            "de": ["Alternativ 1","Alternativ 2","Alternativ 3"],
+            "en": ["alternative 1"]
+        },
+    "scopeNote": [
+        { 
+        "en": "this is a note",
+        "de": "notiz nr.1"
+        }
+    ],
     "narrower": [
         {
             "uri":"http://example.org/concept/UN1000",

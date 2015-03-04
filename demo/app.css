@@ -41,6 +41,13 @@ body{
     background-color:#FFF;
     margin-bottom:8px;
 }
+.concept-sample-buttons{
+    margin-bottom:10px;
+}
+.concept-sample-buttons button{
+    min-width:80px;
+    margin:0px 5px;
+}
 .smpl{
     margin-top:25px;
     padding-top:1px;
