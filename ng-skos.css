@@ -147,7 +147,8 @@ ul.ancestors li:hover{
 .skos-concept-relation span{
     color:#428bca;
 }
-.skos-concept-note{
+.skos-note{
+    font-style: italic;
     width:100%;
     padding:4px 6px;
     margin-top:8px;

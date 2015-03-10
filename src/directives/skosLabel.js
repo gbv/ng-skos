@@ -96,7 +96,7 @@ angular.module('ngSKOS')
             attrs.$observe('lang', updateLanguage);
 
             // update if labels changed
-            scope.$watch('label', function(value) { updateLanguage(); }, true);
+            scope.$watch('label', function() { updateLanguage(); }, true);
         },
     };
 });

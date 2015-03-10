@@ -1,6 +1,7 @@
 # NEXT
 
-* Ignore non-string labels in directive skosLabel
+* skosLabel: ignore non-string labels
+* skosNotes: new directive to display documentary notes
 
 # 0.0.9
 

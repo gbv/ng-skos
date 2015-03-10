@@ -17,7 +17,6 @@
  * <li>prefLabel (object of strings)
  * <li>altLabel (object of array of strings)
  * <li>notation (string)
- * <li>note (object of array of strings)
  * <li>broader (array of concepts)
  * <li>narrower (array of concepts)
  * <li>related (array of concepts)

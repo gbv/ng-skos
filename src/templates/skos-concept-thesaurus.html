@@ -42,15 +42,16 @@
             </li>
         </ul>
     </div>
+    <!-- TODO: use directive skos-notes -->
     <div ng-if="scopeNote.length">
         <div ng-repeat="n in scopeNote"
-            class="skos-concept-note skos-concept-thesaurus-note">
+            class="skos-note skos-concept-thesaurus-note">
             <em><div skos-label="n" lang="{{language}}"></div></em>
         </div>
     </div>
     <div ng-if="definition.length">
         <div ng-repeat="n in definition"
-            class="skos-concept-note skos-concept-thesaurus-note">
+            class="skos-note skos-concept-thesaurus-note">
             <em><div skos-label="n" lang="{{language}}"></div></em>
         </div>
     </div>

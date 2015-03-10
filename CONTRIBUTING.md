@@ -46,6 +46,14 @@ call
 
     grunt docs
 
+## Commits
+
+Please format your commit message such as
+
+    name: description
+
+where `name` refers to a directive or service, such as `skosConcept`.
+
 ## Release
 
 The version number consists of three numeric parts:

@@ -53,17 +53,6 @@
     </div>
     <!-- TODO: select by language, only show a limited number -->
     <div style="margin-bottom:10px">
-        <div ng-if="scopeNote.length">
-            <div ng-repeat="n in scopeNote"
-                class="skos-concept-note">
-                <em><div skos-label="n" lang="{{language}}"></div></em>
-            </div>
-        </div>
-        <div ng-if="definition.length">
-            <div ng-repeat="n in definition"
-                class="skos-concept-note">
-                <em><div skos-label="n" lang="{{language}}"></div></em>
-            </div>
-        </div>
+        <div skos-notes="concept" lang="{{language}}"></div>
     </div>
 </div>
