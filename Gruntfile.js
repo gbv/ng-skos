@@ -14,7 +14,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-git-is-clean');
 
     grunt.initConfig({
-        pkg: require('package.json'),
         ngdocs: {
             options: {
                 titleLink: '#/api',

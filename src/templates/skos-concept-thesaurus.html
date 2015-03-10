@@ -1,8 +1,8 @@
 <div class="skos-concept-thesaurus">
     <ul ng-if="ancestors.length" class="ancestors">
-        <span ng-if="inScheme" class="classification">{{inScheme}}</span> 
         <li class="ancestor" ng-repeat="a in ancestors">
-            <span skos-label="a.prefLabel" lang="{{language}}" ng-click="update(a);reload();"></span>
+            <span class="ancestors-label" skos-label="a.prefLabel" lang="{{language}}" ng-click="update(a);reload();"></span>
+            <span class="ancestors-greater">></span>
         </li>
     </ul>
     <div class="top top-classic">
@@ -10,11 +10,11 @@
         <b><span skos-label="concept.prefLabel" lang="{{language}}"></span></b><a ng-if="notation" class="uri" href="{{uri}}">
         <span style="vertical-align:-10%" class="glyphicon glyphicon-globe"></span></a>
     </div>
-    <div ng-if="altLabel.length" class="skos-concept-altlabel">
+    <div ng-if="altLabel" class="skos-concept-altlabel">
         <ul>
-            <li ng-repeat="alt in altLabel">
-                <span ng-if="$index < 5" style="display:inline"><span skos-label="alt"></span>
-                <span style="margin-left:-4px;margin-right:3px;" ng-if="$index < 4 && $index < altLabel.length-1">, </span>
+            <li ng-repeat="a in altLabel[language]" style="display:inline;">
+                <span ng-if="$index < 5" style="display:inline;">{{a}}</span>
+                <span style="margin-left:-4px;margin-right:3px;" ng-if="$index < 4 && $index < altLabel[language].length-1">, </span>
             </li>
         </ul>
     </div>
@@ -41,5 +41,17 @@
                 <span skos-label="r.prefLabel" lang="{{language}}" ng-click="click(r)"/>
             </li>
         </ul>
+    </div>
+    <div ng-if="scopeNote.length">
+        <div ng-repeat="n in scopeNote"
+            class="skos-concept-note skos-concept-thesaurus-note">
+            <em><div skos-label="n" lang="{{language}}"></div></em>
+        </div>
+    </div>
+    <div ng-if="definition.length">
+        <div ng-repeat="n in definition"
+            class="skos-concept-note skos-concept-thesaurus-note">
+            <em><div skos-label="n" lang="{{language}}"></div></em>
+        </div>
     </div>
 </div>

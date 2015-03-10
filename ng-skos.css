@@ -60,14 +60,13 @@ ul.ancestors li {
 .ancestor span{
     padding-right:3px;
 }
-.ancestor:before {
-    font-size:small;
-    color:#999;
-    content: " > ";
-    font-weight:bold;
+ul.ancestors li:hover{
+    background-color:#fff;
 }
-.ancestors li:after{
-    content: " > ";
+.ancestors-label:hover{
+    background-color:#eee;
+}
+.ancestors-greater{
     font-weight:bold;
     font-size:small;
 }
@@ -85,6 +84,10 @@ ul.ancestors li {
     text-decoration:underline;
     padding:1px 3px 1px 3px;
     display:inline-block;
+}
+.skos-concept-thesaurus-note{
+    border:1px solid #ddd;
+    margin-bottom:10px;
 }
 .top-classic{
     margin-bottom:10px;
@@ -143,6 +146,13 @@ ul.ancestors li {
 }
 .skos-concept-relation span{
     color:#428bca;
+}
+.skos-concept-note{
+    width:100%;
+    padding:4px 6px;
+    margin-top:8px;
+    background-color:#eee;
+    border-radius:3px;
 }
 /* styles for header, containing notation, prefLabel and uri-link */
 .top-alt{
