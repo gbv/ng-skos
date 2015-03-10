@@ -8,11 +8,9 @@ describe('skos-label directive', function() {
     // for each test create a new scope with a sample concept
     beforeEach(inject(function($rootScope, $compile) {
         scope = $rootScope.$new();
-        scope.myConcept = { 
-            prefLabel: { 
-                en: 'chair', 
-                de: 'Stuhl'
-            }
+        scope.myLabel = {
+            en: 'chair', 
+            de: 'Stuhl'
         };
         scope.myLang = 'en';
     }));
@@ -24,34 +22,35 @@ describe('skos-label directive', function() {
         scope.$digest();
     };
 
-    it('should always display a concept label',function(){
-        compileDirective('<span skos-label="myConcept.prefLabel"/>');
+    it('should display a label if no language has been selected',function(){
+        compileDirective('<span skos-label="myLabel"/>');
         expect(element.html()).toBeTruthy();
     });
 
     it('should display a label of requested language',function(){
-        compileDirective('<span skos-label="myConcept.prefLabel" lang="en"/>');
+        compileDirective('<span skos-label="myLabel" lang="en"/>');
         expect(element.html()).toBe('chair')
+        expect(element.attr('skos-lang')).toBe('en');
     });
 
-    it('should reflect concept label changes',function(){
-        compileDirective('<span skos-label="myConcept.prefLabel" lang="en"/>');
+    it('should reflect label changes',function(){
+        compileDirective('<span skos-label="myLabel" lang="en"/>');
 
-        scope.myConcept.prefLabel.en = 'stool';
+        scope.myLabel.en = 'stool';
         scope.$digest();
         expect(element.html()).toBe('stool');
 
-        delete scope.myConcept.prefLabel.en;
+        delete scope.myLabel.en;
         scope.$digest();
         expect(element.html()).toBe('Stuhl');
 
-        scope.myConcept.prefLabel.en = 'chair';
+        scope.myLabel.en = 'chair';
         scope.$digest();
         expect(element.html()).toBe('chair');
     });
 
     it('should reflect lang attribute changes',function(){
-        compileDirective('<span skos-label="myConcept.prefLabel" lang="{{myLang}}"/>');
+        compileDirective('<span skos-label="myLabel" lang="{{myLang}}"/>');
         expect(element.html()).toBe('chair');
         expect(element.attr('skos-lang')).toBe('en');
         scope.myLang = 'de';
@@ -60,4 +59,11 @@ describe('skos-label directive', function() {
         expect(element.attr('skos-lang')).toBe('de');
     });
 
+    it('should ignore boolean values', function() {
+        scope.myLabel.en = false;
+        compileDirective('<span skos-label="myLabel" lang="en"/>');
+        scope.$digest();
+        expect(element.html()).toBe('Stuhl');
+        expect(element.attr('skos-lang')).toBe('de');
+    });
 });

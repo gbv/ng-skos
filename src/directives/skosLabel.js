@@ -58,7 +58,7 @@ angular.module('ngSKOS')
         scope: { 
             label: '=skosLabel',
         },
-        template: '{{label[language] ? label[language] : label}}',
+        template: '{{label[language]}}',
         link: function(scope, element, attrs) {
 
             function updateLanguage(language) {
@@ -75,7 +75,7 @@ angular.module('ngSKOS')
 
             function selectLanguage(labels, language) {
                 if ( angular.isObject(labels) ) {
-                    if ( language && labels[language] ) {
+                    if ( language && angular.isString(labels[language])) {
                         return language;
                     } else {
                         return guessLanguage(labels);
@@ -86,7 +86,9 @@ angular.module('ngSKOS')
             function guessLanguage(labels) {
                 // TODO: https://github.com/gbv/ng-skos/issues/17
                 for (var language in labels) {
-                    return language; // take arbitrary language
+                    if (angular.isString(labels[language])) {
+                        return language; // take arbitrary language
+                    }
                 }
             }
 
@@ -94,9 +96,7 @@ angular.module('ngSKOS')
             attrs.$observe('lang', updateLanguage);
 
             // update if labels changed
-            scope.$watch('label', function(value) {
-                updateLanguage();
-            }, true);
+            scope.$watch('label', function(value) { updateLanguage(); }, true);
         },
     };
 });

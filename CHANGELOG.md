@@ -1,3 +1,7 @@
+# NEXT
+
+* Ignore non-string labels in directive skosLabel
+
 # 0.0.9
 
 * Renamed service SkosConceptProvider to SkosConceptSource and
