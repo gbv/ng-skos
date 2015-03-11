@@ -149,11 +149,15 @@ ul.ancestors li:hover{
 }
 .skos-note{
     font-style: italic;
-    width:100%;
+    display:inline-block;
+    list-style-type:none;
     padding:4px 6px;
-    margin-top:8px;
+    margin:6px;
     background-color:#eee;
     border-radius:3px;
+}
+.skos-note li{
+    padding-left:5px;
 }
 /* styles for header, containing notation, prefLabel and uri-link */
 .top-alt{

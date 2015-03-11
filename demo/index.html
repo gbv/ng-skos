@@ -32,6 +32,9 @@
                             <a href="#label" target="_self">Label</a>
                         </li>
                         <li>
+                            <a href="#notes" target="_self">Notes</a>
+                        </li>
+                        <li>
                             <a href="#tree" target="_self">Tree</a>
                         </li>
                         <li>
@@ -97,17 +100,12 @@
                     <p>
 
                     </p>
-                    <div class="tmpl-border" skos-concept="sampleConcept" language="language" template-url="template/skos-concept-thesaurus.html">
+                    <div class="tmpl-border" skos-concept="sampleConcept" language="language">
                     </div>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-5">
-                    <p>
-                        The element content can be used to control how the concept is shown:
-                    </p>
-                    <div class="tmpl-border" skos-concept="sampleConcept" language="language">
-                    </div>
                     <p>
                         Interactive elements can be added, for instance to 
                         change the concept on clicks by loading from a terminology 
@@ -143,6 +141,27 @@
                             <li><span skos-label="sampleSkosConcept.prefLabel" lang="fr" class="show-lang"/></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section id="notes" class="fixnav">
+            <div class="page-header">
+                <h2>skos-notes
+                    <small><a href="../#/api/ng-skos.directive:skosNotes">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </a></small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Used to display the documentation fields of a concept:
+                    
+                    <div skos-notes="sampleNotes" lang="{{language}}">
+                    </div>
+                    This is utilized by <a href="#concept"><b>skos-concept</b></a>, but can also be used to display those fields on their own.
+                    <em>Skos-notes'</em> standard template makes use of the <a href="#label"><b>skos-label</b></a> directive and therefore inherits its language selection feature.
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </section>

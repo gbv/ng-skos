@@ -15,6 +15,9 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
         $http.get('data/ezb/ezb.json').success(function(ezb){
             $rootScope.ezb = ezb;
         });
+        $http.get('data/notes-1.json').success(function(notes){
+            $rootScope.sampleNotes = notes;
+        });
 
 })
 .config(function($locationProvider, $anchorScrollProvider) {
