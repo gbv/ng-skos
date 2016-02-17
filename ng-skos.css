@@ -20,6 +20,7 @@
     color:black;
     cursor:default;
     text-decoration:none;
+    white-space:nowrap;
 }
 /*  icon-style for concept-schemes */
 .classification{
@@ -197,6 +198,10 @@ ul.ancestors li:hover{
 .simple-list{
     list-style-type:none;
     padding:0px;
+    margin-bottom:0px;
+}
+.simple-list-center{
+    text-align:center;
 }
 .notification{
     color:red;
@@ -226,4 +231,44 @@ ul.ancestors li:hover{
 }
 .list-item-selected{
     background-color: #C6E2FF;
+}
+/* SKOS-mapping-table */
+
+.mapping-table{
+  margin:5px 0px;
+  width:100%;
+  overflow:auto;
+}
+
+.mapping-table-scheme{
+  max-width:150px;
+  vertical-align:middle !IMPORTANT;
+  text-align:center;
+}
+.mapping-table-icon{
+  text-decoration:none;
+  font-size:0.8em;
+}
+.mapping-table-header-sortable{
+  margin-right:3px;
+}
+.skos-mapping-cell{
+  vertical-align:middle !IMPORTANT;
+}
+.skos-mapping-cell-center{
+  text-align:center;
+}
+.link-disabled{
+  color:#ddd;
+}
+.link-disabled:hover{
+  color:#ddd;
+}
+.mapping-action-icon{
+  font-size:0.85em;
+  cursor:pointer;
+  text-decoration: none;
+}
+.mapping-action-icon:hover{
+  text-decoration: none;
 }

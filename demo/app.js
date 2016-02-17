@@ -1,24 +1,26 @@
 angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
 .run(function($rootScope,$http,$q) {
     $rootScope.getSamples = $q.defer();
-        $http.get('data/jita/jita.json').success(function(jita){
-            $rootScope.jita = jita;
-            $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
-            $rootScope.getSamples.resolve();
-        });
-        $http.get('data/rvk/UN.json').success(function(rvk){
-            $rootScope.rvkUN = rvk;
-        });
-        $http.get('data/ddc/ddcsample.json').success(function(ddc){
-            $rootScope.ddc = ddc;
-        });
-        $http.get('data/ezb/ezb.json').success(function(ezb){
-            $rootScope.ezb = ezb;
-        });
-        $http.get('data/notes-1.json').success(function(notes){
-            $rootScope.sampleNotes = notes;
-        });
-
+    $http.get('data/jita/jita.json').success(function(jita){
+        $rootScope.jita = jita;
+        $rootScope.sampleSkosConcept = jita.topConcepts[0].narrower[0];
+    });
+    $http.get('data/rvk/UN.json').success(function(rvk){
+        $rootScope.rvkUN = rvk;
+    });
+    $http.get('data/ddc/ddcsample.json').success(function(ddc){
+        $rootScope.ddc = ddc;
+    });
+    $http.get('data/ezb/ezb.json').success(function(ezb){
+        $rootScope.ezb = ezb;
+    });
+    $http.get('data/notes-1.json').success(function(notes){
+        $rootScope.sampleNotes = notes;
+    });
+    $http.get('data/DDC_612.112.json').success(function(mapping){
+        $rootScope.sampleMapping = mapping;
+        $rootScope.getSamples.resolve();
+    });
 })
 .config(function($locationProvider, $anchorScrollProvider) {
     $locationProvider.html5Mode(true);
@@ -93,7 +95,6 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
         });
         $scope.conceptLabel = {};
     };
-    
     $scope.rvk = rvk;
     $scope.treeActive = {};
     $scope.tree = function(){
