@@ -41,7 +41,8 @@
     "grunt-shell": "~0.6.0",
     "grunt-version": "~0.3.0",
     "karma": "~0.10.9",
-    "karma-jasmine": "~0.1.5"
+    "karma-jasmine": "~0.1.5",
+    "karma-firefox-launcher":"~0.1"
   },
   "scripts": {
     "test": "grunt test"
