@@ -80,13 +80,17 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
             uri: concept.uri
         });
     };
-    $scope.checkDuplicate = function(){
+    $scope.checkDuplicate = function(list){
         var dupe = false;
-        angular.forEach($scope.conceptList, function(value, key){
-            if(value.uri == $scope.selectedListConcept.uri){
-                dupe = true;
-            }
-        })
+        if($scope.selectedListConcept.notation){
+          angular.forEach($scope.conceptList, function(value, key){
+              if(value.uri == $scope.selectedListConcept.uri || value.notation[0] == $scope.selectedListConcept.notation[0]){
+                  dupe = true;
+              }
+          })
+        }else{
+          dupe = true;
+        }
         return dupe;
     };
     $scope.reselectConcept = function(concept){
@@ -106,6 +110,20 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
         }
     };
     $scope.language = "en";
+    
+    $scope.lookupMappingConcept = function(concept, scheme){
+      $scope.retrievedMT = concept;
+      $scope.retrievedScheme = scheme;
+    }
+    $scope.mappingList = [];
+    $scope.schemes = { target: 'RVK' };
+    $scope.addMappingConcept = function(concept){
+        $scope.mappingList.push({
+            prefLabel: concept.prefLabel ? concept.prefLabel : "",
+            notation: [ concept.notation[0] ],
+            uri: concept.uri
+        });
+    };
 
     $scope.version = version;
 }]);

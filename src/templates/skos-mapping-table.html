@@ -46,7 +46,8 @@
             <td class="skos-mapping-cell">
                 <ul class="simple-list">
                     <li>
-                        <span class="notation">{{m.from.members[0].notation[0]}}</span>
+                        <span ng-if="m.from.members[0].prefLabel" class="notation" title="{{popOverTitle(m.from.members[0].prefLabel)}}">{{m.from.members[0].notation[0]}}</span>
+                        <span ng-if="!m.from.members[0].prefLabel" class="notation">{{m.from.members[0].notation[0]}}</span>
                     </li>
                 </ul>
             </td>
@@ -60,8 +61,8 @@
             <td class="skos-mapping-cell">
                 <ul class="simple-list">
                     <li ng-repeat="t in m.to.members">
-                        <div class="skos-mapping-target" style="">
-                            <span ng-if="t.prefLabel" title="{{t.notation[0]}}" skos-label="t.prefLabel"></span>
+                        <div class="skos-mapping-target">
+                            <span ng-if="t.prefLabel" class="notation" title="{{popOverTitle(t.prefLabel)}}">{{t.notation[0]}}</span>
                             <span ng-if="!t.prefLabel" class="notation">{{t.notation[0]}}</span>
                             <a ng-if="lookup" ng-class="{ 'link-disabled': t.inScheme.notation[0] != schemes.target }" title="Select concept" class="mapping-action-icon">
                                 <span ng-click="lookup(t, m.to.members[0].inScheme.notation[0])">

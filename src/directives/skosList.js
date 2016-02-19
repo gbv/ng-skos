@@ -67,7 +67,9 @@ angular.module('ngSKOS')
             scope.tabFocus = 0;
             scope.onClick = function(index){
                 scope.tabFocus = index;
-                scope.onSelect(scope.concepts[index]);
+                if(scope.onSelect){
+                  scope.onSelect(scope.concepts[index]);
+                }
             };
             scope.onFocus = function(index){
                 scope.tabFocus = index;
@@ -96,7 +98,7 @@ angular.module('ngSKOS')
                     scope.removeConcept(index);
                     $timeout(function(){ scope.focusConcept(scope.tabFocus) },0,false);
                 // enter
-                } else if(key == 13){
+                } else if(key == 13 && scope.onSelect){
                     $event.preventDefault();
                     scope.onSelect(scope.concepts[index]);
                 }

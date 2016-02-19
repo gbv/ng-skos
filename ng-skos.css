@@ -239,7 +239,9 @@ ul.ancestors li:hover{
   width:100%;
   overflow:auto;
 }
-
+.skos-mapping-target{
+  white-space:nowrap;
+}
 .mapping-table-scheme{
   max-width:150px;
   vertical-align:middle !IMPORTANT;

@@ -43,6 +43,9 @@
                         <li>
                             <a href="#list" target="_self">List</a>
                         </li>
+                        <li>
+                            <a href="#mapping-table" target="_self">Mapping Table</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -286,12 +289,24 @@
             </div>
             <div class="row">
                 <div class="col-md-7">
-                  <div skos-mapping-table="sampleMapping" language="language" lookup-mapping select-mapping>
+                  <div skos-mapping-table="sampleMapping" language="language" lookup-mapping select-mapping="addMappingConcept" active-schemes="schemes">
                   </div>
+                  <p>
+                    <div ng-if="!mappingList.length">
+                        <alert style="width:225px;" type="danger">Select concepts from the <i>skos-mapping-table</i>!</alert>
+                    </div>
+                    <div ng-if="mappingList.length" class="tmpl-border">
+                        <skos-list concepts="mappingList" list-name="skosmappinglist" removeable="true" show-labels="true"> 
+                        </skos-list>
+                    </div>
+                  </p>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-4">
+                  <div>
+                    This directive provides a way to display mappings of concepts in the <a href="https://gbv.github.io/jskos/jskos.html">JSKOS format</a>.
+                  </div>
                 </div>
             </div>
         </section>

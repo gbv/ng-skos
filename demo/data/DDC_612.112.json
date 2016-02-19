@@ -34,6 +34,9 @@
         "notation": [
           "XI 4500-XI 4599"
         ],
+        "prefLabel":{
+          "de": "Blut, Blutbildendes Gewebe, Blutgifte, Methämoglobin"
+        },
         "inScheme": {
           "notation": [
             "RVK"
