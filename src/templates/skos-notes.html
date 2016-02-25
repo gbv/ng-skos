@@ -1,12 +1,12 @@
-<ul ng-repeat="n in scopeNote" class="skos-note skos-note-scopeNote">
-    <li skos-label="n" lang="{{language}}" title="scope note"/>
+<ul ng-repeat="n in scopeNote[language]" class="skos-note skos-note-scopeNote">
+  <li ng-if="$index < 5">{{n}}</li>
 </ul>
-<ul ng-repeat="n in definition" class="skos-note skos-note-definition">
-    <li skos-label="n" lang="{{language}}" title="definition"/>
+<ul ng-repeat="n in definition[language]" class="skos-note skos-note-definition">
+    <li ng-if="$index < 5">{{n}}</li>
 </ul>
-<ul ng-repeat="n in example" class="skos-note skos-note-example">
-    <li skos-label="n" lang="{{language}}" title="example"/>
+<ul ng-repeat="n in example[language]" class="skos-note skos-note-example">
+    <li ng-if="$index < 5">{{n}}</li>
 </ul>
-<ul ng-repeat="n in historyNote" class="skos-note skos-note-historyNote">
-    <li skos-label="n" lang="{{language}}" title="history note"/>
+<ul ng-repeat="n in historyNote[language]" class="skos-note skos-note-historyNote">
+    <li ng-if="$index < 5">{{n}}</li>
 </ul>

@@ -84,3 +84,13 @@ body{
 .affix,.navbar-fixed-top{
 -webkit-transform: scale3d(1,1,1);
 }
+.glyph-example{
+  font-weight:bold;
+  font-size:1.4em;
+  margin:0px 3px;
+  color:#428bca;
+}
+.glyph-example:hover{
+  text-decoration:none;
+}
+

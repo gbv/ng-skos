@@ -252,7 +252,7 @@ ul.ancestors li:hover{
   font-size:0.8em;
 }
 .mapping-table-header-sortable{
-  margin-right:3px;
+  margin-right:0.2em;
 }
 .skos-mapping-cell{
   vertical-align:middle !IMPORTANT;

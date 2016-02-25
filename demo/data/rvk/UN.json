@@ -20,12 +20,11 @@
             "de": ["Alternativ 1","Alternativ 2","Alternativ 3"],
             "en": ["alternative 1"]
         },
-    "scopeNote": [
+    "scopeNote": 
         { 
-        "en": "this is a note",
-        "de": "notiz nr.1"
-        }
-    ],
+        "en": ["this is a note","another note"],
+        "de": ["Notiz Nr.1","noch eine Notiz"]
+        },
     "narrower": [
         {
             "uri":"http://example.org/concept/UN1000",

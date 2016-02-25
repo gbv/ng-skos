@@ -237,7 +237,7 @@
                     <div style="min-width:300px;">
                         <div style="padding-bottom:10px;">Displays selected concept labels in a list format</div>
                         <div ng-if="!conceptList.length">
-                            <alert style="width:225px;" type="danger">Select concepts by using the <i>skos-browser</i>!</alert>
+                            <alert style="width:225px;" type="danger">Select concepts by using the <i>skos-browser</i> to display them in a <i>skos-list</i>.</alert>
                         </div>
                         <div ng-if="conceptList.length">
                             <div style="display:block">
@@ -293,7 +293,7 @@
                   </div>
                   <p>
                     <div ng-if="!mappingList.length">
-                        <alert style="width:225px;" type="danger">Select concepts from the <i>skos-mapping-table</i>!</alert>
+                        <alert style="width:225px;" type="danger">Select concepts with<span class="glyph-example gyphicon glyphicon-plus"></span>from the <i>skos-mapping-table</i> to add them to a <i>skos-list</i>.</alert>
                     </div>
                     <div ng-if="mappingList.length" class="tmpl-border">
                         <skos-list concepts="mappingList" list-name="skosmappinglist" removeable="true" show-labels="true"> 
