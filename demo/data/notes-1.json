@@ -10,15 +10,15 @@
         "de":["Dies ist eine skos:scopeNote", "Dies ist eine weitere skos:scopeNote"]
     },
     "definition":{
-        "en":"This is a skos:definition",
-        "de":"Dies ist eine skos:definition"
+        "en":["This is a skos:definition"],
+        "de":["Dies ist eine skos:definition"]
     },
     "example":{
-        "en":"This is a skos:example",
-        "de":"Dies ist ein skos:example"
+        "en":["This is a skos:example"],
+        "de":["Dies ist ein skos:example"]
     },
     "historyNote":{
-        "en":"This is a skos:historyNote",
-        "de":"Dies ist eine skos:historyNote"
+        "en":["This is a skos:historyNote"],
+        "de":["Dies ist eine skos:historyNote"]
     }
 }
