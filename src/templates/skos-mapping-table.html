@@ -40,7 +40,7 @@
                 <ul class="simple-list simple-list-center">
                     <li>
                         <span ng-if="m.from.members[0].inScheme" class="classification">{{m.from.members[0].inScheme.notation[0]}}</span>
-                        <span ng-if="m.fromScheme && !m.from.members[0].inScheme" class="classification">{{m.fromScheme.notation[0]}}</span>
+                        <span ng-if="m.fromScheme && !m.from.members[0].inScheme" class="classification">{{m.fromScheme.notation}}</span>
                     </li>
                 </ul>
             </td>
@@ -56,7 +56,7 @@
                 <ul class="simple-list simple-list-center">
                     <li>
                         <span ng-if="m.to.members[0].inScheme" class="classification">{{m.to.members[0].inScheme.notation[0]}}</span>
-                        <span ng-if="m.toScheme && !m.to.members[0].inScheme" class="classification">{{m.toScheme.notation[0]}}</span>
+                        <span ng-if="m.toScheme && !m.to.members[0].inScheme" class="classification">{{m.toScheme.notation}}</span>
                     </li>
                 </ul>
             </td>
