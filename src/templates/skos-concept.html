@@ -23,7 +23,7 @@
                     <div>&#8613;</div>
                     <div class="skos-concept-relation-label">
                         <span ng-if="c.prefLabel" skos-label="c.prefLabel" lang="{{language}}" ng-click="click(c)" title="{{c.notation[0]}}"></span>
-                        <span ng-if="!c.prefLabel">{{c.notation[0]}}</span>
+                        <span ng-if="!c.prefLabel" ng-click="click(c)">{{c.notation[0]}}</span>
                     </div>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
                     <div>&#8615;</div>
                     <div class="skos-concept-relation-label">
                         <span ng-if="c.prefLabel" skos-label="c.prefLabel" lang="{{language}}" ng-click="click(c)" title="{{c.notation[0]}}"></span>
-                        <span ng-if="!c.prefLabel">{{c.notation[0]}}</span>
+                        <span ng-if="!c.prefLabel" ng-click="click(c)">{{c.notation[0]}}</span>
                     </div>
                 </li>
             </ul>
@@ -45,7 +45,7 @@
                     <div>&#8614;</div>
                     <div class="skos-concept-relation-label">
                         <span ng-if="c.prefLabel" skos-label="c.prefLabel" lang="{{language}}" ng-click="click(c)" title="{{c.notation[0]}}"></span>
-                        <span ng-if="!c.prefLabel">{{c.notation[0]}}</span>
+                        <span ng-if="!c.prefLabel" ng-click="click(c)">{{c.notation[0]}}</span>
                     </div>
                 </li>
             </ul>

@@ -1,5 +1,5 @@
 [{
-  "fromScheme":["http://dewey.info/scheme/edition/e22/", { "notation": "DDC" } ],
+  "fromScheme":{ "uri":"http://dewey.info/scheme/edition/e22/", "notation": ["DDC"] },
   "from": {
     "members": [
       {
@@ -17,7 +17,7 @@
       }
     ]
   },
-  "toScheme":["http://d-nb.info/gnd/4449787-8", { "notation": "RVK" } ],
+  "toScheme":{"uri":"http://d-nb.info/gnd/4449787-8", "notation": ["RVK"] },
   "to": {
     "members": [
       {
@@ -61,6 +61,7 @@
   "created":"2016-02-17"
 },
 {
+  "fromScheme":{ "uri":"http://dewey.info/scheme/edition/e22/", "notation": ["DDC"] },
   "from": {
     "members": [
       {
@@ -78,6 +79,7 @@
       }
     ]
   },
+  "toScheme":{"uri":"http://d-nb.info/gnd/4449787-8", "notation": ["RVK"] },
   "to": {
     "members": [
       {
