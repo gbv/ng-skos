@@ -66,13 +66,23 @@
                         <div class="skos-mapping-target">
                             <span ng-if="t.prefLabel" class="notation" title="{{popOverTitle(t.prefLabel)}}">{{t.notation[0]}}</span>
                             <span ng-if="!t.prefLabel" class="notation">{{t.notation[0]}}</span>
-                            <a ng-if="lookup" ng-class="{ 'link-disabled': t.inScheme.notation[0] != schemes.target }" title="Select concept" class="mapping-action-icon">
+                            <a ng-if="lookup && t.inScheme" ng-class="{ 'link-disabled': t.inScheme.notation[0] != schemes.target }" title="Select concept" class="mapping-action-icon">
                                 <span ng-click="lookup(t, m.to.members[0].inScheme.notation[0])">
                                     <span style="top:2px;" class="glyphicon glyphicon-info-sign"></span>
                                 </span>
                             </a>
-                            <a ng-if="select" ng-class="{ 'link-disabled': t.inScheme.notation[0] != schemes.target }" title="Add concept to mapping" class="mapping-action-icon">
+                            <a ng-if="lookup && !t.inScheme" ng-class="{ 'link-disabled': m.toScheme.notation != schemes.target }" title="Select concept" class="mapping-action-icon">
+                                <span ng-click="lookup(t, m.toScheme.notation)">
+                                    <span style="top:2px;" class="glyphicon glyphicon-info-sign"></span>
+                                </span>
+                            </a>
+                            <a ng-if="select && t.inScheme" ng-class="{ 'link-disabled': t.inScheme.notation[0] != schemes.target }" title="Add concept to mapping" class="mapping-action-icon">
                                 <span ng-click="select(t, m.to.members[0].inScheme.notation[0])">
+                                    <span style="" class="glyphicon glyphicon-plus"></span>
+                                </span>
+                            </a>
+                            <a ng-if="select && !t.inScheme" ng-class="{ 'link-disabled': m.toScheme.notation != schemes.target }" title="Add concept to mapping" class="mapping-action-icon">
+                                <span ng-click="select(t, m.toScheme.notation)">
                                     <span style="" class="glyphicon glyphicon-plus"></span>
                                 </span>
                             </a>
