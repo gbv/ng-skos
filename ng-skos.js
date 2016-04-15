@@ -9,7 +9,7 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',[])
-.constant('ngSKOS.version', '0.0.9');
+.constant('ngSKOS.version', '0.0.10');
 
 /**
  * @ngdoc directive
@@ -413,36 +413,45 @@ angular.module('ngSKOS')
     angular.module('myApp',['ngSKOS']);
 
     function myController($scope) {
-        $scope.exampleMappings = {
-            [{
-                from: [{
-                    notation: [ '12345' ],
-                    prefLabel: { en: 'originLabel1' },
-                    inScheme: { notation: ['origin'] }
-                }],
-                to: [{
-                    notation: [ 'ABC' ],
-                    prefLabel: { en: 'targetLabel1' },
-                    inSchemen: { notation: ['target'] }
-                }
-                type: 'strong',
-                timestamp: '2014-01-01',
-                source: 'source'
+        $scope.exampleMappings = [
+            {
+                from:{ 
+                    members:[{
+                        notation: [ '12345' ],
+                        prefLabel: { en: 'originLabel1' },
+                        inScheme: { notation: ['origin'] }
+                    }]
+                },
+                to:{
+                    members[{
+                        notation: [ 'ABC' ],
+                        prefLabel: { en: 'targetLabel1' },
+                        inScheme: { notation: ['target'] }
+                    }]
+                },
+                mappingType: 'strong',
+                mappingRelevance: '',
+                created: '2014-01-01',
+                creator: 'source'
             },
             {
-                from: [{
-                    notation: [ '98765' ],
-                    prefLabel: { en: 'originLabel2' },
-                    inScheme: { notation: ['origin'] }
-                }],
-                to: [{
-                    notation: [ 'DEF' ],
-                    prefLabel: { en: 'targetLabel2' },
-                    inSchemen: { notation: ['target'] }
-                }
-                type: 'medium',
-                timestamp: '2010-05-05',
-                source: 'source'
+                from: {
+                    members:[{
+                        notation: [ '98765' ],
+                        prefLabel: { en: 'originLabel2' },
+                    }]
+                },
+                fromScheme:{ notation: ['origin'] },
+                to: {
+                    members:[{
+                        notation: [ 'DEF' ],
+                        prefLabel: { en: 'targetLabel2' },
+                    }]
+                },
+                toScheme: { notation: ['target'] },
+                mappingType: 'medium',
+                created: '2010-05-05',
+                creator: 'source'
             }]
 
         }

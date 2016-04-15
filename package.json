@@ -1,6 +1,6 @@
 {
   "name": "ng-skos",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Jakob Voß <voss@gbv.de>",
   "contributor": [
     "Moritz Horn <moritz.horn@gmail.com>"
@@ -41,6 +41,7 @@
     "grunt-shell": "~0.6.0",
     "grunt-version": "~0.3.0",
     "karma": "~0.10.9",
+    "karma-cli":"~0.1.2",
     "karma-jasmine": "~0.1.5",
     "karma-firefox-launcher":"~0.1"
   },
