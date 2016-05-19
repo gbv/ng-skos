@@ -95,7 +95,7 @@
     ]
   },
   "mappingRelevance": "0.8",
-  "creator": "Demo",
+  "creator": [{"uri":"http://example.org/demo","prefLabel":{"de":"Demo"}}],
   "created":"2015-07-17",
   "modified":"2016-01-04"
 }]

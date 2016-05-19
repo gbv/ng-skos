@@ -91,7 +91,13 @@
                 </ul>
             </td>
             <td ng-if="type">{{m.type.prefLabel}}</td>
-            <td class="skos-mapping-cell skos-mapping-cell-center"><span>{{m.creator}}</span></td>
+            <td class="skos-mapping-cell skos-mapping-cell-center">
+              <a ng-if="m.creator[0].uri" href="{{m.creator[0].uri}}" target="_blank">
+                <span ng-if="m.creator[0].prefLabel" skos-label="m.creator[0].prefLabel" lang="{{language}}"></span>
+                <span ng-if="!m.creator[0].prefLabel">{{m.creator[0].uri}}</span>
+              </a>
+              <span ng-if="m.creator[0].prefLabel && !m.creator[0].uri" skos-label="m.creator[0].prefLabel" lang="{{language}}"></span>
+            </td>
             <td class="skos-mapping-cell skos-mapping-cell-center">
               <span ng-if="!m.modified && !m.issued && m.created">{{m.created}} (created)</span>
               <span ng-if="!m.modified && m.issued">{{m.issued}} (issued)</span>
