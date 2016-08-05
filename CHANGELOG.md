@@ -1,5 +1,13 @@
 # NEXT
 
+* ...
+
+# 0.0.11
+
+* skosConcept: include all JSKOS concept fields
+
+# 0.0.11
+
 * skosLabel: ignore non-string labels
 * skosNotes: new directive to display documentary notes
 

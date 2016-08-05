@@ -9,7 +9,7 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',[])
-.constant('ngSKOS.version', '0.0.10');
+.constant('ngSKOS.version', '0.0.11');
 
 /**
  * @ngdoc directive
@@ -109,16 +109,8 @@ angular.module('ngSKOS')
  *
  * ## Scope
  *
- * The following variables are added to the scope:
- * <ul>
- * <li>ancestors (array of concepts)
- * <li>prefLabel (object of strings)
- * <li>altLabel (object of array of strings)
- * <li>notation (string)
- * <li>broader (array of concepts)
- * <li>narrower (array of concepts)
- * <li>related (array of concepts)
- * </ul>
+ * All [JSKOS concept fields](https://gbv.github.io/jskos/jskos.html#concept)
+ * such as `narrower`, `broader` etc. are added to the scope to access directly.
  *
  * In addition the helper method `isEmptyObject` is provided to check whether an object
  * is empty.
@@ -158,8 +150,15 @@ angular.module('ngSKOS')
             };
             scope.$watch('concept',function(concept) {
                 angular.forEach([
-                        'uri','inScheme','ancestors','prefLabel',
-                        'altLabel','scopeNote','description','notation','narrower','broader','related'
+                        'altLabel', 'changeNote', 'contributor', 'created',
+                        'creator', 'definition', 'depiction', 'editorialNote',
+                        'example', 'hiddenLabel', 'historyNote', 'identifier',
+                        'issued', 'modified', 'notation', 'partOf',
+                        'prefLabel', 'publisher', 'scopeNote', 'subjectOf',
+                        'subject', 'type', 'uri', 'url', 'broader', 'narrower',
+                        'related', 'previous', 'next', 'startDate', 'endDate',
+                        'relatedDate', 'location', 'ancestors', 'inScheme',
+                        'topConceptOf', 'relatedPlace'
                     ],
                     function(field) {
                         scope[field] = concept ? concept[field] : null;
