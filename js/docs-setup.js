@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "ng-skos",
       "shortDescription": "Contributing",
-      "keywords": "api application automatically backwards break bug build bump bumped call change changes code commit compatibility conf configured consists contious contributing demo dependencies developer docs documentation don execute executed existing features fixes git github global grunt grunt-cli includes increment install installation installing io issue js json karma listed major middle minor ng-skos node npm number numeric org overview package packages parts patch prepend publish pushed re-run release released releases repository running sites source src sudo suffix task test testing tests three tracker travis travis-ci unit updated version versions watch written yml"
+      "keywords": "api application automatically backwards break bug build bump bumped call change changes code commit commits compatibility conf configured consists contious contributing demo dependencies description developer directive docs documentation don execute executed existing features fixes format git github global grunt grunt-cli includes increment install installation installing io issue js json karma listed major message middle minor ng-skos node npm number numeric org overview package packages parts patch prepend publish pushed re-run refers release released releases repository running service sites skosconcept source src sudo suffix task test testing tests three tracker travis travis-ci unit updated version versions watch written yml"
     },
     {
       "section": "api",
@@ -46,7 +46,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Display a concept. ",
-      "keywords": "addition angular api array assignable automatically bind bounded call changed changes check clicked concept concepts connected customization directive display empty expression function github helper html io isemptyobject language method ng-skos object parameter preferred provided reflected scope skos-click skos-concept strings template template-url templateurl updated url variable variables"
+      "keywords": "access addition angular api assignable automatically bind bounded broader call changed changes check clicked concept concepts connected customization directive directly display empty expression fields function github helper html io isemptyobject language method narrower ng-skos object parameter preferred provided reflected scope skos-click skos-concept template template-url templateurl updated url variable variables"
     },
     {
       "section": "api",
@@ -65,6 +65,24 @@ NG_DOCS={
       "moduleName": "ng-skos",
       "shortDescription": "This directive displays a list of concepts ",
       "keywords": "api array canremove changed chose concept concepts customization directive display displays function github handling html io jskos labels list lists manipulate method ng-skos notations onselect options parameter remove removeconcept selection showlabels support template templateurl url"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosMappingTable",
+      "shortName": "skosMappingTable",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "This directive displays mappings between concepts of",
+      "keywords": "$scope abc angular api code concept concepts created creator def directive display displays en examplemappings format fromscheme function github handle html inscheme js mapping mappingrelevance mappings mappingtype medium members module myapp mycontroller ng-controller ng-skos ngskos notation origin originlabel1 originlabel2 preflabel schemes script select-mapping selected skos-mapping-table source strong table target targetlabel1 targetlabel2 template template-url toscheme url"
+    },
+    {
+      "section": "api",
+      "id": "ng-skos.directive:skosNotes",
+      "shortName": "skosNotes",
+      "type": "directive",
+      "moduleName": "ng-skos",
+      "shortDescription": "Shows the documentary notes",
+      "keywords": "api arbitrary changed chosen concept customization data definition directive display es example expression historynote html lang language multilingual ng-skos notes object org parameter preferred scope scopenote secdocumentation selected skos-notes template template-url templateurl url variables w3"
     },
     {
       "section": "api",

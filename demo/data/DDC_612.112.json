@@ -1,0 +1,101 @@
+[{
+  "fromScheme":{ "uri":"http://dewey.info/scheme/edition/e22/", "notation": ["DDC"] },
+  "from": {
+    "members": [
+      {
+        "prefLabel": {
+          "de": "Leukozyten (Weiße Blutkörperchen)"
+        },
+        "inScheme": {
+          "notation": [
+            "DDC"
+          ]
+        },
+        "notation": [
+          "612.112"
+        ]
+      }
+    ]
+  },
+  "toScheme":{"uri":"http://d-nb.info/gnd/4449787-8", "notation": ["RVK"] },
+  "to": {
+    "members": [
+      {
+        "notation": [
+          "XG 6600-XG 6628"
+        ],
+        "inScheme": {
+          "notation": [
+            "RVK"
+          ]
+        }
+      },
+      {
+        "notation": [
+          "XI 4500-XI 4599"
+        ],
+        "prefLabel":{
+          "de": "Blut, Blutbildendes Gewebe, Blutgifte, Methämoglobin"
+        },
+        "inScheme": {
+          "notation": [
+            "RVK"
+          ]
+        }
+      },
+      {
+        "notation": [
+          "YC 1600-YC 2999"
+        ],
+        "inScheme": {
+          "notation": [
+            "RVK"
+          ]
+        }
+      }
+    ],
+    "disjunction": true
+  },
+  "mappingRelevance": "0.5",
+  "creator": "VZG",
+  "created":"2016-02-17"
+},
+{
+  "fromScheme":{ "uri":"http://dewey.info/scheme/edition/e22/", "notation": ["DDC"] },
+  "from": {
+    "members": [
+      {
+        "prefLabel": {
+          "de": "Blut"
+        },
+        "inScheme": {
+          "notation": [
+            "DDC"
+          ]
+        },
+        "notation": [
+          "612.11"
+        ]
+      }
+    ]
+  },
+  "toScheme":{"uri":"http://d-nb.info/gnd/4449787-8", "notation": ["RVK"] },
+  "to": {
+    "members": [
+      {
+        "notation": [
+          "WW 8724"
+        ],
+        "inScheme": {
+          "notation": [
+            "RVK"
+          ]
+        }
+      }
+    ]
+  },
+  "mappingRelevance": "0.8",
+  "creator": [{"uri":"http://example.org/demo","prefLabel":{"de":"Demo"}}],
+  "created":"2015-07-17",
+  "modified":"2016-01-04"
+}]

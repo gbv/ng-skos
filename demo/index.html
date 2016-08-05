@@ -32,6 +32,9 @@
                             <a href="#label" target="_self">Label</a>
                         </li>
                         <li>
+                            <a href="#notes" target="_self">Notes</a>
+                        </li>
+                        <li>
                             <a href="#tree" target="_self">Tree</a>
                         </li>
                         <li>
@@ -39,6 +42,9 @@
                         </li>
                         <li>
                             <a href="#list" target="_self">List</a>
+                        </li>
+                        <li>
+                            <a href="#mapping-table" target="_self">Mapping Table</a>
                         </li>
                     </ul>
                 </li>
@@ -76,6 +82,20 @@
                 </h2>
             </div>
             <div class="row">
+                <div class="col-md-12">
+                    <div class="concept-sample-buttons">
+                        <span>Choose sample concept to display:</span>
+                        <button ng-click="selectSampleConcept('jita')">
+                            Jita
+                        </button>
+                        <button ng-click="selectSampleConcept('rvk')">
+                            RVK
+                        </button>
+                        <button ng-click="selectSampleConcept('ddc')">
+                            DDC
+                        </button>
+                    </div>
+                </div>
                 <div class="col-md-5">
                     <p>
                         Used as element or attribute to display a concept.
@@ -83,17 +103,12 @@
                     <p>
 
                     </p>
-                    <div class="tmpl-border" skos-concept="sampleSkosConcept" language="language" template-url="template/skos-concept-thesaurus.html">
+                    <div class="tmpl-border" skos-concept="sampleConcept" language="language">
                     </div>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-5">
-                    <p>
-                        The element content can be used to control how the concept is shown:
-                    </p>
-                    <div class="tmpl-border" skos-concept="sampleSkosConcept" language="language">
-                    </div>
                     <p>
                         Interactive elements can be added, for instance to 
                         change the concept on clicks by loading from a terminology 
@@ -129,6 +144,27 @@
                             <li><span skos-label="sampleSkosConcept.prefLabel" lang="fr" class="show-lang"/></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section id="notes" class="fixnav">
+            <div class="page-header">
+                <h2>skos-notes
+                    <small><a href="../#/api/ng-skos.directive:skosNotes">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </a></small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Used to display the documentation fields of a concept:
+                    
+                    <div skos-notes="sampleNotes" lang="{{language}}">
+                    </div>
+                    This is utilized by <a href="#concept"><b>skos-concept</b></a>, but can also be used to display those fields on their own.
+                    <em>Skos-notes'</em> standard template makes use of the <a href="#label"><b>skos-label</b></a> directive and therefore inherits its language selection feature.
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </section>
@@ -201,7 +237,7 @@
                     <div style="min-width:300px;">
                         <div style="padding-bottom:10px;">Displays selected concept labels in a list format</div>
                         <div ng-if="!conceptList.length">
-                            <alert style="width:225px;" type="danger">Select concepts by using the <i>skos-browser</i>!</alert>
+                            <alert style="width:225px;" type="danger">Select concepts by using the <i>skos-browser</i> to display them in a <i>skos-list</i>.</alert>
                         </div>
                         <div ng-if="conceptList.length">
                             <div style="display:block">
@@ -243,6 +279,37 @@
                 </div>
             </div>
         </section>
+        <section id ="mapping-table" class="fixnav">
+            <div class="page-header">
+                <h2>skos-mapping-table
+                    <small><a href="../#/api/ng-skos.directive:skosMappingTable">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </a></small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                  <div skos-mapping-table="sampleMapping" language="language" lookup-mapping select-mapping="addMappingConcept" active-schemes="schemes">
+                  </div>
+                  <p>
+                    <div ng-if="!mappingList.length">
+                        <alert style="width:225px;" type="danger">Select concepts with<span class="glyph-example gyphicon glyphicon-plus"></span>from the <i>skos-mapping-table</i> to add them to a <i>skos-list</i>.</alert>
+                    </div>
+                    <div ng-if="mappingList.length" class="tmpl-border">
+                        <skos-list concepts="mappingList" list-name="skosmappinglist" removeable="true" show-labels="true"> 
+                        </skos-list>
+                    </div>
+                  </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                  <div>
+                    This directive provides a way to display mappings of concepts in the <a href="https://gbv.github.io/jskos/jskos.html">JSKOS format</a>.
+                  </div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <div id="footer">
@@ -256,6 +323,8 @@
     <script src="app.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-suggest.min.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
+    <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>
     <script src="../grunt-scripts/ng-skos.js"></script>

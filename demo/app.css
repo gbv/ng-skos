@@ -41,6 +41,13 @@ body{
     background-color:#FFF;
     margin-bottom:8px;
 }
+.concept-sample-buttons{
+    margin-bottom:10px;
+}
+.concept-sample-buttons button{
+    min-width:80px;
+    margin:0px 5px;
+}
 .smpl{
     margin-top:25px;
     padding-top:1px;
@@ -77,3 +84,13 @@ body{
 .affix,.navbar-fixed-top{
 -webkit-transform: scale3d(1,1,1);
 }
+.glyph-example{
+  font-weight:bold;
+  font-size:1.4em;
+  margin:0px 3px;
+  color:#428bca;
+}
+.glyph-example:hover{
+  text-decoration:none;
+}
+

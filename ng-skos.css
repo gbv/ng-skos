@@ -20,6 +20,7 @@
     color:black;
     cursor:default;
     text-decoration:none;
+    white-space:nowrap;
 }
 /*  icon-style for concept-schemes */
 .classification{
@@ -60,14 +61,13 @@ ul.ancestors li {
 .ancestor span{
     padding-right:3px;
 }
-.ancestor:before {
-    font-size:small;
-    color:#999;
-    content: " > ";
-    font-weight:bold;
+ul.ancestors li:hover{
+    background-color:#fff;
 }
-.ancestors li:after{
-    content: " > ";
+.ancestors-label:hover{
+    background-color:#eee;
+}
+.ancestors-greater{
     font-weight:bold;
     font-size:small;
 }
@@ -85,6 +85,10 @@ ul.ancestors li {
     text-decoration:underline;
     padding:1px 3px 1px 3px;
     display:inline-block;
+}
+.skos-concept-thesaurus-note{
+    border:1px solid #ddd;
+    margin-bottom:10px;
 }
 .top-classic{
     margin-bottom:10px;
@@ -144,6 +148,18 @@ ul.ancestors li {
 .skos-concept-relation span{
     color:#428bca;
 }
+.skos-note{
+    font-style: italic;
+    display:inline-block;
+    list-style-type:none;
+    padding:4px 6px;
+    margin:6px;
+    background-color:#eee;
+    border-radius:3px;
+}
+.skos-note li{
+    padding-left:5px;
+}
 /* styles for header, containing notation, prefLabel and uri-link */
 .top-alt{
     margin-bottom:10px;
@@ -182,6 +198,10 @@ ul.ancestors li {
 .simple-list{
     list-style-type:none;
     padding:0px;
+    margin-bottom:0px;
+}
+.simple-list-center{
+    text-align:center;
 }
 .notification{
     color:red;
@@ -211,4 +231,46 @@ ul.ancestors li {
 }
 .list-item-selected{
     background-color: #C6E2FF;
+}
+/* SKOS-mapping-table */
+
+.mapping-table{
+  margin:5px 0px;
+  width:100%;
+  overflow:auto;
+}
+.skos-mapping-target{
+  white-space:nowrap;
+}
+.mapping-table-scheme{
+  max-width:150px;
+  vertical-align:middle !IMPORTANT;
+  text-align:center;
+}
+.mapping-table-icon{
+  text-decoration:none;
+  font-size:0.8em;
+}
+.mapping-table-header-sortable{
+  margin-right:0.2em;
+}
+.skos-mapping-cell{
+  vertical-align:middle !IMPORTANT;
+}
+.skos-mapping-cell-center{
+  text-align:center;
+}
+.link-disabled{
+  color:#ddd;
+}
+.link-disabled:hover{
+  color:#ddd;
+}
+.mapping-action-icon{
+  font-size:0.85em;
+  cursor:pointer;
+  text-decoration: none;
+}
+.mapping-action-icon:hover{
+  text-decoration: none;
 }

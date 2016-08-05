@@ -9,7 +9,7 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',[])
-.constant('ngSKOS.version', '0.0.9');
+.constant('ngSKOS.version', '0.0.11');
 
 /**
  * @ngdoc directive
@@ -109,17 +109,8 @@ angular.module('ngSKOS')
  *
  * ## Scope
  *
- * The following variables are added to the scope:
- * <ul>
- * <li>ancestors (array of concepts)
- * <li>prefLabel (object of strings)
- * <li>altLabel (object of array of strings)
- * <li>notation (string)
- * <li>note (object of array of strings)
- * <li>broader (array of concepts)
- * <li>narrower (array of concepts)
- * <li>related (array of concepts)
- * </ul>
+ * All [JSKOS concept fields](https://gbv.github.io/jskos/jskos.html#concept)
+ * such as `narrower`, `broader` etc. are added to the scope to access directly.
  *
  * In addition the helper method `isEmptyObject` is provided to check whether an object
  * is empty.
@@ -159,8 +150,15 @@ angular.module('ngSKOS')
             };
             scope.$watch('concept',function(concept) {
                 angular.forEach([
-                        'uri','inScheme','ancestors','prefLabel',
-                        'altLabel','note','notation','narrower','broader','related'
+                        'altLabel', 'changeNote', 'contributor', 'created',
+                        'creator', 'definition', 'depiction', 'editorialNote',
+                        'example', 'hiddenLabel', 'historyNote', 'identifier',
+                        'issued', 'modified', 'notation', 'partOf',
+                        'prefLabel', 'publisher', 'scopeNote', 'subjectOf',
+                        'subject', 'type', 'uri', 'url', 'broader', 'narrower',
+                        'related', 'previous', 'next', 'startDate', 'endDate',
+                        'relatedDate', 'location', 'ancestors', 'inScheme',
+                        'topConceptOf', 'relatedPlace'
                     ],
                     function(field) {
                         scope[field] = concept ? concept[field] : null;
@@ -231,7 +229,7 @@ angular.module('ngSKOS')
         scope: { 
             label: '=skosLabel',
         },
-        template: '{{label[language] ? label[language] : label}}',
+        template: '{{label[language]}}',
         link: function(scope, element, attrs) {
 
             function updateLanguage(language) {
@@ -248,7 +246,7 @@ angular.module('ngSKOS')
 
             function selectLanguage(labels, language) {
                 if ( angular.isObject(labels) ) {
-                    if ( language && labels[language] ) {
+                    if ( language && angular.isString(labels[language])) {
                         return language;
                     } else {
                         return guessLanguage(labels);
@@ -259,7 +257,9 @@ angular.module('ngSKOS')
             function guessLanguage(labels) {
                 // TODO: https://github.com/gbv/ng-skos/issues/17
                 for (var language in labels) {
-                    return language; // take arbitrary language
+                    if (angular.isString(labels[language])) {
+                        return language; // take arbitrary language
+                    }
                 }
             }
 
@@ -267,9 +267,7 @@ angular.module('ngSKOS')
             attrs.$observe('lang', updateLanguage);
 
             // update if labels changed
-            scope.$watch('label', function(value) {
-                updateLanguage();
-            }, true);
+            scope.$watch('label', function() { updateLanguage(); }, true);
         },
     };
 });
@@ -343,7 +341,9 @@ angular.module('ngSKOS')
             scope.tabFocus = 0;
             scope.onClick = function(index){
                 scope.tabFocus = index;
-                scope.onSelect(scope.concepts[index]);
+                if(scope.onSelect){
+                  scope.onSelect(scope.concepts[index]);
+                }
             };
             scope.onFocus = function(index){
                 scope.tabFocus = index;
@@ -372,7 +372,7 @@ angular.module('ngSKOS')
                     scope.removeConcept(index);
                     $timeout(function(){ scope.focusConcept(scope.tabFocus) },0,false);
                 // enter
-                } else if(key == 13){
+                } else if(key == 13 && scope.onSelect){
                     $event.preventDefault();
                     scope.onSelect(scope.concepts[index]);
                 }
@@ -380,6 +380,192 @@ angular.module('ngSKOS')
         }
     };
 }]);
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosMappingTable
+ * @restrict A
+ * @description
+ *
+ * This directive displays [mappings](#/guide/mappings) between concepts of
+ * two concept schemes in a table format.
+ *
+ * ## Source code
+ *
+ * The most recent [source 
+ * code](https://github.com/gbv/ng-skos/blob/master/src/directives/skosMappingTable.js)
+ * of this directive is available at GitHub.
+ *
+ * @param {string} skos-mapping-table Mapping to display
+ * @param {string} select-mapping function to handle mappings selected from within this template
+ * @param {string} template-url URL of a template to display the mapping
+ *
+ * @example
+ <example module="myApp">
+  <file name="index.html">
+    <div ng-controller="myController">
+      <div skos-mapping-table="exampleMappings">
+      </div>
+    </div>
+  </file>
+  <file name="script.js">
+    angular.module('myApp',['ngSKOS']);
+
+    function myController($scope) {
+        $scope.exampleMappings = [
+            {
+                from:{ 
+                    members:[{
+                        notation: [ '12345' ],
+                        prefLabel: { en: 'originLabel1' },
+                        inScheme: { notation: ['origin'] }
+                    }]
+                },
+                to:{
+                    members[{
+                        notation: [ 'ABC' ],
+                        prefLabel: { en: 'targetLabel1' },
+                        inScheme: { notation: ['target'] }
+                    }]
+                },
+                mappingType: 'strong',
+                mappingRelevance: '',
+                created: '2014-01-01',
+                creator: 'source'
+            },
+            {
+                from: {
+                    members:[{
+                        notation: [ '98765' ],
+                        prefLabel: { en: 'originLabel2' },
+                    }]
+                },
+                fromScheme:{ notation: ['origin'] },
+                to: {
+                    members:[{
+                        notation: [ 'DEF' ],
+                        prefLabel: { en: 'targetLabel2' },
+                    }]
+                },
+                toScheme: { notation: ['target'] },
+                mappingType: 'medium',
+                created: '2010-05-05',
+                creator: 'source'
+            }]
+
+        }
+    }
+  </file>
+</example>
+ */
+angular.module('ngSKOS')
+.directive('skosMappingTable', function() {
+    return {
+        restrict: 'A',
+        scope: {
+            mapping: '=skosMappingTable',
+            select: '=selectMapping',
+            lookup: '=lookupMapping',
+            lang: '=language',
+            schemes:'=activeSchemes'
+        },
+        templateUrl: function(elem, attrs) {
+            return attrs.templateUrl ?
+                   attrs.templateUrl : 'template/skos-mapping-table.html';
+        },
+        link: function(scope, element, attr, controller, transclude) {
+            scope.$watch('lang', function(lang){
+                scope.popOverTitle = function(label){
+                    if(label[lang]){
+                        return label[lang];
+                    }else{
+                        for(lang in label){
+                            return label[lang];
+                        }
+                    }
+                }
+            });
+            scope.$watch('schemes');
+        },
+        controller: ["$scope", function($scope) {
+            $scope.predicate = '-mappingRelevance';
+        }]
+            // ...
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name ng-skos.directive:skosNotes
+ * @restrict A
+ * @description
+ *
+ * Shows the [documentary notes](http://www.w3.org/TR/skos-primer/#secdocumentation)
+ * of a concept. A preferred language can be selected with parameter `lang`. If
+ * no language is selected, an arbitrary language with given notes is chosen.
+ *
+ * ## Scope
+ *
+ * The variables `scopeNote`, `definition`, `example`, and `historyNote` are
+ * added to the scope, if given es keys of the `skos-notes` parameter object.
+ *
+ * ## Customization
+ *
+ * The [default
+ * template](https://github.com/gbv/ng-skos/blob/master/src/templates/skos-notes.html) 
+ * can be changed with parameter `templateUrl`.
+ *
+ * @param {string} skos-notes Expression with multilingual notes data
+ * @param {string=} lang preferred language to show notes in.
+ * @param {string} template-url URL of a template to display the concept
+ */
+angular.module('ngSKOS')
+.directive('skosNotes', function() {
+    return {
+        restrict: 'A',
+        scope: { 
+            notes: '=skosNotes',
+        },
+        templateUrl: function(elem, attrs) {
+            return attrs.templateUrl ? 
+                   attrs.templateUrl : 'template/skos-notes.html';
+        },
+        link: function(scope, element, attrs) {
+
+            function update(language) {
+                scope.language = language ? language : attrs.lang;                
+                if (!language) { 
+                    language = guessLanguage(scope.notes);
+                }
+                if (language != scope.language) {
+                    scope.language = language;
+                }
+            }
+
+            // take arbitrary language
+            function guessLanguage(notes) {
+                for (var type in notes) {
+                    for (var language in notes[type]) {
+                        return language;
+                    }
+                }
+            }
+    
+            // update if lang attribute changed (also called at initialization)
+            attrs.$observe('lang', update);
+
+            // update if notes changed
+            scope.$watch('notes',function(notes) {
+                angular.forEach(['scopeNote','definition','example','historyNote'],
+                    function(field) {
+                        scope[field] = angular.isObject(notes) 
+                                     ? notes[field] : null;
+                    }
+                );
+            },true);
+        }
+    };
+});
 
 /**
  * @ngdoc directive
@@ -607,17 +793,27 @@ angular.module('ngSKOS').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('template/skos-concept-thesaurus.html',
-    "<div class=\"skos-concept-thesaurus\"><ul ng-if=\"ancestors.length\" class=\"ancestors\"><span ng-if=\"inScheme\" class=\"classification\">{{inScheme}}</span><li class=\"ancestor\" ng-repeat=\"a in ancestors\"><span skos-label=\"a.prefLabel\" lang=\"{{language}}\" ng-click=\"update(a);reload();\"></span></li></ul><div class=\"top top-classic\"><span ng-if=\"notation\" class=\"notation\">{{notation[0]}}</span> <b><span skos-label=\"concept.prefLabel\" lang=\"{{language}}\"></span></b><a ng-if=\"notation\" class=\"uri\" href=\"{{uri}}\"><span style=\"vertical-align:-10%\" class=\"glyphicon glyphicon-globe\"></span></a></div><div ng-if=\"altLabel.length\" class=\"skos-concept-altlabel\"><ul><li ng-repeat=\"alt in altLabel\"><span ng-if=\"$index < 5\" style=\"display:inline\"><span skos-label=\"alt\"></span> <span style=\"margin-left:-4px;margin-right:3px\" ng-if=\"$index < 4 && $index < altLabel.length-1\">,</span></span></li></ul></div><div ng-if=\"broader.length\" class=\"skos-concept-thesaurus-relation\"><b>Broader Terms:</b><ul ng-repeat=\"b in broader\"><li><span skos-label=\"b.prefLabel\" lang=\"{{language}}\" ng-click=\"click(b)\"></li></ul></div><div ng-if=\"narrower.length\" class=\"skos-concept-thesaurus-relation\"><b>Narrower Terms:</b><ul ng-repeat=\"n in narrower\"><li><span skos-label=\"n.prefLabel\" lang=\"{{language}}\" ng-click=\"click(n)\"></li></ul></div><div ng-if=\"related.length\" class=\"skos-concept-thesaurus-relation\"><b>Related Terms:</b><ul ng-repeat=\"r in related\"><li><span skos-label=\"r.prefLabel\" lang=\"{{language}}\" ng-click=\"click(r)\"></li></ul></div></div>"
+    "<div class=\"skos-concept-thesaurus\"><ul ng-if=\"ancestors.length\" class=\"ancestors\"><li class=\"ancestor\" ng-repeat=\"a in ancestors\"><span class=\"ancestors-label\" skos-label=\"a.prefLabel\" lang=\"{{language}}\" ng-click=\"update(a);reload();\"></span> <span class=\"ancestors-greater\">></span></li></ul><div class=\"top top-classic\"><span ng-if=\"notation\" class=\"notation\">{{notation[0]}}</span> <b><span skos-label=\"concept.prefLabel\" lang=\"{{language}}\"></span></b><a ng-if=\"notation\" class=\"uri\" href=\"{{uri}}\"><span style=\"vertical-align:-10%\" class=\"glyphicon glyphicon-globe\"></span></a></div><div ng-if=\"altLabel\" class=\"skos-concept-altlabel\"><ul><li ng-repeat=\"a in altLabel[language]\" style=\"display:inline\"><span ng-if=\"$index < 5\" style=\"display:inline\">{{a}}</span> <span style=\"margin-left:-4px;margin-right:3px\" ng-if=\"$index < 4 && $index < altLabel[language].length-1\">,</span></li></ul></div><div ng-if=\"broader.length\" class=\"skos-concept-thesaurus-relation\"><b>Broader Terms:</b><ul ng-repeat=\"b in broader\"><li><span skos-label=\"b.prefLabel\" lang=\"{{language}}\" ng-click=\"click(b)\"></li></ul></div><div ng-if=\"narrower.length\" class=\"skos-concept-thesaurus-relation\"><b>Narrower Terms:</b><ul ng-repeat=\"n in narrower\"><li><span skos-label=\"n.prefLabel\" lang=\"{{language}}\" ng-click=\"click(n)\"></li></ul></div><div ng-if=\"related.length\" class=\"skos-concept-thesaurus-relation\"><b>Related Terms:</b><ul ng-repeat=\"r in related\"><li><span skos-label=\"r.prefLabel\" lang=\"{{language}}\" ng-click=\"click(r)\"></li></ul></div><div ng-if=\"scopeNote.length\"><div ng-repeat=\"n in scopeNote\" class=\"skos-note skos-concept-thesaurus-note\"><em><div skos-label=\"n\" lang=\"{{language}}\"></div></em></div></div><div ng-if=\"definition.length\"><div ng-repeat=\"n in definition\" class=\"skos-note skos-concept-thesaurus-note\"><em><div skos-label=\"n\" lang=\"{{language}}\"></div></em></div></div></div>"
   );
 
 
   $templateCache.put('template/skos-concept.html',
-    "<div class=\"skos-concept\"><div class=\"top top-alt\"><span ng-if=\"notation.length\" class=\"notation\">{{notation[0]}}</span> <b><span ng-if=\"prefLabel\" skos-label=\"concept.prefLabel\" lang=\"{{language}}\"></span></b> <a ng-if=\"uri && uri != notation\" class=\"uri\" href=\"{{uri}}\" target=\"_blank\"><span class=\"glyphicon glyphicon-globe\"></span></a></div><div ng-if=\"altLabel.length\" class=\"skos-concept-altlabel\"><ul><li ng-repeat=\"alt in altLabel\"><span ng-if=\"$index < 5\" style=\"display:inline\"><span skos-label=\"alt\" lang=\"{{language}}\"></span></span> <span style=\"margin-left:-4px;margin-right:3px\" ng-if=\"$index < 4 && $index < altLabel.length-1\">,</span></li></ul></div><div ng-if=\"broader.length || narrower.length || related.length\" class=\"skos-concept-connected\"><div ng-if=\"broader.length\" class=\"skos-concept-relation skos-concept-relation-broader\"><ul ng-repeat=\"c in broader\"><li><div>&#8599;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\">{{c.notation[0]}}</span></div></li></ul></div><div ng-if=\"narrower.length\" class=\"skos-concept-relation skos-concept-relation-narrower\"><ul ng-repeat=\"c in narrower\"><li><div>&#8600;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\">{{c.notation[0]}}</span></div></li></ul></div><div ng-if=\"related.length\" class=\"skos-concept-relation skos-concept-relation-related\"><ul ng-repeat=\"c in related\"><li><div>&#8594;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\">{{c.notation[0]}}</span></div></li></ul></div></div><div ng-if=\"!isEmptyObject(note)\" style=\"margin-top:10px\"><div ng-repeat=\"n in note\" lang=\"{{language}}\" style=\"width:100%;padding:4px 6px;border:1px solid #ddd;margin-top:8px\"><em><div skos-label=\"n\"></div></em></div></div></div>"
+    "<div class=\"skos-concept\"><div class=\"top top-alt\"><span ng-if=\"notation.length\" class=\"notation\">{{notation[0]}}</span> <b><span ng-if=\"prefLabel\" skos-label=\"concept.prefLabel\" lang=\"{{language}}\"></span></b> <a ng-if=\"uri && uri != notation\" class=\"uri\" href=\"{{uri}}\" target=\"_blank\"><span class=\"glyphicon glyphicon-globe\"></span></a></div><div ng-if=\"altLabel\" class=\"skos-concept-altlabel\"><ul><li ng-repeat=\"a in altLabel[language]\"><span ng-if=\"$index < 5\">{{a}}</span> <span style=\"margin-left:-4px;margin-right:3px\" ng-if=\"$index < 4 && $index < altLabel[language].length-1\">,</span></li></ul></div><div ng-if=\"broader.length || narrower.length || related.length\" class=\"skos-concept-connected\"><div ng-if=\"broader.length\" class=\"skos-concept-relation skos-concept-relation-broader\"><ul ng-repeat=\"c in broader\"><li><div>&#8613;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\" ng-click=\"click(c)\">{{c.notation[0]}}</span></div></li></ul></div><div ng-if=\"narrower.length\" class=\"skos-concept-relation skos-concept-relation-narrower\"><ul ng-repeat=\"c in narrower\"><li><div>&#8615;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\" ng-click=\"click(c)\">{{c.notation[0]}}</span></div></li></ul></div><div ng-if=\"related.length\" class=\"skos-concept-relation skos-concept-relation-related\"><ul ng-repeat=\"c in related\"><li><div>&#8614;</div><div class=\"skos-concept-relation-label\"><span ng-if=\"c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" ng-click=\"click(c)\" title=\"{{c.notation[0]}}\"></span> <span ng-if=\"!c.prefLabel\" ng-click=\"click(c)\">{{c.notation[0]}}</span></div></li></ul></div></div><div style=\"margin-bottom:10px\"><div skos-notes=\"concept\" lang=\"{{language}}\"></div></div></div>"
   );
 
 
   $templateCache.put('template/skos-list.html',
-    "<ul ng-if=\"concepts.length\" class=\"skos-simple-list\"><li ng-repeat=\"c in concepts\"><div class=\"set\" tabindex=\"0\" ng-keydown=\"onKeyDown($event, $first, $last, $index)\" list-index=\"{{listname + '_' + $index}}\" ng-focus=\"onFocus($index)\"><span style=\"whitespace:nowrap\" class=\"notation skos-list-notation\" title=\"{{popOverTitle(c.prefLabel)}}\" ng-click=\"onClick($index)\">{{c.notation[0]}}</span> <span ng-if=\"showLabels\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" class=\"skos-list-label\" ng-click=\"onClick($index)\"></span><div style=\"display:inline-table;padding-left:3px\"><a ng-if=\"onSelect\" href=\"\" ng-click=\"onSelect(c)\" style=\"text-decoration:none;vertical-align:middle\"><span class=\"glyphicon glyphicon-info-sign\" title=\"Select concept (ENTER)\"></span></a> <a ng-if=\"canRemove\" href=\"\" ng-click=\"removeConcept($index)\" style=\"text-decoration:none;vertical-align:middle\"><span class=\"glyphicon glyphicon-trash\" title=\"Remove concept (DEL)\"></span></a></div></div></li></ul>"
+    "<ul ng-if=\"concepts.length\" class=\"skos-simple-list\"><li ng-repeat=\"c in concepts\"><div class=\"set\" tabindex=\"0\" ng-keydown=\"onKeyDown($event, $first, $last, $index)\" list-index=\"{{listname + '_' + $index}}\" ng-focus=\"onFocus($index)\"><span ng-if=\"c.prefLabel\" style=\"whitespace:nowrap\" class=\"notation skos-list-notation\" title=\"{{popOverTitle(c.prefLabel)}}\" ng-click=\"onClick($index)\">{{c.notation[0]}}</span> <span ng-if=\"!c.prefLabel\" style=\"whitespace:nowrap\" class=\"notation skos-list-notation\" ng-click=\"onClick($index)\">{{c.notation[0]}}</span> <span ng-if=\"showLabels && c.prefLabel\" skos-label=\"c.prefLabel\" lang=\"{{language}}\" class=\"skos-list-label\" ng-click=\"onClick($index)\"></span><div style=\"display:inline-table;padding-left:3px\"><a ng-if=\"onSelect\" href=\"\" ng-click=\"onSelect(c)\" style=\"text-decoration:none;vertical-align:middle\"><span class=\"glyphicon glyphicon-info-sign\" title=\"Select concept (ENTER)\"></span></a> <a ng-if=\"canRemove\" href=\"\" ng-click=\"removeConcept($index)\" style=\"text-decoration:none;vertical-align:middle\"><span class=\"glyphicon glyphicon-trash\" title=\"Remove concept (DEL)\"></span></a></div></div></li></ul>"
+  );
+
+
+  $templateCache.put('template/skos-mapping-table.html',
+    "<table class=\"table table-hover table-condensed table-bordered mapping-table\"><thead><tr><th class=\"mapping-table-scheme\"><span>Source Scheme</span></th><th class=\"mapping-table-scheme\"><span>Source Concept</span></th><th class=\"skos-mapping-cell skos-mapping-cell-center\"><span>Target Scheme</span></th><th class=\"skos-mapping-cell skos-mapping-cell-center\"><span>Target Concept(s)</span></th><th class=\"skos-mapping-cell skos-mapping-cell-center\" ng-if=\"type\"><span class=\"mapping-table-header-sortable\">Type</span> <a ng-click=\"predicate = 'type.value';reverse = !reverse\" href=\"\" class=\"mapping-table-icon\"><span class=\"glyphicon glyphicon-sort\"></span></a></th><th class=\"skos-mapping-cell skos-mapping-cell-center\" style=\"min-width:80px\"><span class=\"mapping-table-header-sortable\">Creator</span> <a ng-click=\"predicate = 'creator';reverse = !reverse\" href=\"\" class=\"mapping-table-icon\"><span class=\"glyphicon glyphicon-sort\"></span></a></th><th class=\"skos-mapping-cell skos-mapping-cell-center\" style=\"min-width:120px\"><span class=\"mapping-table-header-sortable\">Last Change</span> <a ng-click=\"predicate = 'created';reverse = !reverse\" href=\"\" class=\"mapping-table-icon\"><span class=\"glyphicon glyphicon-sort\"></span></a></th><th class=\"skos-mapping-cell skos-mapping-cell-center\" style=\"min-width:100px\"><span class=\"mapping-table-header-sortable\">Relevance</span> <a ng-click=\"predicate = 'mappingRelevance';reverse = !reverse\" href=\"\" class=\"mapping-table-icon\"><span class=\"glyphicon glyphicon-sort\"></span></a></th></tr></thead><tbody><tr ng-repeat=\"m in mapping | orderBy:predicate:reverse\"><td class=\"skos-mapping-cell\"><ul class=\"simple-list simple-list-center\"><li><span ng-if=\"m.from.members[0].inScheme\" class=\"classification\">{{m.from.members[0].inScheme.notation[0]}}</span> <span ng-if=\"m.fromScheme && !m.from.members[0].inScheme\" class=\"classification\">{{m.fromScheme.notation}}</span></li></ul></td><td class=\"skos-mapping-cell\"><ul class=\"simple-list\"><li><span ng-if=\"m.from.members[0].prefLabel\" class=\"notation\" title=\"{{popOverTitle(m.from.members[0].prefLabel)}}\">{{m.from.members[0].notation[0]}}</span> <span ng-if=\"!m.from.members[0].prefLabel\" class=\"notation\">{{m.from.members[0].notation[0]}}</span></li></ul></td><td class=\"skos-mapping-cell\"><ul class=\"simple-list simple-list-center\"><li><span ng-if=\"m.to.members[0].inScheme\" class=\"classification\">{{m.to.members[0].inScheme.notation[0]}}</span> <span ng-if=\"m.toScheme && !m.to.members[0].inScheme\" class=\"classification\">{{m.toScheme.notation}}</span></li></ul></td><td class=\"skos-mapping-cell\"><ul class=\"simple-list\"><li ng-repeat=\"t in m.to.members\"><div class=\"skos-mapping-target\"><span ng-if=\"t.prefLabel\" class=\"notation\" title=\"{{popOverTitle(t.prefLabel)}}\">{{t.notation[0]}}</span> <span ng-if=\"!t.prefLabel\" class=\"notation\">{{t.notation[0]}}</span> <a ng-if=\"lookup && t.inScheme\" ng-class=\"{ 'link-disabled': t.inScheme.notation[0] != schemes.target }\" title=\"Select concept\" class=\"mapping-action-icon\"><span ng-click=\"lookup(t, m.to.members[0].inScheme.notation[0])\"><span style=\"top:2px\" class=\"glyphicon glyphicon-info-sign\"></span></span></a> <a ng-if=\"lookup && !t.inScheme\" ng-class=\"{ 'link-disabled': m.toScheme.notation != schemes.target }\" title=\"Select concept\" class=\"mapping-action-icon\"><span ng-click=\"lookup(t, m.toScheme.notation)\"><span style=\"top:2px\" class=\"glyphicon glyphicon-info-sign\"></span></span></a> <a ng-if=\"select && t.inScheme\" ng-class=\"{ 'link-disabled': t.inScheme.notation[0] != schemes.target }\" title=\"Add concept to mapping\" class=\"mapping-action-icon\"><span ng-click=\"select(t, m.to.members[0].inScheme.notation[0])\"><span style=\"\" class=\"glyphicon glyphicon-plus\"></span></span></a> <a ng-if=\"select && !t.inScheme\" ng-class=\"{ 'link-disabled': m.toScheme.notation != schemes.target }\" title=\"Add concept to mapping\" class=\"mapping-action-icon\"><span ng-click=\"select(t, m.toScheme.notation)\"><span style=\"\" class=\"glyphicon glyphicon-plus\"></span></span></a></div></li></ul></td><td ng-if=\"type\">{{m.type.prefLabel}}</td><td class=\"skos-mapping-cell skos-mapping-cell-center\"><a ng-if=\"m.creator[0].uri\" href=\"{{m.creator[0].uri}}\" target=\"_blank\"><span ng-if=\"m.creator[0].prefLabel\" skos-label=\"m.creator[0].prefLabel\" lang=\"{{language}}\"></span> <span ng-if=\"!m.creator[0].prefLabel\">{{m.creator[0].uri}}</span></a> <span ng-if=\"m.creator[0].prefLabel && !m.creator[0].uri\" skos-label=\"m.creator[0].prefLabel\" lang=\"{{language}}\"></span></td><td class=\"skos-mapping-cell skos-mapping-cell-center\"><span ng-if=\"!m.modified && !m.issued && m.created\">{{m.created}} (created)</span> <span ng-if=\"!m.modified && m.issued\">{{m.issued}} (issued)</span> <span ng-if=\"m.modified\">{{m.modified}} (modified)</span></td><td class=\"skos-mapping-cell skos-mapping-cell-center\"><span ng-if=\"m.mappingType\">{{m.mappingType}} ({{m.mappingRelevance}})</span> <span ng-if=\"!m.mappingType && m.mappingRelevance\">{{m.mappingRelevance}}</span></td></tr></tbody></table>"
+  );
+
+
+  $templateCache.put('template/skos-notes.html',
+    "<ul ng-repeat=\"n in scopeNote[language]\" class=\"skos-note skos-note-scopeNote\"><li ng-if=\"$index < 5\">{{n}}</li></ul><ul ng-repeat=\"n in definition[language]\" class=\"skos-note skos-note-definition\"><li ng-if=\"$index < 5\">{{n}}</li></ul><ul ng-repeat=\"n in example[language]\" class=\"skos-note skos-note-example\"><li ng-if=\"$index < 5\">{{n}}</li></ul><ul ng-repeat=\"n in historyNote[language]\" class=\"skos-note skos-note-historyNote\"><li ng-if=\"$index < 5\">{{n}}</li></ul>"
   );
 
 

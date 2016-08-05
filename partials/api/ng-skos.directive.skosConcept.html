@@ -1,4 +1,4 @@
-<a href="https://github.com/gbv/ng-skos/edit/master/src/directives/skosConcept.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/gbv/ng-skos/blob/6e52805/src/directives/skosConcept.js#L43" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">skosConcept</code>
+<a href="https://github.com/gbv/ng-skos/edit/master/src/directives/skosConcept.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/gbv/ng-skos/blob/21c9983/src/directives/skosConcept.js#L34" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">skosConcept</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">ng-skos</code>
 </span>
 </div>
@@ -8,18 +8,8 @@
 Changes on the concept object are reflected by changes in the scope 
 variables so the display is updated automatically.</p>
 <h4 id="description_scope">Scope</h4>
-<p>The following variables are added to the scope:</p>
-<ul>
-<li>ancestors (array of concepts)
-<li>prefLabel (object of strings)
-<li>altLabel (object of array of strings)
-<li>notation (string)
-<li>note (object of array of strings)
-<li>broader (array of concepts)
-<li>narrower (array of concepts)
-<li>related (array of concepts)
-</ul>
-
+<p>All <a href="https://gbv.github.io/jskos/jskos.html#concept">JSKOS concept fields</a>
+such as <code>narrower</code>, <code>broader</code> etc. are added to the scope to access directly.</p>
 <p>In addition the helper method <code>isEmptyObject</code> is provided to check whether an object
 is empty.</p>
 <h4 id="description_customization">Customization</h4>
