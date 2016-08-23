@@ -12,8 +12,8 @@
                   "A"
                ],
                "prefLabel" : {
-                  "de" : "Theoretische und allgemeine Aspekte von Bibliotheken und Informationen",
-                  "en" : "Theoretical and general aspects of libraries and information."
+                  "de-DE" : "Theoretische und allgemeine Aspekte von Bibliotheken und Informationen",
+                  "en-US" : "Theoretical and general aspects of libraries and information."
                },
                "narrower" : [
                   {
@@ -24,13 +24,13 @@
                      "narrower" : [],
                      "prefLabel" : {
                         "en" : "Library and information science as a field.",
-                        "de" : "Bibliotheks- und Informationswissenschaften als Disziplin"
+                        "de-DE" : "Bibliotheks- und Informationswissenschaften als Disziplin"
                      }
                   },
                   {
                      "prefLabel" : {
-                        "en" : "Information theory and library theory.",
-                        "de" : "Bibliotheks- und Informationstheorien"
+                        "en-US" : "Information theory and library theory.",
+                        "de" : "Bibliotheks- und Informationstheorien (DK)"
                      },
                      "uri" : "http://example.org/jita/AB",
                      "narrower" : [],
@@ -57,7 +57,7 @@
                      "narrower" : [],
                      "prefLabel" : {
                         "de" : "Sonstiges in diesem Bereich",
-                        "en" : "None of these, but in this section."
+                        "en-US" : "None of these, but in this section."
                      }
                   }
                ],
