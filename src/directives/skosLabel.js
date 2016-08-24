@@ -10,11 +10,11 @@
  * shown in, is made available as element attribute `skos-lang`.
  *
  * Future versions of this directive may use more elaborated heuristics 
- * to select an alternative languages.
+ * to select alternative languages.
  *
  * @param {string} skos-label Expression with multilingual label data
- * @param {string=|array=} lang preferred language(s) to show. If several languages 
- *      are provided via an array, they are processed in that order. If none are 
+ * @param {string=} lang preferred language(s) to show. If several languages 
+ *      are to be considered, they should be separated by ',' without blank spaces. The languages are being checked for in their given order. If none are 
  *      available, a language is chosen based on the given label data.
  *
  * @example
@@ -62,7 +62,7 @@ angular.module('ngSKOS')
         template: '{{label[language]}}',
         link: function(scope, element, attrs) {
 
-            function updateLanguage(language) {            
+            function updateLanguage(language) {
               scope.language = language ? language : attrs.lang;
               language = scope.label ? selectLanguage(scope.label, scope.language) : "";
               if (language != scope.language) {
@@ -78,48 +78,42 @@ angular.module('ngSKOS')
                 }
                 if (angular.isString(languages) && angular.isString(labels[languages])){
                   return languages;
-                }else if (angular.isArray(languages) && angular.isString(labels[languages[0]])){
+                } else if (angular.isArray(languages) && angular.isString(labels[languages[0]])){
                     return languages[0];
                 } else {
                     return guessLanguage(labels, languages);
-                }    
+                }
               }
             }
 
-            function guessLanguage(labels, languages) {      
+            function guessLanguage(labels, languages) {
               if(languages){
                 if(angular.isString(languages)){
 
                   for (var dialect in labels){
-                    if (dialect.indexOf(languages) !== -1){
+                    if (dialect.toLowerCase().indexOf(languages) === 0 || languages.toLowerCase().indexOf(dialect) === 0){
                       return dialect;
                     }
                   }
-                  for (var language in labels){
-                    if (angular.isString(labels[language])){
-                      return language; // take arbitrary language
-                    }
-                  }
+                  return pickRandomLanguage(labels);
                 } else if (angular.isArray(languages)){
                   for (i in languages){
                     for (var dialect in labels){
-                      if (dialect.indexOf(languages[i]) !== -1){
+                      if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0){
                         return dialect;
                       }
                     }
                   };
-                  for (var language in labels){
-                    if (angular.isString(labels[language])){
-                      console.log(labels);
-                      return language; // take arbitrary language
-                    }
-                  }
+                  return pickRandomLanguage(labels);
                 }
               }else{
-                for (var language in labels){
-                  if (angular.isString(labels[language])){
-                    return language; // take arbitrary language
-                  }
+                return pickRandomLanguage(labels);
+              }
+            }
+            function pickRandomLanguage(labels) {
+              for (var language in labels){
+                if (angular.isString(labels[language])){
+                  return language; // take arbitrary language
                 }
               }
             }

@@ -13,7 +13,7 @@
                ],
                "prefLabel" : {
                   "de-DE" : "Theoretische und allgemeine Aspekte von Bibliotheken und Informationen",
-                  "en-US" : "Theoretical and general aspects of libraries and information."
+                  "en" : "Theoretical and general aspects of libraries and information."
                },
                "narrower" : [
                   {
