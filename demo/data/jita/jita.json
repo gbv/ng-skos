@@ -23,8 +23,8 @@
                      "uri" : "http://example.org/jita/AA",
                      "narrower" : [],
                      "prefLabel" : {
-                        "en" : "Library and information science as a field.",
-                        "de-DE" : "Bibliotheks- und Informationswissenschaften als Disziplin"
+                        "it" : "Library and information science as a field.",
+                        "und" : "Bibliotheks- und Informationswissenschaften als Disziplin"
                      }
                   },
                   {

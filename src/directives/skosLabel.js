@@ -95,7 +95,6 @@ angular.module('ngSKOS')
                       return dialect;
                     }
                   }
-                  return pickRandomLanguage(labels);
                 } else if (angular.isArray(languages)){
                   for (i in languages){
                     for (var dialect in labels){
@@ -104,17 +103,16 @@ angular.module('ngSKOS')
                       }
                     }
                   };
-                  return pickRandomLanguage(labels);
                 }
-              }else{
-                return pickRandomLanguage(labels);
               }
-            }
-            function pickRandomLanguage(labels) {
-              for (var language in labels){
-                if (angular.isString(labels[language])){
-                  return language; // take arbitrary language
+              if(labels["und"]){
+                for (var language in labels){
+                  if(language == "und"){
+                    return language;
+                  }
                 }
+              } else {
+                return "";
               }
             }
 

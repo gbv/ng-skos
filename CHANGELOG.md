@@ -1,6 +1,8 @@
 # NEXT
 
-* ...
+# 0.0.12
+
+* skosLabel: check for dialects and multiple preferred languages
 
 # 0.0.11
 
