@@ -9,7 +9,7 @@
  * handle SKOS data. See the [API reference](#api) for module documentation.
  */
 angular.module('ngSKOS',[])
-.constant('ngSKOS.version', '0.0.11');
+.constant('ngSKOS.version', '0.0.12');
 
 /**
  * @ngdoc directive
@@ -176,17 +176,15 @@ angular.module('ngSKOS')
  * @description
  *
  * Shows the multilingual label of a concept or concept scheme, given as
- * JSON object with language codes mapped to labels. One or more preferred languages 
- * can be selected with parameter `lang`. The language a label is actually
- * shown in, is made available as element attribute `skos-lang`.
- *
- * Future versions of this directive may use more elaborated heuristics 
- * to select alternative languages.
+ * JSON object with language or language-country codes mapped to labels. 
+ * One or more preferred languages can be selected with parameter `lang`. 
+ * The language a label is actually shown in, is made available as 
+ * element attribute `skos-lang`.
  *
  * @param {string} skos-label Expression with multilingual label data
  * @param {string=} lang preferred language(s) to show. If several languages 
- *      are to be considered, they should be separated by ',' without blank spaces. The languages are being checked for in their given order. If none are 
- *      available, a language is chosen based on the given label data.
+ *      are to be considered, they should be separated by ',' without blank spaces. 
+ *      The languages are being checked for in their given order.
  *
  * @example
  <example module="myApp">
@@ -267,7 +265,7 @@ angular.module('ngSKOS')
                     }
                   }
                 } else if (angular.isArray(languages)){
-                  for (i in languages){
+                  for (var i in languages){
                     for (var dialect in labels){
                       if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0){
                         return dialect;
@@ -278,7 +276,7 @@ angular.module('ngSKOS')
               }
               if(labels["und"]){
                 for (var language in labels){
-                  if(language == "und"){
+                  if(language == "und" && labels[language] !== "false" && labels[language] !== "true"){
                     return language;
                   }
                 }

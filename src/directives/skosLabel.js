@@ -5,17 +5,15 @@
  * @description
  *
  * Shows the multilingual label of a concept or concept scheme, given as
- * JSON object with language codes mapped to labels. One or more preferred languages 
- * can be selected with parameter `lang`. The language a label is actually
- * shown in, is made available as element attribute `skos-lang`.
- *
- * Future versions of this directive may use more elaborated heuristics 
- * to select alternative languages.
+ * JSON object with language or language-country codes mapped to labels. 
+ * One or more preferred languages can be selected with parameter `lang`. 
+ * The language a label is actually shown in, is made available as 
+ * element attribute `skos-lang`.
  *
  * @param {string} skos-label Expression with multilingual label data
  * @param {string=} lang preferred language(s) to show. If several languages 
- *      are to be considered, they should be separated by ',' without blank spaces. The languages are being checked for in their given order. If none are 
- *      available, a language is chosen based on the given label data.
+ *      are to be considered, they should be separated by ',' without blank spaces. 
+ *      The languages are being checked for in their given order.
  *
  * @example
  <example module="myApp">
@@ -76,9 +74,9 @@ angular.module('ngSKOS')
                 if (languages && languages.indexOf(",") !== -1){
                   languages = languages.split(",");
                 }
-                if (angular.isString(languages) && angular.isString(labels[languages]) && labels[languages] !== "false" && labels[languages] !== "true"){
+                if (angular.isString(languages) && angular.isString(labels[languages])){
                   return languages;
-                } else if (angular.isArray(languages) && angular.isString(labels[languages[0]]) && labels[languages[0]] !== "false" && labels[languages[0]] !== "true"){
+                } else if (angular.isArray(languages) && angular.isString(labels[languages[0]])){
                     return languages[0];
                 } else {
                     return guessLanguage(labels, languages);
@@ -91,14 +89,14 @@ angular.module('ngSKOS')
                 if(angular.isString(languages)){
 
                   for (var dialect in labels){
-                    if (dialect.toLowerCase().indexOf(languages) === 0 || languages.toLowerCase().indexOf(dialect) === 0 && labels[dialect] !== "false" && labels[dialect] !== "true"){
+                    if (dialect.toLowerCase().indexOf(languages) === 0 || languages.toLowerCase().indexOf(dialect) === 0){
                       return dialect;
                     }
                   }
                 } else if (angular.isArray(languages)){
-                  for (i in languages){
+                  for (var i in languages){
                     for (var dialect in labels){
-                      if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0 && labels[dialect] !== "false" && labels[dialect] !== "true"){
+                      if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0){
                         return dialect;
                       }
                     }

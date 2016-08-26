@@ -22,11 +22,6 @@ describe('skos-label directive', function() {
         scope.$digest();
     };
 
-    it('should display a label if no language has been selected',function(){
-        compileDirective('<span skos-label="myLabel"/>');
-        expect(element.html()).toBeTruthy();
-    });
-
     it('should display a label of requested language',function(){
         compileDirective('<span skos-label="myLabel" lang="en"/>');
         expect(element.html()).toBe('chair')
@@ -44,20 +39,35 @@ describe('skos-label directive', function() {
         scope.$digest();
         expect(element.html()).toBe('chair');
     });
+    
+    it('should also check for country-language codes', function(){
+        compileDirective('<span skos-label="myLabel" lang="en"/>');
+        delete scope.myLabel.en;
+        scope.myLabel["en-UK"] = 'stool';
+        scope.$digest();
+        expect(element.html()).toBe('stool');
+        expect(element.attr('skos-lang')).toBe('en-UK');
+    });
+    
+    it('should also check for country-language codes', function(){
+        compileDirective('<span skos-label="myLabel" lang="de-DE"/>');
+        expect(element.html()).toBe('Stuhl');
+        expect(element.attr('skos-lang')).toBe('de');
+    });
+    
+    it('should check for several given languages', function(){
+        compileDirective('<span skos-label="myLabel" lang="it,ru,de"/>');
+        scope.$digest();
+        expect(element.html()).toBe('Stuhl');
+        expect(element.attr('skos-lang')).toBe('de');
+    });
+
 
     it('should reflect lang attribute changes',function(){
         compileDirective('<span skos-label="myLabel" lang="{{myLang}}"/>');
         expect(element.html()).toBe('chair');
         expect(element.attr('skos-lang')).toBe('en');
         scope.myLang = 'de';
-        scope.$digest();
-        expect(element.html()).toBe('Stuhl');
-        expect(element.attr('skos-lang')).toBe('de');
-    });
-
-    it('should ignore boolean values', function() {
-        scope.myLabel.en = false;
-        compileDirective('<span skos-label="myLabel" lang="en"/>');
         scope.$digest();
         expect(element.html()).toBe('Stuhl');
         expect(element.attr('skos-lang')).toBe('de');
