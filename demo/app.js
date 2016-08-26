@@ -109,7 +109,7 @@ angular.module('myApp', ['ui.bootstrap','ngSKOS','ngSuggest'])
             angular.copy($scope.ezb, $scope.treeActive);
         }
     };
-    $scope.language = "en";
+    $scope.language = "it,ru,en";
     
     $scope.lookupMappingConcept = function(concept, scheme){
       $scope.retrievedMT = concept;

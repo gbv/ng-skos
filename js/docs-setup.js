@@ -55,7 +55,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "ng-skos",
       "shortDescription": "Shows the multilingual label of a concept or concept scheme, given as",
-      "keywords": "$scope alternative angular api attr attribute based beispiel chosen class codes color concept content css data de directive elaborated element en example expression fr function future gray heuristics html input-small js json label labels lang language languages mapped module multilingual myapp mycontroller ng-controller ng-model ng-skos ngskos object parameter preferred scheme script select selected skos-label skos-lang style super text type versions vertical-align"
+      "keywords": "$scope angular api attr attribute beispiel blank checked class codes color concept considered content css data de directive element en example expression fr function gray html input-small js json label labels lang language language-country languages mapped module multilingual myapp mycontroller ng-controller ng-model ng-skos ngskos object order parameter preferred scheme script selected separated skos-label skos-lang spaces style super text type vertical-align"
     },
     {
       "section": "api",
@@ -115,7 +115,7 @@ NG_DOCS={
   "apis": {
     "api": true
   },
-  "html5Mode": false,
+  "html5Mode": true,
   "editExample": true,
   "startPage": "/api",
   "scripts": [

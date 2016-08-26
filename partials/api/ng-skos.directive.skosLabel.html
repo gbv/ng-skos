@@ -1,15 +1,14 @@
-<a href="https://github.com/gbv/ng-skos/edit/master/src/directives/skosLabel.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/gbv/ng-skos/blob/21c9983/src/directives/skosLabel.js#L54" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">skosLabel</code>
+<h1><code ng:non-bindable="">skosLabel</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">ng-skos</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
 <div class="description"><div class="ng-skos-directive-page ng-skos-directive-skoslabel-page"><p>Shows the multilingual label of a concept or concept scheme, given as
-JSON object with language codes mapped to labels. A preferred language 
-can be selected with parameter <code>lang</code>. The language a label is actually
-shown in, is made available as element attribute <code>skos-lang</code>.</p>
-<p>Future versions of this directive may use more elaborated heuristics 
-to select an alternative languages.</p>
+JSON object with language or language-country codes mapped to labels. 
+One or more preferred languages can be selected with parameter <code>lang</code>. 
+The language a label is actually shown in, is made available as 
+element attribute <code>skos-lang</code>.</p>
 </div></div>
 <h2 id="usage">Usage</h2>
 <div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY skos-label
@@ -18,8 +17,9 @@ to select an alternative languages.</p>
    ...
 &lt;/ANY&gt;</pre>
 <h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>skos-label</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslabel-page"><p>Expression with multilingual label data</p>
-</div></td></tr><tr><td>lang <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslabel-page"><p>preferred language to show. If not available,
-a language is chosen based on the given label data.</p>
+</div></td></tr><tr><td>lang <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ng-skos-directive-page ng-skos-directive-skoslabel-page"><p>preferred language(s) to show. If several languages
+are to be considered, they should be separated by &#39;,&#39; without blank spaces. 
+The languages are being checked for in their given order.</p>
 </div></td></tr></tbody></table></div>
 <h2 id="example">Example</h2>
 <div class="example"><div class="ng-skos-directive-page ng-skos-directive-skoslabel-page"><h4 id="example_source">Source</h4>

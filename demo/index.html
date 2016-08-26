@@ -134,14 +134,18 @@
                     <p>
                         Used as attribute to emit the preferred label of a concept. The lang
                         attribute of the directive element is read and set accordingly. If
-                        no label of the required language exists, another language is selected.
+                        no label of the required language exists, the directive will look
+                        for a country-language code (i.e. "en-US" for language "en") as well.
+                        This works both ways, so for a given country-language code the 
+                        language code will be considered. Also, if multiple comma-separated 
+                        languages are provided, the first one to be found will be selected.
                     </p>
                     <div class="concept-label">
                         <ul>
                             <li><span skos-label="sampleSkosConcept.prefLabel" lang="de" class="show-lang"/></li>
                             <li><span skos-label="sampleSkosConcept.prefLabel" lang="en" class="show-lang"/></li>
-                            <li><span skos-label="sampleSkosConcept.prefLabel" class="show-lang"/></li>
-                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="fr" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="en-UK" class="show-lang"/></li>
+                            <li><span skos-label="sampleSkosConcept.prefLabel" lang="it,es,en" class="show-lang"/></li>
                         </ul>
                     </div>
                 </div>
@@ -161,8 +165,11 @@
                     
                     <div skos-notes="sampleNotes" lang="{{language}}">
                     </div>
-                    This is utilized by <a href="#concept"><b>skos-concept</b></a>, but can also be used to display those fields on their own.
-                    <em>Skos-notes'</em> standard template makes use of the <a href="#label"><b>skos-label</b></a> directive and therefore inherits its language selection feature.
+                    This is utilized by <a href="#concept"><b>skos-concept</b></a>, but 
+                    can also be used to display those fields on their own.
+                    <em>Skos-notes'</em> standard template makes use of the 
+                    <a href="#label"><b>skos-label</b></a> directive and therefore 
+                    inherits its language selection feature.
                 </div>
                 <div class="col-md-6">
                 </div>

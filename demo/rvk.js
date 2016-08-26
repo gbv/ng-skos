@@ -13,7 +13,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
         //jsonp: false,
 
         // TODO: look up narrower
-        url: "http://rvk.uni-regensburg.de/api/json/node/{notation}",
+        url: "http://rvk.uni-regensburg.de/Portal_API/json/node/{notation}",
         transform: function(item) {
             // TODO: use TransformNode
             var concept = {
@@ -42,7 +42,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
     // get all direct children of the concept
     // TODO: cleanup this code
     var getNarrower = new SkosConceptSource({
-        url: "http://rvk.uni-regensburg.de/api/json/children/{notation}",
+        url: "http://rvk.uni-regensburg.de/Portal_API/json/children/{notation}",
         transform: function(item) {
             var node = item.node;
             if(!node) return;
@@ -80,7 +80,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
 
     // get the direct ancestor of the concept
     var getBroader = new SkosConceptSource({
-        url: "http://rvk.uni-regensburg.de/api/json/ancestors/{notation}",
+        url: "http://rvk.uni-regensburg.de/Portal_API/json/ancestors/{notation}",
         transform: function(item) {
             var node = item.node;
             if(!node) return;
@@ -137,7 +137,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
     // [concept](http://gbv.github.io/jskos/jskos.html#concepts)
     var getTopConcepts = function() {
         var provider = new SkosHTTP({
-            url: "http://rvk.uni-regensburg.de/api/json/children",
+            url: "http://rvk.uni-regensburg.de/Portal_API/json/children",
             jsonp: 'jsonp',
             transform: function(response) { 
                 return response.node.children.node.map(transformNode);
@@ -147,7 +147,7 @@ function rvkConceptScheme($q, SkosConceptSource, SkosHTTP, OpenSearchSuggestions
     };
 
     var suggest = new OpenSearchSuggestions({
-        url: 'http://rvk.uni-regensburg.de/api/json/nodes/{searchTerms}',
+        url: 'http://rvk.uni-regensburg.de/Portal_API/json/nodes/{searchTerms}',
         jsonp: 'jsonp',
         transform: function(response) { 
             return {
