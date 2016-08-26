@@ -76,9 +76,9 @@ angular.module('ngSKOS')
                 if (languages && languages.indexOf(",") !== -1){
                   languages = languages.split(",");
                 }
-                if (angular.isString(languages) && angular.isString(labels[languages])){
+                if (angular.isString(languages) && angular.isString(labels[languages]) && labels[languages] !== "false" && labels[languages] !== "true"){
                   return languages;
-                } else if (angular.isArray(languages) && angular.isString(labels[languages[0]])){
+                } else if (angular.isArray(languages) && angular.isString(labels[languages[0]]) && labels[languages[0]] !== "false" && labels[languages[0]] !== "true"){
                     return languages[0];
                 } else {
                     return guessLanguage(labels, languages);
@@ -91,14 +91,14 @@ angular.module('ngSKOS')
                 if(angular.isString(languages)){
 
                   for (var dialect in labels){
-                    if (dialect.toLowerCase().indexOf(languages) === 0 || languages.toLowerCase().indexOf(dialect) === 0){
+                    if (dialect.toLowerCase().indexOf(languages) === 0 || languages.toLowerCase().indexOf(dialect) === 0 && labels[dialect] !== "false" && labels[dialect] !== "true"){
                       return dialect;
                     }
                   }
                 } else if (angular.isArray(languages)){
                   for (i in languages){
                     for (var dialect in labels){
-                      if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0){
+                      if (dialect.toLowerCase().indexOf(languages[i].toLowerCase()) === 0 || languages[i].toLowerCase().indexOf(dialect.toLowerCase()) === 0 && labels[dialect] !== "false" && labels[dialect] !== "true"){
                         return dialect;
                       }
                     }
@@ -107,7 +107,7 @@ angular.module('ngSKOS')
               }
               if(labels["und"]){
                 for (var language in labels){
-                  if(language == "und"){
+                  if(language == "und" && labels[language] !== "false" && labels[language] !== "true"){
                     return language;
                   }
                 }

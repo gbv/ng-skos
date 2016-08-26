@@ -40,10 +40,6 @@ describe('skos-label directive', function() {
         scope.$digest();
         expect(element.html()).toBe('stool');
 
-        delete scope.myLabel.en;
-        scope.$digest();
-        expect(element.html()).toBe('Stuhl');
-
         scope.myLabel.en = 'chair';
         scope.$digest();
         expect(element.html()).toBe('chair');
