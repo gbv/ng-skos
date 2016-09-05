@@ -9,11 +9,11 @@
                   class="notation skos-list-notation"
                   title={{popOverTitle(c.prefLabel)}}
                   ng-click="onClick($index)">{{c.notation[0]}}</span>
-            <span ng-if="!c.prefLabel" style="whitespace:nowrap;" 
+            <span ng-if="!c.prefLabel" style="whitespace:nowrap;"
                   class="notation skos-list-notation"
                   ng-click="onClick($index)">{{c.notation[0]}}</span>
             <span ng-if="showLabels && c.prefLabel" skos-label="c.prefLabel" 
-                  lang="{{language}}"
+                  lang="{{lang}}"
                   class="skos-list-label" 
                   ng-click="onClick($index)"></span>
             <div style="display:inline-table;padding-left:3px;">

@@ -49,6 +49,7 @@ angular.module('ngSKOS')
         scope: { 
             concept: '=concept',
             scheme: '=conceptScheme',
+            language: '=language'
         },
         templateUrl: function(elem, attrs) {
             return attrs.templateUrl ? 

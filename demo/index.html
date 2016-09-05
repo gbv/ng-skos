@@ -216,6 +216,7 @@
                     <skos-browser class="tmpl-border" 
                         concept="selectedBrowserConcept"
                         concept-scheme="rvk"
+                        language="language"
                     >
                     </skos-browser>
                     <div class="tmpl-border" ng-if="rvk.topConcepts">
@@ -254,7 +255,7 @@
                                 </form>
                             </div>
                             <div class="tmpl-border">
-                                <skos-list concepts="conceptList" on-select="reselectConcept" list-name="skoslist" removeable="rm" show-labels="sl"> 
+                                <skos-list concepts="conceptList" language="language" on-select="reselectConcept" list-name="skoslist" removeable="rm" show-labels="sl"> 
                                 </skos-list>
                             </div>
                         </div>
@@ -262,7 +263,9 @@
                             <span>Select concepts and add them to the concept list:</span>
                             <skos-browser class="tmpl-border"
                                 concept="selectedListConcept"
-                                concept-scheme="rvk">
+                                concept-scheme="rvk"
+                                language="language"
+                                >
                             </skos-browser>
                         </div>
                         <button ng-disabled="checkDuplicate()" ng-click="addConcept(selectedListConcept)" title="No duplicates!">

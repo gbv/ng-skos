@@ -2,7 +2,7 @@
     <div class="top top-alt">
         <span ng-if="notation.length" class="notation">{{notation[0]}}</span>
         <b>
-            <span ng-if="prefLabel" skos-label="concept.prefLabel" lang="{{language}}"></span>
+            <span ng-if="prefLabel" skos-label="prefLabel" lang="{{language}}"></span>
         </b>
         <a ng-if="uri && uri != notation" class="uri" href="{{uri}}" target="_blank">
             <span class="glyphicon glyphicon-globe"></span>
